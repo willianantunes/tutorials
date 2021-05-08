@@ -1,0 +1,57 @@
+version: "3.8"
+
+services:
+  why-use-argument-e-with-bug:
+    image: python:3.9-buster
+    working_dir: /app
+    volumes:
+      - .:/app
+    command:
+      [
+        "./scripts/without-argument-e.sh",
+      ]
+  why-use-argument-e-with-fix:
+    image: python:3.9-buster
+    working_dir: /app
+    volumes:
+      - .:/app
+    command:
+      [
+        "./scripts/with-argument-e.sh",
+      ]
+  why-use-argument-u-with-bug:
+    image: python:3.9-buster
+    working_dir: /app
+    volumes:
+      - .:/app
+    command:
+      [
+        "./scripts/without-argument-u.sh",
+      ]
+  why-use-argument-u-with-fix:
+    image: python:3.9-buster
+    working_dir: /app
+    volumes:
+      - .:/app
+    command:
+      [
+        "./scripts/with-argument-u.sh",
+      ]
+  why-use-option-pipefail-with-bug:
+    image: python:3.9-buster
+    working_dir: /app
+    volumes:
+      - .:/app
+    command:
+      [
+        "./scripts/without-option-pipefail.sh",
+      ]
+  why-use-option-pipefail-with-fix:
+    image: python:3.9-buster
+    working_dir: /app
+    volumes:
+      - .:/app
+    command:
+      [
+        "./scripts/with-option-pipefail.sh",
+      ]
