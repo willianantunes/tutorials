@@ -1,0 +1,27 @@
+version: "3.8"
+
+x-build: &dockerfile-dev-build
+  context: .
+
+services:
+  app:
+    build: *dockerfile-dev-build
+    volumes:
+      - .:/app
+    env_file:
+      - .env.development
+    ports:
+      - "8000:8000"
+    command:
+      [
+          "./scripts/start-web-development.sh",
+      ]
+  tests:
+    build: *dockerfile-dev-build
+    env_file: .env.development
+    volumes:
+      - .:/app
+    command:
+      [
+          "./scripts/start-tests.sh",
+      ]
