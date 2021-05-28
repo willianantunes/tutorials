@@ -3,7 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <InvariantGlobalization>true</InvariantGlobalization>
-    <Nullable>enable</Nullable>    
+    <Nullable>enable</Nullable>
+    <RootNamespace>CSharpWebAPIHowToEndpointIT</RootNamespace>    
   </PropertyGroup>
 
   <ItemGroup>
