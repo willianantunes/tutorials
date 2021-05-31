@@ -1,0 +1,23 @@
+version: "3.8"
+
+x-build: &dockerfile-dev-build
+  context: .
+  dockerfile: Dockerfile.dev
+
+services:
+  tests:
+    build: *dockerfile-dev-build
+    volumes:
+      - .:/app
+    command:
+      [ "./scripts/start-tests.sh" ]
+  lint:
+    build: *dockerfile-dev-build
+    volumes:
+      - .:/app
+    command: [ "./scripts/start-lint.sh" ]
+  formatter:
+    build: *dockerfile-dev-build
+    volumes:
+      - .:/app
+    command: [ "./scripts/start-formatter.sh" ]

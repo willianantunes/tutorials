@@ -1,0 +1,2 @@
+class TextIsFalsyException(Exception):
+    pass

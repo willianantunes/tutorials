@@ -5,6 +5,8 @@ I have a [blog that I talk about technology](https://www.willianantunes.com/), a
 Contents:
 
 - 2021
+  - 06
+    - [RegEx, Data Classes and Type Hints with Python: Learning from tweet text](./2021/06/regex-dataclasses-with-python-learning-from-tweet-text)
   - 05
     - [The easiest way to run a container on GCE with Terraform](./2021/05/gce-container-terraform)
     - [Production-ready shell startup scripts: The Set Builtin](./2021/05/the-set-builtin)

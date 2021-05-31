@@ -1,0 +1,32 @@
+[tool.black]
+line-length = 120
+# The option py39 in only available if you install like this: pip install git+git://github.com/psf/black
+# When it becomes available to pypi, I'll update to the correct version
+target-version = ['py39']
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+    | migrations
+  )/
+)
+'''
+
+[tool.isort]
+force_single_line = true
+line_length = 120
+skip_glob = "**/migrations/*.py"
+use_parentheses = true
+multi_line_output = 5
+include_trailing_comma = true
+lines_between_types = 1
