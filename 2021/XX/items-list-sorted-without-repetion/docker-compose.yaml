@@ -1,0 +1,14 @@
+version: "3.8"
+
+x-build: &dockerfile-dev-build
+  context: .
+
+services:
+  tests:
+    build: *dockerfile-dev-build
+    volumes:
+      - .:/app
+    command:
+      [
+          "./scripts/start-tests.sh",
+      ]
