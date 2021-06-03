@@ -19,7 +19,7 @@ namespace ItemsList.Business
         {
             // Create a list, if it's not available
             var possibleShoppingList = _listOfShoppingList.ElementAtOrDefault(listNumber);
-            var shoppingList = possibleShoppingList != null ? possibleShoppingList : new();
+            var shoppingList = possibleShoppingList is not null ? possibleShoppingList : new();
             // Fill it with items
             foreach (var item in items)
             {

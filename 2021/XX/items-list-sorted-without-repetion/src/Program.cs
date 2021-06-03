@@ -17,7 +17,7 @@ namespace ItemsList
             {
                 var providedRawListOfItems = Console.ReadLine();
 
-                if (!String.IsNullOrEmpty(providedRawListOfItems))
+                if (String.IsNullOrEmpty(providedRawListOfItems) is not true)
                 {
                     var cleanedRawList = providedRawListOfItems.Trim();
                     var items = cleanedRawList.Split(DefaultSeparator);
