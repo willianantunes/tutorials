@@ -1,0 +1,78 @@
+version: "3.8"
+
+x-build: &dockerfile-dev-build
+  context: .
+
+services:
+  db:
+    image: postgres:13.2-alpine
+    user: postgres
+    environment:
+      POSTGRES_USER: boss_role
+      POSTGRES_PASSWORD: boss_password
+    ports:
+      - "5432:5432"
+  app:
+    build: *dockerfile-dev-build
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    command:
+      [
+          "./scripts/wait-for-it.sh",
+          "db:5432",
+          "-t",
+          "120",
+          "--",
+          "./scripts/start-web-development.sh",
+      ]
+  tests:
+    build: *dockerfile-dev-build
+    volumes:
+      - .:/app
+    command:
+      [
+          "./scripts/start-tests.sh",
+      ]
+  lint:
+    build: *dockerfile-dev-build
+    volumes:
+      - .:/app
+    command:
+      [
+          "./scripts/start-lint.sh",
+      ]
+  formatter:
+    build: *dockerfile-dev-build
+    volumes:
+      - .:/app
+    command:
+      [
+          "./scripts/start-formatter.sh",
+      ]
+  generate-migrations:
+    build: *dockerfile-dev-build
+    volumes:
+      - .:/app
+    command:
+      [
+          "./scripts/generate-migrations.sh",
+      ]
+  apply-migrations:
+    build: *dockerfile-dev-build
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    command:
+      [
+          "./scripts/wait-for-it.sh",
+          "db:5432",
+          "-t",
+          "120",
+          "--",
+          "./scripts/apply-migrations.sh",
+      ]
