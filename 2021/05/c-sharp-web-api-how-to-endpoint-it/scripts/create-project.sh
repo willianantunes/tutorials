@@ -26,6 +26,7 @@ dotnet new xunit -o $PROJECT_TESTS_PATH -n $PROJECT_TESTS_NAME
 
 echo "### Adding them to the solution..."
 dotnet sln add $PROJECT_BUSINESS_PATH
+dotnet sln add $PROJECT_TESTS_PATH
 
 echo "### Creating references and cleaning up..."
 dotnet add $PROJECT_TESTS_PATH reference $PROJECT_BUSINESS_PATH
