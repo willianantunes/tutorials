@@ -16,6 +16,8 @@ services:
     build: *dockerfile-dev-build
     volumes:
       - .:/app
+    env_file:
+      - .env.development
     ports:
       - "8000:8000"
     depends_on:
@@ -33,6 +35,8 @@ services:
     build: *dockerfile-dev-build
     volumes:
       - .:/app
+    env_file:
+      - .env.development
     command:
       [
           "./scripts/start-tests.sh",
@@ -41,6 +45,8 @@ services:
     build: *dockerfile-dev-build
     volumes:
       - .:/app
+    env_file:
+      - .env.development
     command:
       [
           "./scripts/start-lint.sh",
@@ -57,6 +63,8 @@ services:
     build: *dockerfile-dev-build
     volumes:
       - .:/app
+    env_file:
+      - .env.development
     command:
       [
           "./scripts/generate-migrations.sh",
@@ -65,6 +73,8 @@ services:
     build: *dockerfile-dev-build
     volumes:
       - .:/app
+    env_file:
+      - .env.development
     depends_on:
       - db
     command:
