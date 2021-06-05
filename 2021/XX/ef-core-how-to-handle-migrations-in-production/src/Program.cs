@@ -22,6 +22,7 @@ namespace EFCoreHandlingMigrations
 
         private static async Task<int> InitiateCommandLineInterfaceProgram()
         {
+            // Know more at: https://github.com/Tyrrrz/CliFx
             return await new CliApplicationBuilder()
                 .AddCommandsFromThisAssembly()
                 .Build()
@@ -30,14 +31,20 @@ namespace EFCoreHandlingMigrations
 
         private static async Task<int> Main(string[] args)
         {
-            Configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .AddEnvironmentVariables().Build();
+            Configuration = BuildConfiguration();
 
             ConfigureLogger();
 
             return await InitiateCommandLineInterfaceProgram();
+        }
+
+        public static IConfigurationRoot BuildConfiguration()
+        {
+            return new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddEnvironmentVariables()
+                .Build();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
