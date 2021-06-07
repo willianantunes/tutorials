@@ -4,6 +4,7 @@ using CliFx;
 using CliFx.Attributes;
 using CliFx.Infrastructure;
 using EFCoreHandlingMigrations.Configs;
+using EFCoreHandlingMigrations.Controllers.Support;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -13,7 +14,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Serilog;
 
-namespace EFCoreHandlingMigrations.Commands
+namespace EFCoreHandlingMigrations.EntryCommands
 {
     [Command("api")]
     public class ApiCommand : ICommand
@@ -47,6 +48,9 @@ namespace EFCoreHandlingMigrations.Commands
                     var connectionString = Configuration.GetConnectionString("AppDbContext");
                     optionsBuilder.UseNpgsql(connectionString);
                 });
+                // Custom services
+                var paginationSize = int.Parse(Configuration["Pagination:Size"]);
+                services.AddSingleton<IPagination>(new Pagination(paginationSize));
             }
 
             public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -1,9 +1,12 @@
 using System;
-using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Threading.Tasks;
 using EFCoreHandlingMigrations.Configs;
+using EFCoreHandlingMigrations.Controllers.Support;
 using EFCoreHandlingMigrations.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,17 +18,23 @@ namespace EFCoreHandlingMigrations.Controllers.V1
     {
         private readonly AppDbContext _context;
         private readonly DbSet<TodoItem> _databaseSet;
+        private readonly IPagination _pagination;
 
-        public TodoItemsController(AppDbContext context)
+        public TodoItemsController(AppDbContext context, IPagination pagination)
         {
             _context = context;
             _databaseSet = context.TodoItems;
+            _pagination = pagination;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems()
+        public async Task<Paginated<TodoItem>> GetTodoItems()
         {
-            return await _databaseSet.ToListAsync();
+            var query = _databaseSet.AsQueryable();
+            var displayUrl = Request.GetDisplayUrl();
+            var queryParams = Request.Query;
+
+            return await _pagination.CreateAsync(query, displayUrl, queryParams);
         }
 
         [HttpGet("{id}")]

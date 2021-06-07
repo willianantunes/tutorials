@@ -1,4 +1,4 @@
-using EFCoreHandlingMigrations.Commands;
+using EFCoreHandlingMigrations.EntryCommands;
 
 namespace Tests.Support
 {

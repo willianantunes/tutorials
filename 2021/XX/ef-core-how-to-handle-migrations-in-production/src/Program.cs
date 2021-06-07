@@ -1,7 +1,7 @@
 using System.IO;
 using System.Threading.Tasks;
 using CliFx;
-using EFCoreHandlingMigrations.Commands;
+using EFCoreHandlingMigrations.EntryCommands;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
