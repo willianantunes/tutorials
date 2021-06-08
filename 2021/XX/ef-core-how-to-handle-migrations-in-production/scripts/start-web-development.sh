@@ -9,5 +9,6 @@ CSPROJ_PATH=./src
 ./scripts/apply-migrations.sh
 
 echo "### Running and watching the project 👀"
-# If you'd like to check all commands available: dotnet watch --project ./src run -- --help
+# If you'd like to check all commands available: dotnet run --project $CSPROJ_PATH -- --help
+dotnet run --project $CSPROJ_PATH -- task --seed
 dotnet watch --project $CSPROJ_PATH run -- api

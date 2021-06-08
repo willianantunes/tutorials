@@ -5,7 +5,7 @@
       "commandName": "Project",
       "commandLineArgs": "api",
       "launchBrowser": true,
-      "launchUrl": "WeatherForecast",
+      "launchUrl": "api/v1/todoitems",
       "applicationUrl": "http://0.0.0.0:8000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

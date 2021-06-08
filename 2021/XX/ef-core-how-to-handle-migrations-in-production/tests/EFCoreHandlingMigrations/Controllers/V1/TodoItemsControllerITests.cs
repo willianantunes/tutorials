@@ -36,16 +36,16 @@ namespace Tests.EFCoreHandlingMigrations.Controllers.V1
 
         private async Task createScenarioWith25TodoItems()
         {
-            var gameRooms = new List<TodoItem>();
+            var todoItems = new List<TodoItem>();
 
             foreach (int index in Enumerable.Range(1, 25))
             {
                 var isTodoItemComplete = index % 2 == 0;
                 var todoItem = new TodoItem {Name = $"TD {index}", IsComplete = isTodoItemComplete};
-                gameRooms.Add(todoItem);
+                todoItems.Add(todoItem);
             }
 
-            await AppDbContext.AddRangeAsync(gameRooms);
+            await AppDbContext.AddRangeAsync(todoItems);
             await AppDbContext.SaveChangesAsync();
         }
     }
