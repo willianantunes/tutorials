@@ -1,0 +1,18 @@
+{% extends "core/templates/base.html" %}
+
+{% block content %}
+
+    <main>
+        <h2>Here's the home page!</h2>
+        {% if 'user' in request.session %}
+            <p data-testid="user-email-output">Your e-mail is <strong>{{ request.session.user.email }}</strong>!</p>
+            <p data-testid="user-id-output">Your ID is <strong>{{ request.session.user.sub }}</strong>!</p>
+
+            <button class="btn-see-your-data">Click here to see your data through USERINFO endpoint!</button>
+        {% endif %}
+        {% if 'user' not in request.session %}
+            <p>I know nothing about you. Log in first!</p>
+        {% endif %}
+    </main>
+
+{% endblock %}

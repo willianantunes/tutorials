@@ -1,0 +1,14 @@
+<header>
+    <h1>Product B</h1>
+    <nav>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="{% url 'index' %}">Home page</a></li>
+            {% if 'user' not in request.session %}
+                <li><a data-testid="login-link" href="{% url 'login-auth-code-flow' %}">Login Auth Code Flow</a></li>
+            {% endif %}
+            {% if 'user' in request.session %}
+                <li><a data-testid="logout-link" href="{{ logout_uri }}">Logout</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>

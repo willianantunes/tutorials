@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+selenium = "*"
+py-webdriver-manager = "*"
+pyvirtualdisplay = "*"
+boto3 = "*"
+boto3-stubs = {extras = ["cognito-idp"], version = "*"}
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"

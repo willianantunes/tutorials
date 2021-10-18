@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}Product B: An honest playground project{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+{% include "core/templates/header.html" %}
+
+<hr />
+
+{% block content %}{% endblock %}
+
+<hr />
+
+{% include "core/templates/footer.html" %}
+
+{% block scripts %}
+    <script src="{% static 'core/dist/main.js' %}"></script>
+{% endblock %}
+</body>
+</html>
