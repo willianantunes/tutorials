@@ -1,5 +1,7 @@
 import unittest
 
+from datetime import datetime
+from functools import wraps
 from typing import Optional
 from typing import Tuple
 
@@ -36,3 +38,22 @@ class BaseTestCase(unittest.TestCase):
             if cookie["name"] == name:
                 return cookie
         return None
+
+
+def take_screenshot(enable=True):
+    def main_wrapper(func):
+        @wraps(func)
+        def wrapped(self, *args, **kwargs):
+            try:
+                return func(self, *args, **kwargs)
+            finally:
+                if enable:
+                    timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S-%f")
+                    file_name = f"{timestamp}-{func.__name__}.png"
+                    image_as_binary_data = self.driver.get_screenshot_as_png()
+                    with open(file_name, "wb") as file_image:
+                        file_image.write(image_as_binary_data)
+
+        return wrapped
+
+    return main_wrapper

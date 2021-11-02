@@ -1,14 +1,8 @@
-import unittest
-
 from contextlib import suppress
-from typing import Tuple
 
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.wait import WebDriverWait
 
 from tests import settings
-from tests.cognito_user_pool import CognitoUserPool
 from tests.cognito_user_pool import UsernameExistsException
 from tests.cognito_user_pool import UserToBeRegistered
 from tests.helpers import BaseTestCase

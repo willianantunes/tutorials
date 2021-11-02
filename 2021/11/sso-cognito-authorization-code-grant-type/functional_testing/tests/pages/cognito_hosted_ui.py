@@ -1,11 +1,15 @@
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 
+from tests import settings
+from tests.helpers import take_screenshot
+
 
 class CognitoHostedUI:
     def __init__(self, driver: WebDriver):
         self.driver = driver
 
+    @take_screenshot(settings.SELENIUM_TAKE_SCREENSHOT)
     def authenticate(self, email, password):
         username_input = self.driver.find_element(By.ID, "signInFormUsername")
         username_input.send_keys(email)
