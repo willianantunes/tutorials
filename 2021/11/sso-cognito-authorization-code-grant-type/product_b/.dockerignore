@@ -1,0 +1,8 @@
+# https://docs.docker.com/engine/reference/builder/#dockerignore-file
+*
+!product_b
+!scripts
+!manage.py
+!Pipfile*
+!.babelrc
+!package*.json

@@ -20,9 +20,11 @@ from selenium.webdriver.chrome.webdriver import WebDriver
 # https://selenium-python.readthedocs.io/getting-started.html#simple-usage
 
 CHROME_VERSION = os.getenv("CHROME_VERSION", "92.0.4515.107")
+DOWNLOAD_CHROME = bool(strtobool(os.getenv("DOWNLOAD_CHROME", "True")))
 PRODUCT_A_URL = os.getenv("PRODUCT_A_URL", "http://localhost:8000")
 PRODUCT_B_URL = os.getenv("PRODUCT_A_URL", "http://localhost:8001")
 ENABLE_VIRTUAL_DISPLAY = bool(strtobool(os.getenv("ENABLE_VIRTUAL_DISPLAY", "False")))
+SELENIUM_IMPLICIT_WAIT = int(os.getenv("SELENIUM_IMPLICIT_WAIT", 0))
 
 AWS_COGNITO_USER_POOL_ID = "AWS_COGNITO_USER_POOL_ID"
 AWS_COGNITO_REGION = AWS_COGNITO_USER_POOL_ID.split("_")[0]
@@ -55,9 +57,11 @@ def retrieve_browser(width=800, height=600, enable_virtual_display=True):
         display = Display(visible=False)
         display.start()
 
-    webdriver_manager.update("chrome", driver_output_folder, version=CHROME_VERSION)
-    chromedriver_executable_path = list(pathlib.Path(driver_output_folder).glob("chromedriver*"))[0]
-    chromedriver_executable_path_as_str = str(chromedriver_executable_path.absolute())
+    chromedriver_executable_path_as_str = "chromedriver"
+    if DOWNLOAD_CHROME:
+        webdriver_manager.update("chrome", driver_output_folder, version=CHROME_VERSION)
+        chromedriver_executable_path = list(pathlib.Path(driver_output_folder).glob("chromedriver*"))[0]
+        chromedriver_executable_path_as_str = str(chromedriver_executable_path.absolute())
 
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--no-sandbox")
@@ -68,5 +72,6 @@ def retrieve_browser(width=800, height=600, enable_virtual_display=True):
 
     browser = webdriver.Chrome(executable_path=chromedriver_executable_path_as_str, options=chrome_options)
     browser.set_window_size(width, height)
+    browser.implicitly_wait(SELENIUM_IMPLICIT_WAIT)
 
     return WindowDetails(display, browser)

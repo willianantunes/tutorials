@@ -16,7 +16,7 @@ This is separated in 4 projects:
 To test this project out, you'll need to do the following:
 
 1. Create the Cognito user pool from the `cognito_iac` folder with the help of `Terraform`.
-2. Execute the command `refresh_products_projects.py`. It gathers all the required secrets and params from `terraform output` and configure the products A and B for you automatically. Check it out and see how it works!
+2. Execute the command `refresh_products_projects.py`. It gathers all the required secrets and params from `terraform output` and configure the products A and B, and the functional testing projects for you automatically. Check it out and see how it works!
 3. Start all the services related to products A and B issuing `docker-compose up -d product-a product-b` command.
 4. Start the functional testing service through the command `docker-compose up functional-testing`
 

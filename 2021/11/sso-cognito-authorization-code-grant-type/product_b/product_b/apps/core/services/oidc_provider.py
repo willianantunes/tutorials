@@ -134,7 +134,7 @@ class OIDCProvider:
     @classmethod
     def build_logout_url(cls, return_to):
         # https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html
-        base_endpoint = cls.oidc_configuration_document.authorization_endpoint.split("/oauth2/token")[0]
+        base_endpoint = cls.oidc_configuration_document.token_endpoint.split("/oauth2/token")[0]
         logout_endpoint = f"{base_endpoint}/logout"
         params = {
             "logout_uri": return_to,

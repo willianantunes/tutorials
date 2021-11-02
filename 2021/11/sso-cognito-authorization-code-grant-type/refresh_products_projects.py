@@ -71,7 +71,7 @@ if __name__ == "__main__":
         cognito_details["iam_encrypted_access_keys"]["value"]["poc-cognito-custom-ui-api"]["access_key"],
         cognito_details["iam_encrypted_access_keys"]["value"]["poc-cognito-custom-ui-api"]["encrypted_secret"],
     )
-    functional_testing_secret_key = gpg_decrypt(functional_testing_encrypted_secret, "YOUR-PASSPHRASE")
+    functional_testing_secret_key = gpg_decrypt(functional_testing_encrypted_secret, "Asd123!.")
     # Configure product A
     where_settings_is_product_a = "product_a/product_a/settings.py"
     find_key_and_replace_for_value_product_a = {
