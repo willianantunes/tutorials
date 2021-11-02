@@ -1,3 +1,4 @@
+import pathlib
 import unittest
 
 from datetime import datetime
@@ -40,7 +41,7 @@ class BaseTestCase(unittest.TestCase):
         return None
 
 
-def take_screenshot(enable=True):
+def take_screenshot(enable=True, where_to_save="/tmp/screenshots"):
     def main_wrapper(func):
         @wraps(func)
         def wrapped(self, *args, **kwargs):
@@ -48,10 +49,15 @@ def take_screenshot(enable=True):
                 return func(self, *args, **kwargs)
             finally:
                 if enable:
+                    # Create the folder in case it doesn't exist
+                    updated_path = pathlib.Path(where_to_save).resolve()
+                    updated_path.mkdir(exist_ok=True)
+                    # File name structure
                     timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S-%f")
                     file_name = f"{timestamp}-{func.__name__}.png"
+                    # Let's save the image now!
                     image_as_binary_data = self.driver.get_screenshot_as_png()
-                    with open(file_name, "wb") as file_image:
+                    with open(updated_path.joinpath(file_name).absolute(), "wb") as file_image:
                         file_image.write(image_as_binary_data)
 
         return wrapped

@@ -17,83 +17,10 @@ services:
     environment:
       DOWNLOAD_CHROME: "False"
       ENABLE_VIRTUAL_DISPLAY: "True"
+      SELENIUM_TAKE_SCREENSHOT: "True"
+      SELENIUM_SCREENSHOTS_FOLDER: "/tmp/screenshots"
       PRODUCT_A_URL: "http://product-a:8000"
       PRODUCT_B_URL: "http://product-b:8001"
-#  remote-interpreter:
-#    build: *dockerfile-dev-build
-#    env_file: .env.development
-#    volumes:
-#      - .:/home/appuser
-#    ports:
-#      - "8080:8000"
-#    depends_on:
-#      - db
-#    command:
-#      [
-#        "./scripts/wait-for-it.sh",
-#        "db:5432",
-#        "-t",
-#        "120",
-#        "--",
-#        "./scripts/start-development.sh",
-#      ]
-#  worker:
-#    build: *dockerfile-dev-build
-#    env_file: .env.development
-#    volumes:
-#      - .:/home/appuser
-#    depends_on:
-#      - db
-#    command:
-#      [
-#        "./scripts/wait-for-it.sh",
-#        "db:5432",
-#        "-t",
-#        "120",
-#        "--",
-#        "./scripts/start-worker.sh",
-#      ]
-#  production:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
-#    env_file: .env
-#    ports:
-#      - "8080:8000"
-#    depends_on:
-#      - db
-#    command:
-#      [
-#        "./scripts/wait-for-it.sh",
-#        "db:5432",
-#        "-t",
-#        "120",
-#        "--",
-#        "./scripts/start-production.sh",
-#      ]
-#  tests:
-#    build: *dockerfile-dev-build
-#    volumes:
-#      - .:/app
-#    env_file: .env.development
-#    depends_on:
-#      - db
-#    command:
-#      [
-#        "./scripts/wait-for-it.sh",
-#        "db:5432",
-#        "-t",
-#        "120",
-#        "--",
-#        "./scripts/start-tests.sh",
-#      ]
-#  lint:
-#    build: *dockerfile-dev-build
-#    volumes:
-#      - .:/app
-#    command: ["./scripts/start-lint.sh"]
-#  formatter:
-#    build: *dockerfile-dev-build
-#    volumes:
-#      - .:/app
-#    command: ["./scripts/start-formatter.sh"]
+    volumes:
+      # You should create "screenshots" with proper settings
+      - ./screenshots:/tmp/screenshots
