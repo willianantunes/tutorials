@@ -1,8 +1,6 @@
 # SSO with Cognito through Authorization Code grant type
 
-Still to be defined.
-
-This is working in progress 👷!
+Do you want to know how to do an [SSO with Cognito through the Authorization Code grant type](https://www.willianantunes.com/blog/2021/11/sso-with-cognito-through-the-authorization-code-grant-type/)? Look at this project!
 
 ## Project details
 

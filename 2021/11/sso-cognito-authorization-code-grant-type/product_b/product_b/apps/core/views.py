@@ -47,6 +47,6 @@ def _build_uri(request, view_name):
 
 
 def _apply_gambiarra(uri):
-    # Know more what I had to do this here: LINK TODO
+    # Know more what I had to do this here: https://www.willianantunes.com/blog/2021/11/sso-with-cognito-through-the-authorization-code-grant-type/
     uri = uri.replace("product-a", "localhost")
     return uri.replace("product-b", "localhost")

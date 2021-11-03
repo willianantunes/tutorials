@@ -21,7 +21,7 @@ services:
       SELENIUM_SCREENSHOTS_FOLDER: "/tmp/screenshots"
       SELENIUM_IMPLICIT_WAIT: 5
       # Remember! I'm using an internal NGINX to translate both addresses!
-      # Know more here: LINK TODO
+      # Know more here: https://www.willianantunes.com/blog/2021/11/sso-with-cognito-through-the-authorization-code-grant-type/
       PRODUCT_A_URL: "http://localhost:8000"
       PRODUCT_B_URL: "http://localhost:8001"
     volumes:

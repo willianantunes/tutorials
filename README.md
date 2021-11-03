@@ -5,6 +5,8 @@ I have a [blog that I talk about technology](https://www.willianantunes.com/), a
 Contents:
 
 - 2021
+  - 11
+    - [SSO with Cognito through the Authorization Code grant type](./2021/11/sso-cognito-authorization-code-grant-type)
   - 06
     - [RegEx, Data Classes and Type Hints with Python: Learning from tweet text](./2021/06/regex-dataclasses-with-python-learning-from-tweet-text)
   - 05
