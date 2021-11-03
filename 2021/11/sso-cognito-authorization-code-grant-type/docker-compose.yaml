@@ -19,8 +19,14 @@ services:
       ENABLE_VIRTUAL_DISPLAY: "True"
       SELENIUM_TAKE_SCREENSHOT: "True"
       SELENIUM_SCREENSHOTS_FOLDER: "/tmp/screenshots"
-      PRODUCT_A_URL: "http://product-a:8000"
-      PRODUCT_B_URL: "http://product-b:8001"
+      SELENIUM_IMPLICIT_WAIT: 5
+      # Remember! I'm using an internal NGINX to translate both addresses!
+      # Know more here: LINK TODO
+      PRODUCT_A_URL: "http://localhost:8000"
+      PRODUCT_B_URL: "http://localhost:8001"
     volumes:
       # You should create "screenshots" with proper settings
+      # Something to guide you:
+      # If you execute `id` in the container you'll receive: uid=1200(seluser) gid=1201(seluser) groups=1201(seluser),27(sudo)
+      # Then you should create a folder with the following: mkdir screenshots && sudo chown -R 1200 screenshots
       - ./screenshots:/tmp/screenshots

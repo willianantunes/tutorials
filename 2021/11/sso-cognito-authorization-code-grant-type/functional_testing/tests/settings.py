@@ -22,7 +22,7 @@ from selenium.webdriver.chrome.webdriver import WebDriver
 CHROME_VERSION = os.getenv("CHROME_VERSION", "92.0.4515.107")
 DOWNLOAD_CHROME = bool(strtobool(os.getenv("DOWNLOAD_CHROME", "True")))
 PRODUCT_A_URL = os.getenv("PRODUCT_A_URL", "http://localhost:8000")
-PRODUCT_B_URL = os.getenv("PRODUCT_A_URL", "http://localhost:8001")
+PRODUCT_B_URL = os.getenv("PRODUCT_B_URL", "http://localhost:8001")
 ENABLE_VIRTUAL_DISPLAY = bool(strtobool(os.getenv("ENABLE_VIRTUAL_DISPLAY", "False")))
 SELENIUM_IMPLICIT_WAIT = int(os.getenv("SELENIUM_IMPLICIT_WAIT", 0))
 SELENIUM_TAKE_SCREENSHOT = bool(strtobool(os.getenv("SELENIUM_TAKE_SCREENSHOT", "False")))

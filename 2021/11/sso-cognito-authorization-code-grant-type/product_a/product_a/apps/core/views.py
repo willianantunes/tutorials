@@ -30,6 +30,7 @@ def logout(request):
 
 def initiate_login_flow(request):
     redirect_uri = _build_uri(request, "v1/response-oidc")
+    logger.info("Built redirect URI: %s", redirect_uri)
     logger.info("Building flow session details...")
     some_state = str(uuid.uuid4())
     # So we can retrieve it later
@@ -41,4 +42,11 @@ def initiate_login_flow(request):
 
 def _build_uri(request, view_name):
     location_redirect = reverse(view_name)
-    return request.build_absolute_uri(location_redirect)
+    uri = request.build_absolute_uri(location_redirect)
+    return _apply_gambiarra(uri)
+
+
+def _apply_gambiarra(uri):
+    # Know more what I had to do this here: LINK TODO
+    uri = uri.replace("product-a", "localhost")
+    return uri.replace("product-b", "localhost")
