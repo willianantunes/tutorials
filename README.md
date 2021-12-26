@@ -5,6 +5,8 @@ I have a [blog that I talk about technology](https://www.willianantunes.com/), a
 Contents:
 
 - 2021
+  - 12
+    - [How to set up an Ethereum Node with Light Mode using Docker](./2021/12/how-to-set-up-ethereum-node-using-docker)
   - 11
     - [SSO with Cognito through the Authorization Code grant type](./2021/11/sso-cognito-authorization-code-grant-type)
   - 06
@@ -14,3 +16,4 @@ Contents:
     - [GKE Ingress: How to configure IPv4 and IPv6 addresses](./2021/05/ingress-ipv4-ipv6)
     - [Production-ready shell startup scripts: The Set Builtin](./2021/05/the-set-builtin)
     - [The easiest way to run a container on GCE with Terraform](./2021/05/gce-container-terraform)
+
