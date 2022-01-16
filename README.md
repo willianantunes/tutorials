@@ -4,6 +4,9 @@ I have a [blog that I talk about technology](https://www.willianantunes.com/), a
 
 Contents:
 
+- 2022
+  - 01
+    - [Sample usage of Metaclasses in Python: Taking screenshots automatically](./2022/01/python-metaclasses)
 - 2021
   - 12
     - [How to set up an Ethereum Node with Light Mode using Docker](./2021/12/how-to-set-up-ethereum-node-using-docker)

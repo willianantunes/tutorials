@@ -1,3 +1,3 @@
 # Python Metaclasses
 
-Do you want to know about **Python Metaclasses**? Look at this project 👀!
+Do you want to know about [Python Metaclasses](https://www.willianantunes.com/blog/2022/01/sample-usage-of-metaclasses-in-python-taking-screenshots-automatically/)? Look at this project 👀!
