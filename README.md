@@ -7,6 +7,7 @@ Contents:
 - 2022
   - 01
     - [Sample usage of Metaclasses in Python: Taking screenshots automatically](./2022/01/python-metaclasses)
+    - [Using transactions with STOMP with the help of Django STOMP](./2022/01/transactions-with-django-stomp)
 - 2021
   - 12
     - [How to set up an Ethereum Node with Light Mode using Docker](./2021/12/how-to-set-up-ethereum-node-using-docker)

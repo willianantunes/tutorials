@@ -1,6 +1,6 @@
 # Transactions with Django STOMP
 
-Do you want to know how you can use transactions with STOMP through Django STOMP? Look at this project 👀!
+Do you want to know [how you can use transactions with STOMP through Django STOMP](https://www.willianantunes.com/blog/2022/01/using-transactions-with-stomp-with-the-help-of-django-stomp/)? Look at this project 👀!
 
 ## Project details
 
