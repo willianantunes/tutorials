@@ -1,0 +1,26 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - 15672:15672
+      - 61613:61613
+    volumes:
+      - ./custom-rabbitmq-conf:/etc/rabbitmq/
+  tests:
+    build:
+      context: .
+    volumes:
+      - .:/app
+    environment:
+      - STOMP_SERVER_HOST=rabbitmq
+    depends_on:
+      - rabbitmq
+    command:
+      [
+        "./scripts/wait-for-it.sh",
+        "rabbitmq:61613",
+        "-t",
+        "120",
+        "--",
+        "./scripts/start-tests.sh",
+      ]
