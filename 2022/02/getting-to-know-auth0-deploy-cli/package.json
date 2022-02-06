@@ -1,0 +1,11 @@
+{
+  "name": "getting-to-know-auth0-deploy-cli",
+  "private": true,
+  "scripts": {
+    "dump:sandbox": "a0deploy export --config_file ./configs/sandbox.json --format directory --output_folder ./exported/platform",
+    "deploy:sandbox": "a0deploy import --config_file ./configs/sandbox.json --input_file ./platform"
+  },
+  "dependencies": {
+    "auth0-deploy-cli": "^7.3.2"
+  }
+}

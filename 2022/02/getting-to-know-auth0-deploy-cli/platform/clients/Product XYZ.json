@@ -1,0 +1,34 @@
+{
+  "is_token_endpoint_ip_header_trusted": false,
+  "name": "Product XYZ",
+  "cross_origin_auth": false,
+  "callbacks": @@PRODUCT_XYZ_URI@@,
+  "allowed_logout_urls": @@PRODUCT_XYZ_URI@@,
+  "is_first_party": true,
+  "sso_disabled": false,
+  "oidc_conformant": true,
+  "refresh_token": {
+    "expiration_type": "non-expiring",
+    "leeway": 0,
+    "infinite_token_lifetime": true,
+    "infinite_idle_token_lifetime": true,
+    "token_lifetime": 2592000,
+    "idle_token_lifetime": 1296000,
+    "rotation_type": "non-rotating"
+  },
+  "allowed_origins": @@PRODUCT_XYZ_URI@@,
+  "jwt_configuration": {
+    "alg": "RS256",
+    "lifetime_in_seconds": 36000,
+    "secret_encoded": false
+  },
+  "token_endpoint_auth_method": "none",
+  "app_type": "spa",
+  "grant_types": [
+    "authorization_code",
+    "implicit",
+    "refresh_token"
+  ],
+  "web_origins": @@PRODUCT_XYZ_URI@@,
+  "custom_login_page_on": true
+}

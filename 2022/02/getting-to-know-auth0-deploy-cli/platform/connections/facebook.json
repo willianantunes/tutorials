@@ -1,0 +1,13 @@
+{
+  "options": {
+    "email": true,
+    "scope": "email,public_profile",
+    "public_profile": true
+  },
+  "strategy": "facebook",
+  "name": "facebook",
+  "is_domain_connection": false,
+  "enabled_clients": [
+    "Product XYZ"
+  ]
+}

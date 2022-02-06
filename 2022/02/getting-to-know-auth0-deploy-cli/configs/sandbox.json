@@ -1,0 +1,26 @@
+{
+  "AUTH0_DOMAIN": "YOUR-TENANT.us.auth0.com",
+  "AUTH0_CLIENT_ID": "YOUR_CLIENT_ID",
+  "AUTH0_CLIENT_SECRET": "YOUR_CLIENT_SECRET",
+  "AUTH0_ALLOW_DELETE": true,
+  "EXCLUDED_PROPS": {
+    "clients": [
+      "client_secret"
+    ],
+    "connections": [
+      "options.client_secret"
+    ]
+  },
+  "AUTH0_KEYWORD_REPLACE_MAPPINGS": {
+    "TENANT_NAME": "Cockatiel SANDBOX",
+    "TENANT_PICTURE_URL": "https://www.willianantunes.com/favicon.ico",
+    "TENANT_SUPPORT_EMAIL": "iago@agrabah.disney.com",
+    "TENANT_SUPPORT_URL": "https://github.com/willianantunes/tutorials",
+    "PRODUCT_XYZ_URI": [
+      "https://app.local:8002/"
+    ]
+  }
+}
+
+
+
