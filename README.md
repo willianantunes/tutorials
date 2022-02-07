@@ -5,6 +5,8 @@ I have a [blog that I talk about technology](https://www.willianantunes.com/), a
 Contents:
 
 - 2022
+  - 02
+    - [Getting to know Auth0 Deploy CLI with a practical scenario](./2022/02/getting-to-know-auth0-deploy-cli)
   - 01
     - [Sample usage of Metaclasses in Python: Taking screenshots automatically](./2022/01/python-metaclasses)
     - [Using transactions with STOMP with the help of Django STOMP](./2022/01/transactions-with-django-stomp)
