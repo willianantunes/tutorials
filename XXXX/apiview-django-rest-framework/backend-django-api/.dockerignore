@@ -1,0 +1,6 @@
+# https://docs.docker.com/engine/reference/builder/#dockerignore-file
+*
+!apiview_django_rest_framework
+!scripts
+!manage.py
+!Pipfile*

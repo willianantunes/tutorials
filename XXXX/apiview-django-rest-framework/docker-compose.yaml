@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  update-settings:
+    build:
+      context: ./auth0-infrastructure
+      dockerfile: Dockerfile
+    environment:
+      - AUTH0_DOMAIN=YOUR_AUTH0_DOMAIN
+      - AUTH0_CLIENT_ID=YOUR_AUTH0_CLIENT_ID
+      - AUTH0_CLIENT_SECRET=YOUR_AUTH0_CLIENT_SECRET
+    volumes:
+      - ./backend-django-api:/app/envs/backend
+      - ./frontend-nextjs-product-xyz:/app/envs/frontend
+  django-api:
+    build:
+      context: backend-django-api
+    env_file: backend-django-api/.env.development
+    ports:
+      - "8010:8010"
+  product-xyz:
+    build:
+      context: frontend-nextjs-product-xyz
+    env_file: frontend-nextjs-product-xyz/.env.development
+    ports:
+      - "8002:8002"

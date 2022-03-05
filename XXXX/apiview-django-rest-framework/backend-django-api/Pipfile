@@ -1,0 +1,31 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+### Infrastructure
+django-cors-headers = "*"
+### Tooling
+requests = "*"
+### Auth0 and related stuff
+auth0-python = "*"
+PyJWT = "*"
+# https://django-extensions.readthedocs.io/en/latest/runserver_plus.html#introduction
+Werkzeug = "*"
+django-extensions = "*"
+pyOpenSSL = "*"
+
+[dev-packages]
+python-dotenv = "*"
+pytest-django = "*"
+pytest-mock = "*"
+pytest-cov = "*"
+black = "*"
+isort = "*"
+mypy = "*"
+
+[requires]
+python_version = "3.9"

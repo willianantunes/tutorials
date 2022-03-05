@@ -1,0 +1,17 @@
+{
+  "client_id": "Test - User Management - APIView DRF API",
+  "audience": "https://##AUTH0_DOMAIN##/api/v2/",
+  "scope": [
+    "read:users",
+    "update:users",
+    "delete:users",
+    "create:users",
+    "read:users_app_metadata",
+    "update:users_app_metadata",
+    "delete:users_app_metadata",
+    "create:users_app_metadata",
+    "read:user_custom_blocks",
+    "create:user_custom_blocks",
+    "delete:user_custom_blocks"
+  ]
+}
