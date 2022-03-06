@@ -5,6 +5,8 @@ I have a [blog that I talk about technology](https://www.willianantunes.com/), a
 Contents:
 
 - 2022
+  - 03
+    - [Validating JWT: Authentication using Django Rest Framework](./2022/03/authentication-django-rest-framework)
   - 02
     - [Getting to know Auth0 Deploy CLI with a practical scenario](./2022/02/getting-to-know-auth0-deploy-cli)
   - 01
