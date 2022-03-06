@@ -1,0 +1,11 @@
+services:
+  tests:
+    build:
+      context: .
+    env_file: .env
+    volumes:
+      - .:/app
+    command:
+      [
+        "./scripts/start-tests.sh",
+      ]
