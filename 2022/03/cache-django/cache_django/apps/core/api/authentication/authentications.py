@@ -2,6 +2,7 @@ import re
 
 import jwt
 
+from django.core.cache import cache
 from django.http import HttpRequest
 from jwt import DecodeError
 from jwt import InvalidTokenError
@@ -10,8 +11,19 @@ from jwt import PyJWKClientError
 from rest_framework import authentication
 from rest_framework import exceptions
 
-from authentication_django_rest_framework import settings
-from authentication_django_rest_framework.apps.core.api.authentication.models import TokenUser
+from cache_django import settings
+from cache_django.apps.core.api.authentication.models import TokenUser
+
+
+class CachingJWKClient(PyJWKClient):
+    cache_key = "MY_APP_NAME_JWKS"
+    cache_timeout_1_day = 60 * 60 * 24
+
+    def __init__(self, uri: str):
+        super().__init__(uri)
+
+    def fetch_data(self):
+        return cache.get_or_set(self.cache_key, super().fetch_data, timeout=self.cache_timeout_1_day)
 
 
 class JWTAccessTokenAuthentication(authentication.BaseAuthentication):
@@ -21,12 +33,12 @@ class JWTAccessTokenAuthentication(authentication.BaseAuthentication):
         internal_extra_jwt_decode_options = kwargs.get("internal_extra_jwt_decode_options")
         if internal_extra_jwt_decode_options:
             self.internal_extra_jwt_decode_options = internal_extra_jwt_decode_options
-        # Retrieving JWKS
+        # Retrieving JWKS Client
         jwks_client = kwargs.get("internal_jwks_client")
         if jwks_client:
             self.jwks_client = jwks_client
         else:
-            self.jwks_client = PyJWKClient(settings.AUTH0_TENANT_JWKS)
+            self.jwks_client = CachingJWKClient(settings.AUTH0_TENANT_JWKS)
 
     def authenticate(self, request: HttpRequest):
         # Extract header
