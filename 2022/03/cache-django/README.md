@@ -1,6 +1,6 @@
 # Caching JWKS using Redis with Django
 
-Do you want to know about Caching JWKS using Redis with Django? Look at this project 👀!
+Do you want to know about [Caching JWKS using Redis with Django](https://www.willianantunes.com/blog/2022/03/caching-jwks-using-redis-with-django/)? Look at this project 👀!
 
 ## Project details
 
