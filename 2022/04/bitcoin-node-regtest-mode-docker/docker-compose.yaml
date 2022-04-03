@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  bitcoin-core-regtest:
+    build:
+      context: .
+      args:
+        TARGETPLATFORM: "linux/amd64"
+    volumes:
+      - ./btc/:/home/bitcoin/.bitcoin
+    environment:
+      - UID=$UID
+      - GID=$GID
+    command:
+      -printtoconsole
+      -regtest=1
