@@ -1,6 +1,6 @@
 # Bitcoin Node with RegTest mode using Docker
 
-Do you want to know about Bitcoin Node with RegTest mode using Docker? Look at this project 👀!
+Do you want to know about [Bitcoin Node with RegTest mode using Docker](https://www.willianantunes.com/blog/2022/04/bitcoin-node-with-regtest-mode-using-docker/)? Look at this project 👀!
 
 ## Project details
 
