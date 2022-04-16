@@ -1,6 +1,6 @@
 # Estimating an initial Redis setup through Locust
 
-Do you want to know how to estimate an initial Redis setup through Locust? Look at this project 👀!
+Do you want to know [how to estimate an initial Redis setup through Locust](https://www.willianantunes.com/blog/2022/04/estimating-an-initial-redis-setup-through-locust/)? Look at this project 👀!
 
 ## Project details
 
