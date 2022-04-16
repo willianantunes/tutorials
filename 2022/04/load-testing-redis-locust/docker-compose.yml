@@ -1,0 +1,54 @@
+version: "3.9"
+
+# https://docs.docker.com/compose/compose-file/compose-file-v3/#extension-fields
+x-build: &dockerfile-dev-build
+  context: .
+  dockerfile: Dockerfile.dev
+
+services:
+  redis:
+    image: redis:6.2.6-alpine
+    command:
+      [
+        "redis-server",
+        "--requirepass",
+        "this-is-your-admin-password"
+      ]
+    ports:
+      - "6379:6379"
+
+  performance-testing:
+    build: *dockerfile-dev-build
+    env_file: .env
+    volumes:
+      - .:/app
+    ports:
+      - "8089:8089"
+    depends_on:
+      - redis
+    command:
+      [
+        "./scripts/wait-for-it.sh",
+        "redis:6379",
+        "-t",
+        "120",
+        "--",
+        "./scripts/start-development-locust.sh",
+      ]
+
+  performance-testing-with-reports:
+    build: *dockerfile-dev-build
+    env_file: .env
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
+    command:
+      [
+        "./scripts/wait-for-it.sh",
+        "redis:6379",
+        "-t",
+        "120",
+        "--",
+        "./scripts/start-locust.sh",
+      ]
