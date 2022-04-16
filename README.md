@@ -5,6 +5,9 @@ I have a [blog that I talk about technology](https://www.willianantunes.com/), a
 Contents:
 
 - 2022
+  - 04
+    - [Estimating an initial Redis setup through Locust](./2022/04/load-testing-redis-locust)
+    - [Bitcoin Node with RegTest mode using Docker](./2022/04/bitcoin-node-regtest-mode-docker)
   - 03
     - [Validating JWT: Authentication using Django Rest Framework](./2022/03/authentication-django-rest-framework)
     - [Caching JWKS using Redis with Django](./2022/03/cache-django)
