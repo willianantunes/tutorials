@@ -5,8 +5,10 @@ name = "pypi"
 
 [packages]
 elasticsearch = "*"
+elasticsearch-dsl = "*"
 
 [dev-packages]
+pytest-mock = "*"
 
 [requires]
 python_version = "3.10"

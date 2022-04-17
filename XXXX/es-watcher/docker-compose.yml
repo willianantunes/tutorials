@@ -2,6 +2,17 @@ version: "3.9"
 
 # https://www.elastic.co/guide/en/elastic-stack-get-started/8.1/get-started-docker.html
 services:
+  remote-interpreter:
+    build:
+      context: .
+    env_file: .env
+    depends_on:
+      - es
+      - kibana
+    working_dir: /app
+    volumes:
+      - .:/app
+
   es:
     # https://www.elastic.co/guide/en/elasticsearch/reference/8.1/docker.html
     image: docker.elastic.co/elasticsearch/elasticsearch:8.1.0
@@ -11,7 +22,6 @@ services:
       - ES_JAVA_OPTS=-Xms256m -Xmx512m
       - discovery.type=single-node
       - xpack.security.enabled=false
-#      - ELASTIC_PASSWORD=qwerty
 
   kibana:
     # https://www.elastic.co/guide/en/kibana/8.1/docker.html
