@@ -71,7 +71,7 @@ class TestCustomOIDCAuthenticationBackend:
     def test_when_having_oidc_payload_should_update_user_with_refreshed_properties(self, mocker):
         # Arrange
         claims = sample_user_info()
-        claims["groups"] = ["B2E_APP_MANAGEMENT_VIEWER"]
+        claims["https://www.willianantunes.com/ad/groups"] = ["B2E_APP_MANAGEMENT_VIEWER"]
         user_model = get_user_model()
         user_model.objects.create_user(claims["sub"], first_name="Jack", last_name="Kerouac")
         oidc_backend = CustomOIDCAuthenticationBackend()

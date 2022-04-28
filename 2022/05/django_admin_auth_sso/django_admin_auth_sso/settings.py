@@ -14,14 +14,17 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 import requests
 
-from dotenv import load_dotenv
-
 from django_admin_auth_sso.support.django_helpers import getenv_or_raise_exception
 
 SRC_DIR = Path(__file__).resolve().parent
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-load_dotenv(BASE_DIR.joinpath(".env"), verbose=True)
+try:
+    from dotenv import load_dotenv
+
+    load_dotenv(BASE_DIR.joinpath(".env"), verbose=True)
+except ImportError:
+    pass
 
 
 # Quick-start development settings - unsuitable for production
@@ -45,7 +48,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "rest_framework",
     "django_admin_auth_sso.apps.core",
 ]
 
@@ -65,6 +67,7 @@ AUTHENTICATION_BACKENDS = [
     # Leave ModelBackend here if you want to allow "username/password" authentication
     "django.contrib.auth.backends.ModelBackend",
     "django_admin_auth_sso.support.oidc_helpers.CustomOIDCAuthenticationBackend",
+    # "mozilla_django_oidc.auth.OIDCAuthenticationBackend",
 ]
 
 ROOT_URLCONF = "django_admin_auth_sso.urls"
@@ -163,5 +166,8 @@ try:
     OIDC_OP_USER_ENDPOINT = document["userinfo_endpoint"]
 except requests.exceptions.ConnectionError:
     print("Skipping configuration for OIDC! It won't work correctly")
-OIDC_RP_SCOPES = "openid profile email"
+    OIDC_OP_AUTHORIZATION_ENDPOINT = None
+    OIDC_OP_TOKEN_ENDPOINT = None
+    OIDC_OP_USER_ENDPOINT = None
+OIDC_RP_SCOPES = os.environ.get("OIDC_RP_SCOPES", "openid profile email")
 OIDC_VERIFY_SSL = True

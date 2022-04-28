@@ -1,16 +1,19 @@
 version: "3.9"
 
 services:
-  redis:
-    image: redis:6.2.6-alpine
+  app:
+    build:
+      context: .
+    env_file: .env
+    volumes:
+      - .:/app
+    ports:
+      - "${DJANGO_BIND_PORT}:${DJANGO_BIND_PORT}"
     command:
       [
-        "redis-server",
-        "--requirepass",
-        "this-is-your-admin-password"
+        "./scripts/start-development.sh",
       ]
-    ports:
-      - "6379:6379"
+
   tests:
     build:
       context: .
@@ -19,14 +22,7 @@ services:
       - .:/app
     ports:
       - "${DJANGO_BIND_PORT}:${DJANGO_BIND_PORT}"
-    depends_on:
-      - redis
     command:
       [
-        "./scripts/wait-for-it.sh",
-        "redis:6379",
-        "-t",
-        "120",
-        "--",
         "./scripts/start-tests.sh",
       ]
