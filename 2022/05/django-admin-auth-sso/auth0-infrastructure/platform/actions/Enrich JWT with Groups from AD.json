@@ -1,0 +1,33 @@
+{
+  "name": "Enrich JWT with Groups from AD",
+  "code": "platform/actions/Enrich JWT with Groups from AD/code.js",
+  "runtime": "node16",
+  "status": "built",
+  "dependencies": [
+    {
+      "name": "auth0",
+      "version": "2.40.0"
+    }
+  ],
+  "secrets": [
+    {
+      "name": "TENANT"
+    },
+    {
+      "name": "AUDIENCE"
+    },
+    {
+      "name": "APP_CLIENT_ID"
+    },
+    {
+      "name": "APP_CLIENT_SECRET"
+    }
+  ],
+  "supported_triggers": [
+    {
+      "id": "post-login",
+      "version": "v2"
+    }
+  ],
+  "deployed": true
+}

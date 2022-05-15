@@ -4,7 +4,7 @@ services:
   app:
     build:
       context: .
-    env_file: .env
+    env_file: .env.development
     volumes:
       - .:/app
     ports:
@@ -17,11 +17,9 @@ services:
   tests:
     build:
       context: .
-    env_file: .env
+    env_file: .env.development
     volumes:
       - .:/app
-    ports:
-      - "${DJANGO_BIND_PORT}:${DJANGO_BIND_PORT}"
     command:
       [
         "./scripts/start-tests.sh",

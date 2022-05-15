@@ -1,0 +1,7 @@
+{
+  "client_id": "Test Django Admin SSO - M2M - Actions",
+  "audience": "https://##AUTH0_DOMAIN##/api/v2/",
+  "scope": [
+    "read:users"
+  ]
+}

@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  update-settings:
+    build:
+      context: ./auth0-infrastructure
+      dockerfile: Dockerfile
+    environment:
+      - AUTH0_DOMAIN=YOUR_AUTH0_DOMAIN
+      - AUTH0_CLIENT_ID=YOUR_AUTH0_CLIENT_ID
+      - AUTH0_CLIENT_SECRET=YOUR_AUTH0_CLIENT_SECRET
+      - AZURE_AD_DOMAIN=YOUR_AZURE_AD_DOMAIN
+      - AZURE_AD_APP_ID=YOUR_AZURE_AD_APP_ID
+      - AZURE_AD_APP_SECRET=YOUR_AZURE_AD_APP_SECRET
+    volumes:
+      - ./admin-backend:/app/envs/admin-backend
+  admin-backend:
+    build:
+      context: admin-backend
+    env_file: admin-backend/.env.development
+    ports:
+      - "8000:8000"
+  admin-backend-tests:
+    build:
+      context: admin-backend
+    env_file: admin-backend/.env.development
+    volumes:
+      - ./admin-backend:/app
+    command:
+      [
+        "./scripts/start-tests.sh",
+      ]

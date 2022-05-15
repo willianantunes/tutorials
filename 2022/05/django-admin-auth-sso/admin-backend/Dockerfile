@@ -8,4 +8,6 @@ RUN pip install --no-cache-dir --upgrade pip pipenv
 
 RUN pipenv install --system --deploy --dev --ignore-pipfile
 
-RUN rm Pipfile Pipfile.lock
+COPY . ./
+
+CMD ["./scripts/start-development.sh"]

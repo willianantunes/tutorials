@@ -1,0 +1,51 @@
+{
+  "options": {
+    "mfa": {
+      "active": true,
+      "return_enroll_settings": true
+    },
+    "validation": {
+      "username": {
+        "max": 15,
+        "min": 1
+      }
+    },
+    "import_mode": false,
+    "customScripts": {
+      "change_password": "./change_password.js",
+      "create": "./create.js",
+      "delete": "./delete.js",
+      "get_user": "./get_user.js",
+      "login": "./login.js",
+      "verify": "./verify.js"
+    },
+    "passwordPolicy": "good",
+    "password_history": {
+      "size": 5,
+      "enable": false
+    },
+    "strategy_version": 2,
+    "requires_username": true,
+    "password_dictionary": {
+      "enable": false,
+      "dictionary": []
+    },
+    "brute_force_protection": true,
+    "password_no_personal_info": {
+      "enable": false
+    },
+    "password_complexity_options": {
+      "min_length": 8
+    },
+    "enabledDatabaseCustomization": false
+  },
+  "strategy": "auth0",
+  "name": "Username-Password-Authentication",
+  "is_domain_connection": false,
+  "realms": [
+    "Username-Password-Authentication"
+  ],
+  "enabled_clients": [
+
+  ]
+}

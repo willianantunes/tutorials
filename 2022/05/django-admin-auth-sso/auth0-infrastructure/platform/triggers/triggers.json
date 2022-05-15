@@ -1,0 +1,8 @@
+{
+  "post-login": [
+    {
+      "action_name": "Enrich JWT with Groups from AD",
+      "display_name": "Enrich JWT with Groups from AD"
+    }
+  ]
+}

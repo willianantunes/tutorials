@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 try:
     from dotenv import load_dotenv
 
-    load_dotenv(BASE_DIR.joinpath(".env"), verbose=True)
+    load_dotenv(BASE_DIR.joinpath(".env.development"), verbose=True)
 except ImportError:
     pass
 

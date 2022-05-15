@@ -1,0 +1,11 @@
+{
+  "name": "auth0-infrastructure",
+  "private": true,
+  "scripts": {
+    "dump:sandbox": "a0deploy export --config_file ./configs/sandbox.json --format directory --output_folder ./exported/platform --debug",
+    "deploy:sandbox": "a0deploy import --config_file ./configs/sandbox.json --input_file ./platform --debug"
+  },
+  "dependencies": {
+    "auth0-deploy-cli": "^7.3.2"
+  }
+}

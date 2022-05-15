@@ -15,7 +15,7 @@ def provider_logout(request):
 
 
 class CustomOIDCAuthenticationBackend(OIDCAuthenticationBackend):
-    def verify_claims(self, claims):
+    def verify_claims(self, claims) -> bool:
         groups = self._retrieve_groups_from_claims(claims)
         return OIDCToDjangoGroupsMapping.has_any_valid_group(groups)
 

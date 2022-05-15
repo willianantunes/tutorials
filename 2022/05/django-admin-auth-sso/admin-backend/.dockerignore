@@ -1,0 +1,6 @@
+# https://docs.docker.com/engine/reference/builder/#dockerignore-file
+*
+!django_admin_auth_sso
+!scripts
+!manage.py
+!Pipfile*

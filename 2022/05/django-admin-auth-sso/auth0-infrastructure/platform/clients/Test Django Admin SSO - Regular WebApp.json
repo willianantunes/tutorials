@@ -1,0 +1,41 @@
+{
+  "is_token_endpoint_ip_header_trusted": false,
+  "name": "Test Django Admin SSO - Regular WebApp",
+  "is_first_party": true,
+  "oidc_conformant": true,
+  "sso_disabled": false,
+  "cross_origin_auth": false,
+  "refresh_token": {
+    "expiration_type": "expiring",
+    "leeway": 0,
+    "token_lifetime": 2592000,
+    "idle_token_lifetime": 1296000,
+    "infinite_token_lifetime": false,
+    "infinite_idle_token_lifetime": false,
+    "rotation_type": "rotating"
+  },
+  "allowed_clients": [],
+  "allowed_logout_urls": @@DJANGO_ADMIN_LOGOUT_URLS@@,
+  "callbacks": @@DJANGO_ADMIN_CALLBACK_URLS@@,
+  "native_social_login": {
+    "apple": {
+      "enabled": false
+    },
+    "facebook": {
+      "enabled": false
+    }
+  },
+  "jwt_configuration": {
+    "alg": "RS256",
+    "lifetime_in_seconds": 36000,
+    "secret_encoded": false
+  },
+  "client_aliases": [],
+  "token_endpoint_auth_method": "none",
+  "app_type": "regular_web",
+  "grant_types": [
+    "authorization_code",
+    "refresh_token"
+  ],
+  "custom_login_page_on": true
+}

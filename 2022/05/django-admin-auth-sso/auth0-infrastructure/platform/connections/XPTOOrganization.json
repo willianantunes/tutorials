@@ -1,0 +1,27 @@
+{
+  "options": {
+    "domain": "##AZURE_AD_DOMAIN##",
+    "icon_url": "https://avatars.githubusercontent.com/u/55056283?s=96&v=4",
+    "client_id": "##AZURE_AD_APP_ID##",
+    "use_wsfed": false,
+    "ext_groups": true,
+    "ext_profile": true,
+    "identity_api": "microsoft-identity-platform-v2.0",
+    "basic_profile": false,
+    "client_secret": "##AZURE_AD_APP_SECRET##",
+    "tenant_domain": "##AZURE_AD_DOMAIN##",
+    "waad_protocol": "openid-connect",
+    "api_enable_users": false,
+    "ext_nested_groups": true,
+    "useCommonEndpoint": true,
+    "should_trust_email_verified_connection": "never_set_emails_as_verified"
+  },
+  "strategy": "waad",
+  "name": "XPTOOrganization",
+  "is_domain_connection": false,
+  "show_as_button": true,
+  "display_name": "Agrabah SSO",
+  "enabled_clients": [
+    "Test Django Admin SSO - Regular WebApp"
+  ]
+}
