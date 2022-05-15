@@ -67,7 +67,6 @@ AUTHENTICATION_BACKENDS = [
     # Leave ModelBackend here if you want to allow "username/password" authentication
     "django.contrib.auth.backends.ModelBackend",
     "django_admin_auth_sso.support.oidc_helpers.CustomOIDCAuthenticationBackend",
-    # "mozilla_django_oidc.auth.OIDCAuthenticationBackend",
 ]
 
 ROOT_URLCONF = "django_admin_auth_sso.urls"
@@ -149,8 +148,8 @@ CUSTOM_OIDC_GROUPS_CLAIM = os.environ.get("CUSTOM_OIDC_GROUPS_CLAIM", "groups")
 BASE_URL = os.getenv("BASE_URL", "http://app.local:8000")
 AUTH0_DOMAIN = getenv_or_raise_exception("AUTH0_DOMAIN")
 AUTH0_LOGOUT_ENDPOINT = f"https://{AUTH0_DOMAIN}/v2/logout"
-OIDC_RP_CLIENT_ID = os.environ.get("AUTH0_APP_CLIENT_ID")
-OIDC_RP_CLIENT_SECRET = os.environ.get("AUTH0_APP_CLIENT_SECRET")
+OIDC_RP_CLIENT_ID = getenv_or_raise_exception("AUTH0_APP_CLIENT_ID")
+OIDC_RP_CLIENT_SECRET = getenv_or_raise_exception("AUTH0_APP_CLIENT_SECRET")
 
 ALLOW_LOGOUT_GET_METHOD = True
 LOGIN_REDIRECT_URL = f"{BASE_URL}/admin/"
