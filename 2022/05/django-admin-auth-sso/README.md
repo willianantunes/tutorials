@@ -1,6 +1,6 @@
 # SSO with Django Admin through Auth0
 
-Do you want to know about SSO with Django Admin through Auth0? Look at this project 👀!
+Do you want to know about [SSO with Django Admin through Auth0](https://www.willianantunes.com/blog/2022/05/django-admin-authentication-using-sso-through-auth0/)? Look at this project 👀!
 
 ## Project details
 

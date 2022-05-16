@@ -5,8 +5,10 @@ I have a [blog that I talk about technology](https://www.willianantunes.com/), a
 Contents:
 
 - 2022
+  - 05
+    - [Django Admin Authentication using SSO through Auth0](./2022/05/django-admin-auth-sso)
   - 04
-    - [Add claims to JWT through Actions on Auth0](./2022/05/add-claims-jwt-actions-auth0)
+    - [Add claims to JWT through Actions on Auth0](./2022/04/add-claims-jwt-actions-auth0)
     - [Estimating an initial Redis setup through Locust](./2022/04/load-testing-redis-locust)
     - [Bitcoin Node with RegTest mode using Docker](./2022/04/bitcoin-node-regtest-mode-docker)
   - 03
