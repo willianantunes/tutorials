@@ -1,0 +1,29 @@
+version: "3.9"
+
+# https://docs.docker.com/compose/compose-file/compose-file-v3/#extension-fields
+x-build: &dockerfile-dev-build
+  context: .
+  dockerfile: Dockerfile.dev
+
+services:
+  performance-testing:
+    build: *dockerfile-dev-build
+    env_file: .env
+    volumes:
+      - .:/app
+    ports:
+      - "8089:8089"
+    command:
+      [
+        "./scripts/start-development-locust.sh",
+      ]
+
+  performance-testing-with-reports:
+    build: *dockerfile-dev-build
+    env_file: .env
+    volumes:
+      - .:/app
+    command:
+      [
+        "./scripts/start-locust.sh",
+      ]

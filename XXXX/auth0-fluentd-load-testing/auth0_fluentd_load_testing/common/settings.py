@@ -1,0 +1,5 @@
+from auth0_fluentd_load_testing.common.support import getenv_or_raise_exception
+
+API_GATEWAY_ENDPOINT = getenv_or_raise_exception("API_GATEWAY_ENDPOINT")
+FLUENTD_REQUEST_PATH = getenv_or_raise_exception("FLUENTD_REQUEST_PATH")
+FLUENT_AUTHORIZATION_TOKEN = getenv_or_raise_exception("FLUENT_AUTHORIZATION_TOKEN")
