@@ -1,12 +1,13 @@
 # Tutorials
 
-I have a [blog that I talk about technology](https://www.willianantunes.com/), and here you can find the code that I showed in there. In each folder, you'll find either the sample code or project, including the post's link.
+I have a [blog where I talk about technology](https://www.willianantunes.com/), and here you can find the code that I explain there. You'll find either the sample code or project in each folder, including the post's link.
 
 Contents:
 
 - 2022
   - 05
     - [Django Admin Authentication using SSO through Auth0](./2022/05/django-admin-auth-sso)
+    - [Rundeck playground environment on Kubernetes](./2022/05/rundeck-k8s)
   - 04
     - [Add claims to JWT through Actions on Auth0](./2022/04/add-claims-jwt-actions-auth0)
     - [Estimating an initial Redis setup through Locust](./2022/04/load-testing-redis-locust)
