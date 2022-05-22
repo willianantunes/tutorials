@@ -1,0 +1,103 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: support-tools
+  name: rundeck-k8s-service
+spec:
+  selector:
+    app: rundeck-k8s
+  type: NodePort
+  ports:
+    - name: http
+      protocol: TCP
+      # See `kind-config.yaml` to understand why I configured port 32000!
+      nodePort: 32000
+      port: 4440
+      targetPort: web-server
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rundeck-k8s-deployment
+  namespace: support-tools
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rundeck-k8s
+  template:
+    metadata:
+      labels:
+        app: rundeck-k8s
+    spec:
+      serviceAccountName: rundeck-k8s-sa
+      containers:
+        - name: rundeck-k8s
+          image: rundeck-k8s
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: rundeck-k8s-realm-properties
+              mountPath: /home/rundeck/server/config/realm.properties
+              subPath: realm.properties
+            - name: created-kube-config
+              mountPath: /home/rundeck/.kube/
+          envFrom:
+            - configMapRef:
+                name: rundeck-k8s-configmap
+            - secretRef:
+                name: rundeck-k8s-secret
+          ports:
+            - name: web-server
+              containerPort: 4440
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 4440
+              scheme: HTTP
+            initialDelaySeconds: 500
+            periodSeconds: 120
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 4440
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          resources:
+            requests:
+              cpu: 350m
+              memory: 1250Mi
+            limits:
+              cpu: 700m
+              memory: 1800Mi
+      initContainers:
+        - name: prepare-kube-config
+          image: bitnami/kubectl:1.24.0
+          securityContext:
+            # To match rundeck user UID!
+            runAsUser: 1000
+          volumeMounts:
+            - mountPath: /tmp/target
+              name: created-kube-config
+          command:
+            - sh
+            - "-ce"
+            - |
+              set -ex
+              SERVICE_ACCOUNT_API_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
+              kubectl config set-cluster kind-cluster \
+              --server=https://kind-control-plane:6443 \
+              --certificate-authority=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt  \
+              --embed-certs=true
+              kubectl config set-credentials rundeck-deployer --token=$SERVICE_ACCOUNT_API_TOKEN
+              kubectl config set-context kind-cluster --cluster kind-cluster --user rundeck-deployer
+              kubectl config use-context kind-cluster
+              cp -r /.kube/* /tmp/target/
+      volumes:
+        - name: rundeck-k8s-realm-properties
+          secret:
+            secretName: rundeck-k8s-realm-properties-secret
+        - name: created-kube-config
+          emptyDir: { }

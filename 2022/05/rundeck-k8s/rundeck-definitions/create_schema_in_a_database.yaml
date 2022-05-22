@@ -1,0 +1,59 @@
+- defaultTab: nodes
+  description: ''
+  executionEnabled: true
+  id: fb45914c-560a-4ac4-8b08-4a48929c6114
+  loglevel: INFO
+  name: Create schema in a database
+  nodeFilterEditable: false
+  options:
+  - label: Target database name
+    name: databaseName
+    regex: ^[a-z_A-Z]+$
+    required: true
+  - label: Schema name
+    name: schemaName
+    regex: ^[a-z_A-Z]+$
+    required: true
+  plugins:
+    ExecutionLifecycle: null
+  scheduleEnabled: true
+  sequence:
+    commands:
+    - configuration:
+        debug: 'false'
+        namespace: support-tools
+        type: Job
+        verify_ssl: 'false'
+        yaml: "apiVersion: batch/v1\nkind: Job\nmetadata:\n  name: rundeck-db-management-new-schema-${job.execid}\n\
+          \  namespace: support-tools\nspec:\n  parallelism: 1\n  backoffLimit: 0\n\
+          \  template:\n    metadata:\n      name: rundeck-db-management-new-schema-${job.execid}\n\
+          \    spec:\n      restartPolicy: Never\n      containers:\n        - name:\
+          \ rundeck-db-management-new-schema\n          image: postgres:13.2-alpine\n\
+          \          resources:\n            requests:\n              cpu: 5m\n  \
+          \            memory: 8Mi\n            limits:\n              cpu: 25m\n\
+          \              memory: 32Mi         \n          env:\n            - name:\
+          \ DATABASE_HOST\n              value: \"db-postgres-service.support-tools.svc.cluster.local\"\
+          \n            - name: DATABASE_PORT\n              value: \"5432\"\n   \
+          \         - name: DATABASE_USER\n              value: \"postgres\"\n   \
+          \         - name: DATABASE_PASSWORD\n              value: \"postgres\"\n\
+          \            - name: DATABASE_NAME\n              value: \"postgres\"\n\
+          \          command:\n            - sh\n            - \"-ce\"\n         \
+          \   - |\n              set -ex\n              psql -v ON_ERROR_STOP=1 \"\
+          postgresql://$DATABASE_USER:$DATABASE_PASSWORD@$DATABASE_HOST:$DATABASE_PORT/${unquotedoption.databaseName}\"\
+          \ <<-EOSQL\n                CREATE SCHEMA IF NOT EXISTS \"${unquotedoption.schemaName}\"\
+          ;\n              EOSQL\n"
+      nodeStep: true
+      type: Kubernetes-Create
+    - configuration:
+        debug: 'false'
+        name: rundeck-db-management-new-schema-${job.execid}
+        namespace: support-tools
+        retries: '100'
+        show_log: 'true'
+        sleep: '10'
+        verify_ssl: 'false'
+      nodeStep: true
+      type: Kubernetes-Wait-Job
+    keepgoing: false
+    strategy: node-first
+  uuid: fb45914c-560a-4ac4-8b08-4a48929c6114

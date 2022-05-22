@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: rundeck-k8s-sa
+  namespace: support-tools
+
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: rundeck-k8s-sa-secret
+  namespace: support-tools
+  annotations:
+    kubernetes.io/service-account.name: rundeck-k8s-sa
+type: kubernetes.io/service-account-token
+
+---
+
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  namespace: support-tools
+  name: rundeck-k8s-role
+rules:
+  - apiGroups:
+      - "*"
+    resources:
+      # Grant only CRUD operation in Pods and Jobs resources
+      - "pods"
+      - "pods/log"
+      - "jobs"
+      - "jobs/status"
+    verbs:
+      - "get"
+      - "list"
+      - "watch"
+      - "create"
+      - "update"
+      - "patch"
+      - "delete"
+---
+
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: rundeck-k8s-role-binding
+  namespace: support-tools
+subjects:
+  - kind: ServiceAccount
+    name: rundeck-k8s-sa
+    namespace: support-tools
+roleRef:
+  kind: Role
+  name: rundeck-k8s-role
+  apiGroup: rbac.authorization.k8s.io
