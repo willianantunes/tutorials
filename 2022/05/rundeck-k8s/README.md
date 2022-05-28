@@ -16,7 +16,9 @@ kind load docker-image rundeck-k8s:latest
 kubectl apply -f k8s-manifests/0-database.yaml
 kubectl apply -f k8s-manifests/1-permissions.yaml
 kubectl apply -f k8s-manifests/2-secrets-and-configmap.yaml
+kubectl logs -f deployment/db-postgres-deployment
 kubectl apply -f k8s-manifests/3-service-and-deployment.yaml
+kubectl logs -f deployment/rundeck-k8s-deployment
 ```
 
 Wait a few minutes, and you should be able to access `http://localhost:8000/`. Use `admin` for username and password.
