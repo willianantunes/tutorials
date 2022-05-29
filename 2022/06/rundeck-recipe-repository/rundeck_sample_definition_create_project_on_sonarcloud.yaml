@@ -41,7 +41,8 @@
                 restartPolicy: Never
                 containers:
                   - name: rundeck-project-management-new-project
-                    image: python:3.10-slim
+                    image: rundeck-recipe-repository
+                    imagePullPolicy: IfNotPresent
                     resources:
                       requests:
                         cpu: 50m
@@ -61,17 +62,6 @@
                       - "-ce"
                       - |
                         set -ex
-                        apt update && apt install -y git
-                        echo "##### Checking out recipe repository"
-                        # If your repository is private you can do this way:
-                        # git clone https://$(GITHUB_USER):$(GITHUB_PERSONAL_ACCESS_TOKEN)@github.com/willianantunes/tutorials.git
-                        git clone https://github.com/willianantunes/tutorials.git
-                        cd tutorials/2022/06/rundeck-recipe-repository/
-                        echo "##### Installing poetry and the project's dependencies"
-                        pip install --upgrade pip && pip install poetry
-                        poetry export -f requirements.txt -o requirements.txt && \
-                        pip uninstall --yes poetry && \
-                        pip install --require-hashes -r requirements.txt
                         echo "##### Running the command"
                         python manage.py add_repository_sonar_cloud --repository-name "${unquotedoption.repositoryName}" \
                         --github-access-token $(GITHUB_PERSONAL_ACCESS_TOKEN) \

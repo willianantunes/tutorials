@@ -1,0 +1,6 @@
+# https://docs.docker.com/engine/reference/builder/#dockerignore-file
+*
+!rundeck_recipe_repository
+!manage.py
+!poetry*
+!pyproject.toml
