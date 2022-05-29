@@ -1,0 +1,94 @@
+- defaultTab: nodes
+  description: ''
+  executionEnabled: true
+  id: 6e7eb6e7-ae18-4786-9fbf-babe44115055
+  loglevel: INFO
+  name: Create project on SonarCloud
+  nodeFilterEditable: false
+  options:
+  - description: |-
+      It must follow the pattern "user_or_organization/repository". Some samples:
+
+      - willianantunes/tic-tac-toe-csharp-playground
+      - be-dev-yes/yoda
+    label: Target repository name
+    name: repositoryName
+    regex: ^[a-z_\/\-A-Z0-9]+$
+    required: true
+  plugins:
+    ExecutionLifecycle: null
+  scheduleEnabled: true
+  sequence:
+    commands:
+    - configuration:
+        debug: 'false'
+        namespace: support-tools
+        type: Job
+        verify_ssl: 'false'
+        yaml: |
+          apiVersion: batch/v1
+          kind: Job
+          metadata:
+            name: rundeck-project-management-new-project-${job.execid}
+            namespace: support-tools
+          spec:
+            parallelism: 1
+            backoffLimit: 0
+            template:
+              metadata:
+                name: rundeck-project-management-new-project-${job.execid}
+              spec:
+                restartPolicy: Never
+                containers:
+                  - name: rundeck-project-management-new-project
+                    image: python:3.10-slim
+                    resources:
+                      requests:
+                        cpu: 50m
+                        memory: 8Mi
+                      limits:
+                        cpu: 100m
+                        memory: 32Mi
+                    env:
+                      - name: GITHUB_PERSONAL_ACCESS_TOKEN
+                        value: "GITHUB_PERSONAL_ACCESS_TOKEN"
+                      - name: SONAR_CLOUD_PERSONAL_ACCESS_TOKEN
+                        value: "SONAR_CLOUD_PERSONAL_ACCESS_TOKEN"
+                      - name: SONAR_CLOUD_APP_INSTALLATION_ID
+                        value: "SONAR_CLOUD_APP_INSTALLATION_ID"
+                    command:
+                      - sh
+                      - "-ce"
+                      - |
+                        set -ex
+                        apt update && apt install -y git
+                        echo "##### Checking out recipe repository"
+                        # If your repository is private you can do this way:
+                        # git clone https://$(GITHUB_USER):$(GITHUB_PERSONAL_ACCESS_TOKEN)@github.com/willianantunes/tutorials.git
+                        git clone https://github.com/willianantunes/tutorials.git
+                        cd tutorials/2022/06/rundeck-recipe-repository/
+                        echo "##### Installing poetry and the project's dependencies"
+                        pip install --upgrade pip && pip install poetry
+                        poetry export -f requirements.txt -o requirements.txt && \
+                        pip uninstall --yes poetry && \
+                        pip install --require-hashes -r requirements.txt
+                        echo "##### Running the command"
+                        python manage.py add_repository_sonar_cloud --repository-name "${unquotedoption.repositoryName}" \
+                        --github-access-token $(GITHUB_PERSONAL_ACCESS_TOKEN) \
+                        --sonar-cloud-access-token $(SONAR_CLOUD_PERSONAL_ACCESS_TOKEN) \
+                        --installation-id $(SONAR_CLOUD_APP_INSTALLATION_ID)
+      nodeStep: true
+      type: Kubernetes-Create
+    - configuration:
+        debug: 'false'
+        name: rundeck-project-management-new-project-${job.execid}
+        namespace: support-tools
+        retries: '100'
+        show_log: 'true'
+        sleep: '10'
+        verify_ssl: 'false'
+      nodeStep: true
+      type: Kubernetes-Wait-Job
+    keepgoing: false
+    strategy: node-first
+  uuid: 6e7eb6e7-ae18-4786-9fbf-babe44115055
