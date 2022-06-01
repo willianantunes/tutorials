@@ -4,7 +4,7 @@ This is a repository with just one sample recipe that deals with SonarCloud proj
 
 ## Project details
 
-Learn more in [this blog post](https://www.google.com/search?q=COMMING+SOON&tbm=isch&ved=2ahUKEwjuhejH4IT4AhVCOLkGHQrjCs4Q2-cCegQIABAA&oq=COMMING+SOON&gs_lcp=CgNpbWcQAzIECAAQQzIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDoECCMQJzoGCAAQHhAHOgYIABAeEAhQigRYlxBg6BFoAHAAeACAAaoBiAHrDJIBBDAuMTOYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&sclient=img&ei=72yTYq7SIMLw5OUPisar8Aw&bih=661&biw=1386).
+Learn more in the blog post where I explain about the [Rundeck Recipe Repository](https://www.willianantunes.com/blog/2022/06/rundeck-recipe-repository/).
 
 ```shell
 docker build -t rundeck-recipe-repository .

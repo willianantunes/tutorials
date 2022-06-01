@@ -5,6 +5,8 @@ I have a [blog where I talk about technology](https://www.willianantunes.com/), 
 Contents:
 
 - 2022
+  - 06
+    - [Rundeck recipe repository](./2022/06/rundeck-recipe-repository)
   - 05
     - [Django Admin Authentication using SSO through Auth0](./2022/05/django-admin-auth-sso)
     - [Rundeck playground environment on Kubernetes](./2022/05/rundeck-k8s)
