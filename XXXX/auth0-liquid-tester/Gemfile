@@ -1,0 +1,18 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+ruby '~> 2.7.4'
+
+gem 'rake', require: false
+gem 'sinatra'
+gem 'liquid'
+gem 'sinatra-contrib'
+gem 'faker'
+
+group :development, :test do
+  gem 'rspec'
+  gem 'rack-test'
+  gem 'rubocop', require: false
+  gem 'simplecov', require: false
+end
