@@ -3,3 +3,8 @@ require('rspec/core/rake_task')
 RSpec::Core::RakeTask.new(:spec)
 
 task(default: :spec)
+
+task :start do
+  conf = File.expand_path('config.ru', File.dirname(__FILE__))
+  exec("rackup --host 0.0.0.0 --port 9292 #{conf}")
+end
