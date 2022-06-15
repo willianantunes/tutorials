@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="{{locale}}">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    {%- auth0:head -%}
+    <style>
+        body {
+            background-image: radial-gradient(white, rgb(200, 200, 200));
+        }
+        .footer {
+            background-color: rgb(120, 120, 120);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 16px 0;
+            width: 100%;
+            color: white;
+            /* Use a high z-index for future-proofing */
+            z-index: 10;
+        }
+        .footer ul {
+            text-align: center;
+        }
+        .footer ul li {
+            display: inline-block;
+            margin: 0 4px;
+        }
+        .footer ul li:not(:first-of-type) {
+            margin-left: 0;
+        }
+        .footer ul li:not(:first-of-type)::before {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            width: 4px;
+            height: 4px;
+            margin-right: 4px;
+            background-color: white;
+            border-radius: 50%;
+        }
+        .footer a {
+            color: white;
+        }
+    </style>
+    <title>{{ prompt.screen.texts.pageTitle }}</title>
+</head>
+<body class="_widget-auto-layout">
+
+<div class="modal fade custom-terms-acceptance" data-bs-backdrop="static" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Aceite nossos termos 😀</h5>
+            </div>
+            <div class="modal-body">
+                <div class="form-check">
+                    <input class="form-check-input" name="acceptedTerms" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Li e aceito o <a href="https://github.com/willianantunes/tutorials/blob/master/LICENSE" target="_blank" rel="noreferrer noopener">termos de uso</a> e
+                        <a href="https://www.willianantunes.com/" target="_blank" rel="noreferrer noopener">política de privacidade</a>.
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary customContinueSignup" disabled>Continuar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%- auth0:widget -%}
+
+<footer class="footer">
+    <ul>
+        <li><a href="https://github.com/willianantunes/tutorials/blob/master/LICENSE" target="_blank" rel="noreferrer noopener">Termos de uso</a></li>
+        <li><a href="https://www.willianantunes.com/" target="_blank" rel="noreferrer noopener">Política de privacidade</a></li>
+    </ul>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    const modalElement = document.querySelector(".custom-terms-acceptance")
+    const modal = new bootstrap.Modal(modalElement, {keyboard: false})
+    modal.show()
+
+    const checkBoxAcceptedTerms = document.querySelector("input[name=acceptedTerms]")
+    const labelAcceptedTerms = document.querySelector("label.form-check-label a")
+    const buttonCustomContinueSignup = document.querySelector("button.customContinueSignup")
+    checkBoxAcceptedTerms.addEventListener("click", () => {
+        buttonCustomContinueSignup.disabled = !checkBoxAcceptedTerms.checked
+    })
+    labelAcceptedTerms.addEventListener("click", (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        const currentElement = e.currentTarget
+        window.open(currentElement.href, currentElement.href);
+        return false;
+    })
+    buttonCustomContinueSignup.addEventListener("click", () => {
+        if (checkBoxAcceptedTerms.checked) {
+            modal.hide()
+        }
+    })
+</script>
+</body>
+</html>
+

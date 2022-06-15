@@ -19,4 +19,10 @@ class NewUniversalLoginController < CustomSinatraBase
 
     liquid :new_universal_login_footers, locals: liquid_variables
   end
+
+  get '/nul-terms-of-use' do
+    liquid_variables = { locale: "en", }
+
+    liquid :new_universal_login_terms, locals: liquid_variables
+  end
 end

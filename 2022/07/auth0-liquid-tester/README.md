@@ -24,6 +24,10 @@ This is the template about the New Universal Login including with footers:
 
 ![New Universal Login with footer.](./docs/screenshot-2022-06-15_11-51-24-nul-footer.png)
 
+New Universal Login with terms of use:
+
+![New Universal Login with footer.](./docs/screenshot-2022-06-15_20-28-23_nul-terms.png)
+
 ## Useful links
 
 - [Customize New Universal Login Pages](https://auth0.com/docs/customize/universal-login-pages/universal-login-page-templates)

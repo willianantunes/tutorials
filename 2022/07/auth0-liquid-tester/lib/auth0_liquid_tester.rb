@@ -86,6 +86,12 @@ class Auth0LiquidTester < CustomSinatraBase
         'title' => 'Page footers',
         'description' => 'The template adds a gray footer with links to Privacy Policy and Terms of Services.'
       },
+      {
+        'link' => '/nul-terms-of-use',
+        'title' => 'Terms of use acceptance',
+        'description' => 'This would happen only during the sign-up flow.
+          The user would have to accept before going on.'
+      },
     ]
     liquid :index, locals: { emails: email_templates, nuls: nul_templates }
   end
