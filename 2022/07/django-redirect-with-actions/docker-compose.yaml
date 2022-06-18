@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  update-settings:
+    build:
+      context: ./auth0-infrastructure
+      dockerfile: Dockerfile
+    environment:
+      - AUTH0_DOMAIN=YOUR_AUTH0_DOMAIN
+      - AUTH0_CLIENT_ID=YOUR_AUTH0_CLIENT_ID
+      - AUTH0_CLIENT_SECRET=YOUR_AUTH0_CLIENT_SECRET
+      # Use the following command to get your endpoint: `ngrok http 8010`
+      # It should be something like this: https://YOUR_NGROK_INSTANCE.ngrok.io/api/v1/terms
+      - BACKEND_DJANGO_ENDPOINT=BACKEND_DJANGO_ENDPOINT
+    volumes:
+      - ./backend-django:/app/envs/backend
+  app:
+    build:
+      context: backend-django
+    env_file: backend-django/.env.development
+    ports:
+      - "8010:8010"

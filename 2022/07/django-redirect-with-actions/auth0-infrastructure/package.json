@@ -1,0 +1,20 @@
+{
+  "name": "auth0-infrastructure",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "dump:sandbox": "a0deploy export --config_file ./configs/sandbox.json --format directory --output_folder ./exported/platform --debug",
+    "deploy:sandbox": "a0deploy import --config_file ./configs/sandbox.json --input_file ./platform --debug",
+    "test": "jest"
+  },
+  "dependencies": {
+    "auth0-deploy-cli": "^7.12"
+  },
+  "devDependencies": {
+    "prettier": "^2.6.2",
+    "jest": "^27.5.1"
+  }
+}

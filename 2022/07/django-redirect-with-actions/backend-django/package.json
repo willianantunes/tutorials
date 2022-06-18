@@ -1,0 +1,27 @@
+{
+  "name": "django-redirect-with-actions",
+  "private": true,
+  "scripts": {
+    "test": "jest tests",
+    "format": "prettier --write \"backend_django/apps/core/static/**/*.{js,jsx,ts,tsx,json,md}\"",
+    "build": "parcel build backend_django/apps/core/static/core/js/parcel-entry.js --out-dir product_a_regular_web_app/apps/core/static/core/dist --out-file main --no-source-maps",
+    "start": "parcel serve backend_django/apps/core/static/core/js/parcel-entry.js --public-url /static/core/dist --hmr-port 34471 --out-file main --out-dir backend_django/apps/core/static/core/dist"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3",
+    "parcel": "1.12.3",
+    "prettier": "^2.4.1",
+    "sass": "^1.45.1"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "axios": "^0.21.4",
+    "materialize-css": "^1.0.0"
+  }
+}

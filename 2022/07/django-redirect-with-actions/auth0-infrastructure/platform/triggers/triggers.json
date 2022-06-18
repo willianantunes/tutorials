@@ -1,0 +1,8 @@
+{
+  "post-login": [
+    {
+      "action_name": "Policy acceptance verifier",
+      "display_name": "Policy acceptance verifier"
+    }
+  ]
+}

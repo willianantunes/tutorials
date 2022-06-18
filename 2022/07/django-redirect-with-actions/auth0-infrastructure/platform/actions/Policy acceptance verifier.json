@@ -1,0 +1,24 @@
+{
+  "name": "Policy acceptance verifier",
+  "code": "platform/actions/Policy acceptance verifier/code.js",
+  "runtime": "node16",
+  "status": "built",
+  "dependencies": [],
+  "secrets": [
+    {
+      "name": "THE_SECRET_USED_TO_CREATE_OPEN_AND_VALIDATE_THE_JWT",
+      "value": "##THE_SECRET_USED_TO_CREATE_OPEN_AND_VALIDATE_THE_JWT##"
+    },
+    {
+      "name": "BACKEND_DJANGO_ENDPOINT",
+      "value": "##BACKEND_DJANGO_ENDPOINT##"
+    }
+  ],
+  "supported_triggers": [
+    {
+      "id": "post-login",
+      "version": "v2"
+    }
+  ],
+  "deployed": true
+}

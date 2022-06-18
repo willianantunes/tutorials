@@ -1,0 +1,16 @@
+<header>
+    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+        <a href="{% url 'index' %}" class="d-flex align-items-center text-dark text-decoration-none">
+            <span class="fs-4">Product XYZ</span>
+        </a>
+
+        <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+            {% if 'user' not in request.session %}
+                <a href="{% url 'login-auth-code-flow' %}" class="me-3 py-2 text-dark text-decoration-none">Login</a>
+            {% endif %}
+            {% if 'user' in request.session %}
+                <a href="{{ logout_uri }}" class="me-3 py-2 text-dark text-decoration-none">Logout</a>
+            {% endif %}
+        </nav>
+    </div>
+</header>

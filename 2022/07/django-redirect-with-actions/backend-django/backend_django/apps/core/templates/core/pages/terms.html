@@ -1,0 +1,34 @@
+{% extends "core/templates/base.html" %}
+
+{% block title %}Accept our terms{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+    <div class="p-3 pb-md-4 mx-auto">
+        <h2 class="display-7 fw-normal text-center">Please, you should accept our terms before going on</h2>
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col col-md-6 mt-5">
+                    <form method="post" action="{% url 'terms' %}">
+                        {% csrf_token %}
+                        <div class="form-check">
+                            <input class="form-check-input" name="acceptedTerms" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                I read and accept the
+                                <a href="https://github.com/willianantunes/tutorials/blob/master/LICENSE" target="_blank" rel="noreferrer noopener">terms of use</a>
+                                and the
+                                <a href="https://www.willianantunes.com/" target="_blank" rel="noreferrer noopener">privacy policy</a>.
+                            </label>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-info mb-3 mt-5 continueTermsFlow" disabled>Continue</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}

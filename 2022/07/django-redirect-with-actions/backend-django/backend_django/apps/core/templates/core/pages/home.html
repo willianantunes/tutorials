@@ -1,0 +1,22 @@
+{% extends "core/templates/base.html" %}
+
+{% block content %}
+
+    {% if 'user' in request.session %}
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h1 class="display-4 fw-normal">Now we know you 😋</h1>
+            <p class="fs-5 text-muted"><strong>{{ request.session.user.name }} / {{ request.session.user.sub }}</strong>
+            </p>
+        </div>
+
+        <div class="row center-align">
+            <button class="btn-see-your-data btn btn-light">Click here and see your data through userinfo endpoint!</button>
+        </div>
+    {% else %}
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h1 class="display-4 fw-normal">We don't know who you are 🥲</h1>
+            <p class="fs-5 text-muted">Please login and see your profile!</p>
+        </div>
+    {% endif %}
+
+{% endblock %}

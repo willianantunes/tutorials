@@ -1,0 +1,14 @@
+{
+  "enabled_locales": [
+    "en"
+  ],
+  "flags": {
+    "universal_login": true,
+    "revoke_refresh_token_grant": false,
+    "disable_clickjack_protection_headers": false
+  },
+  "friendly_name": "##TENANT_NAME##",
+  "picture_url": "##TENANT_PICTURE_URL##",
+  "support_email": "##TENANT_SUPPORT_EMAIL##",
+  "support_url": "##TENANT_SUPPORT_URL##"
+}
