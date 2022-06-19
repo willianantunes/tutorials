@@ -17,14 +17,15 @@
     <div class="row justify-content-md-center">
         <div class="list-group w-auto">
             {% for email in emails %}
-                <a href="{{ email.link }}" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                <div class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
                     <div class="d-flex gap-2 w-100 justify-content-between">
                         <div>
                             <h6 class="mb-0">{{ email.title }}</h6>
+                            <p class="mb-0 opacity-75"><a href="{{ email.link }}">pt-BR</a> | <a href="{{ email.link | append: "?preferredLanguage=en-US" }}">en-US</a></p>
                             <p class="mb-0 opacity-75">{{ email.description }}</p>
                         </div>
                     </div>
-                </a>
+                </div>
             {% endfor %}
         </div>
     </div>

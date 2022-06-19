@@ -1,3 +1,43 @@
+{% assign language = user.user_metadata.preferredLanguage %}
+{% if language %}
+    {% assign language = user.user_metadata.preferredLanguage | slice: 0,2 %}
+{% endif%}
+{% assign company_name = "Rave of Phonetics" %}
+{% capture company_image %}
+    <img alt="Rave of Phonetics" height="auto" src="https://avatars.githubusercontent.com/u/83559025?s=200&v=4" style="border: 0; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px" width="150" />
+{% endcapture %}
+{% if language == 'pt' %}
+    {% capture action_image %}
+        <img alt="Ícone que representa verificação" height="auto" src="http://cdn.auth0.com/website/emails/product/top-verification.png" style="border: 0; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px" width="80" />
+    {% endcapture %}
+    {% capture highlighted_title %}
+        {{ inviter.name }} convidou você para {{ organization.display_name }} na conta {{ friendly_name }}
+    {% endcapture %}
+    {% assign panel_title = "Veja abaixo os detalhes da sua conta:" %}
+    {% assign panel_table_row_1_column_1 = "Conta" %}
+    {% assign panel_table_row_2_column_1 = "Organização" %}
+    {% assign panel_table_row_3_column_1 = "Link do convite" %}
+    {% assign panel_button_title = "Aceita convite" %}
+    {% capture bottom_text %}
+        Você recebeu este e-mail porque você tem uma conta no {{ company_name }}. Se você não sabe o porquê está recebendo esta mensagem, por favor entre em <a href="{{ support_url }}" style="color: #0a84ae; text-decoration: none">contato conosco</a>.
+    {% endcapture %}
+{% else %}
+    {% capture action_image %}
+        <img alt="Symbol that represents verification" height="auto" src="http://cdn.auth0.com/website/emails/product/top-verification.png" style="border: 0; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px" width="80" />
+    {% endcapture %}
+    {% capture highlighted_title %}
+        {{ inviter.name }} has invited you to join {{ organization.display_name }}'s {{ friendly_name }} account
+    {% endcapture %}
+    {% assign panel_title = "Your account information:" %}
+    {% assign panel_table_row_1_column_1 = "Account" %}
+    {% assign panel_table_row_2_column_1 = "Organization" %}
+    {% assign panel_table_row_3_column_1 = "Invitation Link" %}
+    {% assign panel_button_title = "Accept invitation" %}
+    {% capture bottom_text %}
+        You’re receiving this email because you have an account in {{ company_name }}. If you are not sure why you’re receiving this, please contact us through our <a href="{{ support_url }}" style="color: #0a84ae; text-decoration: none">Support Center</a>.
+    {% endcapture %}
+{% endif %}
+
 <!DOCTYPE html>
 <html
         xmlns="http://www.w3.org/1999/xhtml"
@@ -155,7 +195,7 @@
                                         <tbody>
                                         <tr>
                                             <td style="width: 150px">
-                                                <img alt="auth0" height="auto" src="https://avatars.githubusercontent.com/u/83559025?s=200&v=4" style="border: 0; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px" width="150" />
+                                                {{ company_image }}
                                             </td>
                                         </tr>
                                         </tbody>
@@ -243,9 +283,7 @@
                                         <tbody>
                                         <tr>
                                             <td style="width: 80px">
-                                                <img
-                                                        alt="Zero To Launch" height="auto" src="http://cdn.auth0.com/website/emails/product/top-verification.png" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="80"
-                                                />
+                                                {{ action_image }}
                                             </td>
                                         </tr>
                                         </tbody>
@@ -264,7 +302,7 @@
                             color: white;
                           "
                                     >
-                                        {{ inviter.name }} convidou você para {{ organization.display_name }} na conta {{ friendly_name }}
+                                        {{ highlighted_title }}
                                     </div>
                                 </td>
                             </tr>
@@ -349,7 +387,7 @@
                             color: #222228;
                           "
                                     >
-                                        Veja abaixo os detalhes da sua conta:
+                                        {{ panel_title }}
                                     </div>
                                 </td>
                             </tr>
@@ -396,7 +434,7 @@
                             color: #222228;
                           "
                                     >
-                                        <strong style="font-weight: 500; white-space: nowrap">Conta</strong>
+                                        <strong style="font-weight: 500; white-space: nowrap">{{ panel_table_row_1_column_1 }}</strong>
                                     </div>
                                 </td>
                             </tr>
@@ -490,7 +528,7 @@
                             color: #222228;
                           "
                                     >
-                                        <strong style="font-weight: 500; white-space: nowrap">Organização</strong>
+                                        <strong style="font-weight: 500; white-space: nowrap">{{ panel_table_row_2_column_1 }}</strong>
                                     </div>
                                 </td>
                             </tr>
@@ -582,7 +620,7 @@
                             color: #222228;
                           "
                                     >
-                                        <strong style="font-weight: 500; white-space: nowrap">Link do convite</strong>
+                                        <strong style="font-weight: 500; white-space: nowrap">{{ panel_table_row_3_column_1 }}</strong>
                                     </div>
                                 </td>
                             </tr>
@@ -747,7 +785,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: separate; line-height: 100%">
                                         <tr>
                                             <td align="center" bgcolor="#EB5424" role="presentation" style="border: none; border-radius: 3px; cursor: auto; height: 35px; mso-padding-alt: 10px 25px; background: #eb5424" valign="middle">
-                                                <a href="{{ url }}" style="display: inline-block; background: #eb5424; color: white; font-family: 'Avenir Next', Avenir, sans-serif; font-size: 14px; font-weight: 500; line-height: 120%; margin: 0; text-decoration: none; text-transform: none; padding: 10px 25px; mso-padding-alt: 0px; border-radius: 3px" target="_blank">Aceitar convite</a>
+                                                <a href="{{ url }}" style="display: inline-block; background: #eb5424; color: white; font-family: 'Avenir Next', Avenir, sans-serif; font-size: 14px; font-weight: 500; line-height: 120%; margin: 0; text-decoration: none; padding: 10px 25px; mso-padding-alt: 0px; border-radius: 3px; text-transform: uppercase" target="_blank">{{ panel_button_title }}</a>
                                             </td>
                                         </tr>
                                     </table>
@@ -833,9 +871,7 @@
                             color: #222228;
                           "
                                     >
-                                        Você recebeu este e-mail porque você tem uma conta no Rave of Phonetics. Se
-                                        você não sabe o porquê está recebendo esta mensagem, por favor entre em
-                                        <a href="{{ support_url }}" style="color: #0a84ae; text-decoration: none">contato conosco</a>.
+                                        {{ bottom_text }}
                                     </div>
                                 </td>
                             </tr>

@@ -1,3 +1,37 @@
+{% assign language = user.user_metadata.preferredLanguage %}
+{% if language %}
+  {% assign language = user.user_metadata.preferredLanguage | slice: 0,2 %}
+{% endif%}
+{% assign company_name = "Rave of Phonetics" %}
+{% capture company_image %}
+  <img alt="Rave of Phonetics" height="auto" src="https://avatars.githubusercontent.com/u/83559025?s=200&v=4" style="border: 0; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px" width="150" />
+{% endcapture %}
+{% if language == 'pt' %}
+  {% capture action_image %}
+    <img alt="Símbolo que representa verificação" height="auto" src="http://cdn.auth0.com/website/emails/product/top-verify.png" style="border: 0; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px" width="80" />
+  {% endcapture %}
+  {% assign highlighted_title = "Verifique a sua conta" %}
+  {% assign panel_title = "Use o seguinte código para verificar a sua identidade:" %}
+  {% capture panel_code_tile %}
+    Seu código é: <strong>{{ code }}</strong>
+  {% endcapture %}
+  {% capture bottom_text %}
+    Você recebeu este e-mail porque você tem uma conta no {{ company_name }}. Se você não sabe o porquê está recebendo esta mensagem, por favor entre em <a href="{{ support_url }}" style="color: #0a84ae; text-decoration: none">contato conosco</a>.
+  {% endcapture %}
+{% else %}
+  {% capture action_image %}
+    <img alt="Symbol that represents verify" height="auto" src="http://cdn.auth0.com/website/emails/product/top-verify.png" style="border: 0; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px" width="80" />
+  {% endcapture %}
+  {% assign highlighted_title = "Verify your identity" %}
+  {% assign panel_title = "Please use the following code to help verify your identity:" %}
+  {% capture panel_code_tile %}
+    Your code is: <strong>{{ code }}</strong>
+  {% endcapture %}
+  {% capture bottom_text %}
+    You’re receiving this email because you have an account in {{ company_name }}. If you are not sure why you’re receiving this, please contact us through our <a href="{{ support_url }}" style="color: #0a84ae; text-decoration: none">Support Center</a>.
+  {% endcapture %}
+{% endif %}
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
   <head>
@@ -108,7 +142,7 @@
                           <tbody>
                             <tr>
                               <td style="width: 150px">
-                                <img alt="auth0" height="auto" src="https://avatars.githubusercontent.com/u/83559025?s=200&v=4" style="border: 0; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px" width="150" />
+                                {{ company_image }}
                               </td>
                             </tr>
                           </tbody>
@@ -166,7 +200,7 @@
                           <tbody>
                             <tr>
                               <td style="width: 80px">
-                                <img alt="Zero To Launch" height="auto" src="http://cdn.auth0.com/website/emails/product/top-verify.png" style="border: 0; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px" width="80" />
+                                {{ action_image }}
                               </td>
                             </tr>
                           </tbody>
@@ -176,122 +210,252 @@
 
                     <tr>
                       <td align="center" style="font-size: 0px; padding: 0 20px 0 20px; word-break: break-word">
-                        <div style="font-family: 'Avenir Next', Avenir, sans-serif; font-size: 32px; line-height: 60ps; text-align: center; color: white">Verifique a sua conta</div>
+                        <div style="font-family: 'Avenir Next', Avenir, sans-serif; font-size: 32px; line-height: 60ps; text-align: center; color: white">
+                          {{ highlighted_title }}</div>
                       </td>
                     </tr>
                   </table>
                 </div>
 
                 <!--[if mso | IE]>
-                    </td>
+                </td>
 
-                    </tr>
+                </tr>
 
-                    </table>
-                    <![endif]-->
+                </table>
+                <![endif]-->
               </td>
             </tr>
           </tbody>
         </table>
+
       </div>
 
-      <!--[if mso | IE]>
-    </td>
-    </tr>
-    </table>
 
-    <table
-            align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
-    >
+      <!--[if mso | IE]>
+      </td>
+      </tr>
+      </table>
+
+      <table
+              align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+      >
         <tr>
-            <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
-    <![endif]-->
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
 
-      <div style="background: white; background-color: white; margin: 0px auto; max-width: 600px">
-        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background: white; background-color: white; width: 100%">
+
+      <div  style="background:white;background-color:white;margin:0px auto;max-width:600px;">
+
+        <table
+                align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:white;background-color:white;width:100%;"
+        >
           <tbody>
-            <tr>
-              <td style="direction: ltr; font-size: 0px; padding: 40px 25px; text-align: center">
-                <!--[if mso | IE]>
-                    <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td
+                    style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;"
+            >
+              <!--[if mso | IE]>
+              <table role="presentation" border="0" cellpadding="0" cellspacing="0">
 
-                        <tr>
+                <tr>
 
-                            <td
-                                    align="left" class="" style=""
-                            >
-                    <![endif]-->
+                  <td
+                          class="" style="vertical-align:top;width:600px;"
+                  >
+              <![endif]-->
 
-                <div style="font-family: 'Avenir Next', Avenir, sans-serif; font-size: 16px; line-height: 30px; text-align: left; color: #222228">Use o seguinte código para verificar a sua identidade: <strong>{{ code }}</strong></div>
+              <div
+                      class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;"
+              >
 
-                <!--[if mso | IE]>
+                <table
+                        border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%"
+                >
+
+                  <tr>
+                    <td
+                            align="center" style="font-size:0px;padding:0 45px;word-break:break-word;"
+                    >
+
+                      <div
+                              style="font-family:'Avenir Next', Avenir, sans-serif;font-size:13px;line-height:30px;text-align:center;color:#222228;"
+                      >{{ panel_title }}</div>
+
                     </td>
+                  </tr>
 
-                    </tr>
+                </table>
 
-                    </table>
-                    <![endif]-->
+              </div>
+
+              <!--[if mso | IE]>
               </td>
-            </tr>
+
+              </tr>
+
+              </table>
+              <![endif]-->
+            </td>
+          </tr>
           </tbody>
         </table>
+
       </div>
 
-      <!--[if mso | IE]>
-    </td>
-    </tr>
-    </table>
 
-    <table
-            align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
-    >
+      <!--[if mso | IE]>
+      </td>
+      </tr>
+      </table>
+
+      <table
+              align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+      >
         <tr>
-            <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
-    <![endif]-->
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
 
-      <div style="background: #f5f7f9; background-color: #f5f7f9; margin: 0px auto; max-width: 600px">
-        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background: #f5f7f9; background-color: #f5f7f9; width: 100%">
+
+      <div  style="background:white;background-color:white;margin:0px auto;max-width:600px;">
+
+        <table
+                align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:white;background-color:white;width:100%;"
+        >
           <tbody>
-            <tr>
-              <td style="direction: ltr; font-size: 0px; padding: 20px 0; text-align: center">
-                <!--[if mso | IE]>
-                    <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td
+                    style="direction:ltr;font-size:0px;padding:0 25px 40px;text-align:center;"
+            >
+              <!--[if mso | IE]>
+              <table role="presentation" border="0" cellpadding="0" cellspacing="0">
 
-                        <tr>
+                <tr>
 
-                            <td
-                                    class="" style="vertical-align:top;width:600px;"
-                            >
-                    <![endif]-->
+                  <td
+                          class="" style="vertical-align:top;width:550px;"
+                  >
+              <![endif]-->
 
-                <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size: 0px; text-align: left; direction: ltr; display: inline-block; vertical-align: top; width: 100%">
-                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align: top" width="100%">
-                    <tr>
-                      <td align="center" style="font-size: 0px; padding: 0 20px 0 20px; word-break: break-word">
-                        <div style="font-family: 'Avenir Next', Avenir, sans-serif; font-size: 13px; line-height: 20px; text-align: center; color: #222228">Você recebeu este e-mail porque você tem uma conta no Rave of Phonetics. Se você não sabe o porquê está recebendo esta mensagem, por favor entre em <a href="{{ support_url }}" style="color: #0a84ae; text-decoration: none">contato conosco</a>.</div>
-                      </td>
-                    </tr>
-                  </table>
-                </div>
+              <div
+                      class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;"
+              >
 
-                <!--[if mso | IE]>
+                <table
+                        border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%"
+                >
+
+                  <tr>
+                    <td
+                            align="center" style="font-size:0px;padding:0px;word-break:break-word;"
+                    >
+
+                      <div
+                              style="font-family:'Avenir Next', Avenir, sans-serif;font-size:16px;line-height:30px;text-align:center;color:#222228;"
+                      >{{ panel_code_tile }}</div>
+
                     </td>
+                  </tr>
 
-                    </tr>
+                </table>
 
-                    </table>
-                    <![endif]-->
+              </div>
+
+              <!--[if mso | IE]>
               </td>
-            </tr>
+
+              </tr>
+
+              </table>
+              <![endif]-->
+            </td>
+          </tr>
           </tbody>
         </table>
+
       </div>
 
+
       <!--[if mso | IE]>
-    </td>
-    </tr>
-    </table>
-    <![endif]-->
+      </td>
+      </tr>
+      </table>
+
+      <table
+              align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+      >
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+
+
+      <div  style="background:#F5F7F9;background-color:#F5F7F9;margin:0px auto;max-width:600px;">
+
+        <table
+                align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#F5F7F9;background-color:#F5F7F9;width:100%;"
+        >
+          <tbody>
+          <tr>
+            <td
+                    style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;"
+            >
+              <!--[if mso | IE]>
+              <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+
+                <tr>
+
+                  <td
+                          class="" style="vertical-align:top;width:600px;"
+                  >
+              <![endif]-->
+
+              <div
+                      class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;"
+              >
+
+                <table
+                        border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%"
+                >
+
+                  <tr>
+                    <td
+                            align="center" style="font-size:0px;padding:0 20px 0 20px;word-break:break-word;"
+                    >
+
+                      <div
+                              style="font-family:'Avenir Next', Avenir, sans-serif;font-size:13px;line-height:20px;text-align:center;color:#222228;"
+                      >{{ bottom_text }}</div>
+
+                    </td>
+                  </tr>
+
+                </table>
+
+              </div>
+
+              <!--[if mso | IE]>
+              </td>
+
+              </tr>
+
+              </table>
+              <![endif]-->
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+
+      <!--[if mso | IE]>
+      </td>
+      </tr>
+      </table>
+      <![endif]-->
+
+
     </div>
+
   </body>
 </html>

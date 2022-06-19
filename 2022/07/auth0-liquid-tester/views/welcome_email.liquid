@@ -1,3 +1,34 @@
+{% assign language = user.user_metadata.preferredLanguage %}
+{% if language %}
+  {% assign language = user.user_metadata.preferredLanguage | slice: 0,2 %}
+{% endif%}
+{% assign company_name = "Rave of Phonetics" %}
+{% capture company_image %}
+  <img alt="Rave of Phonetics" height="auto" src="https://avatars.githubusercontent.com/u/83559025?s=200&v=4" style="border: 0; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px" width="150" />
+{% endcapture %}
+{% if language == 'pt' %}
+  {% capture action_image %}
+    <img alt="Símbolo que representa verificação" height="auto" src="http://cdn.auth0.com/website/emails/product/top-verify.png" style="border: 0; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px" width="80" />
+  {% endcapture %}
+  {% capture highlighted_title %}
+    Cadastro validado.<br /> Seja bem-vindo!
+  {% endcapture %}
+  {% capture bottom_text %}
+    Você recebeu este e-mail porque você tem uma conta no {{ company_name }}. Se você não sabe o porquê está recebendo esta mensagem, por favor entre em <a href="{{ support_url }}" style="color: #0a84ae; text-decoration: none">contato conosco</a>.
+  {% endcapture %}
+{% else %}
+  {% capture action_image %}
+    <img alt="Symbol that represents verify" height="auto" src="http://cdn.auth0.com/website/emails/product/top-verify.png" style="border: 0; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px" width="80" />
+  {% endcapture %}
+  {% capture highlighted_title %}
+    Your account has been verified.<br /> Seja bem-vindo!
+  {% endcapture %}
+  {% assign highlighted_title = "You have been verified. Welcome!" %}
+  {% capture bottom_text %}
+    You’re receiving this email because you have an account in {{ company_name }}. If you are not sure why you’re receiving this, please contact us through our <a href="{{ support_url }}" style="color: #0a84ae; text-decoration: none">Support Center</a>.
+  {% endcapture %}
+{% endif %}
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
   <head>
@@ -108,7 +139,7 @@
                           <tbody>
                             <tr>
                               <td style="width: 150px">
-                                <img alt="auth0" height="auto" src="https://avatars.githubusercontent.com/u/83559025?s=200&v=4" style="border: 0; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px" width="150" />
+                                {{ company_image }}
                               </td>
                             </tr>
                           </tbody>
@@ -166,7 +197,7 @@
                           <tbody>
                             <tr>
                               <td style="width: 80px">
-                                <img alt="Zero To Launch" height="auto" src="http://cdn.auth0.com/website/emails/product/top-verify.png" style="border: 0; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px" width="80" />
+                                {{ action_image }}
                               </td>
                             </tr>
                           </tbody>
@@ -177,8 +208,7 @@
                     <tr>
                       <td align="center" style="font-size: 0px; padding: 0 20px 0 20px; word-break: break-word">
                         <div style="font-family: 'Avenir Next', Avenir, sans-serif; font-size: 32px; line-height: 60px; text-align: center; color: white">
-                          Cadastro validado!<br />
-                          Seja bem-vindo!
+                          {{ highlighted_title }}
                         </div>
                       </td>
                     </tr>
@@ -239,7 +269,7 @@
                   <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align: top" width="100%">
                     <tr>
                       <td align="center" style="font-size: 0px; padding: 0 20px 0 20px; word-break: break-word">
-                        <div style="font-family: 'Avenir Next', Avenir, sans-serif; font-size: 13px; line-height: 20px; text-align: center; color: #222228">Você recebeu este e-mail porque você tem uma conta no Rave of Phonetics. Se você não sabe o porquê está recebendo esta mensagem, por favor entre em <a href="{{ support_url }}" style="color: #0a84ae; text-decoration: none">contato conosco</a>.</div>
+                        <div style="font-family: 'Avenir Next', Avenir, sans-serif; font-size: 13px; line-height: 20px; text-align: center; color: #222228">{{ bottom_text }}</div>
                       </td>
                     </tr>
                   </table>

@@ -1,298 +1,461 @@
+{% assign language = user.user_metadata.preferredLanguage %}
+{% if language %}
+  {% assign language = user.user_metadata.preferredLanguage | slice: 0,2 %}
+{% endif%}
+{% assign company_name = "Rave of Phonetics" %}
+{% capture company_image %}
+  <img alt="Rave of Phonetics" height="auto" src="https://avatars.githubusercontent.com/u/83559025?s=200&v=4" style="border: 0; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px" width="150" />
+{% endcapture %}
+{% if language == 'pt' %}
+  {% capture action_image %}
+    <img alt="Ícone que representa verificação" height="auto" src="http://cdn.auth0.com/website/emails/product/top-verification.png" style="border: 0; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px" width="80" />
+  {% endcapture %}
+  {% assign highlighted_title = "Seu código MFA" %}
+  {% assign panel_title = "Use o seguinte código:" %}
+  {% capture panel_code_tile %}
+    Seu código é: <strong>{{ code }}</strong>
+  {% endcapture %}
+  {% capture bottom_text %}
+    Você recebeu este e-mail porque você tem uma conta no {{ company_name }}. Se você não sabe o porquê está recebendo esta mensagem, por favor entre em <a href="{{ support_url }}" style="color: #0a84ae; text-decoration: none">contato conosco</a>.
+  {% endcapture %}
+{% else %}
+  {% capture action_image %}
+    <img alt="Symbol that represents verification" height="auto" src="http://cdn.auth0.com/website/emails/product/top-verification.png" style="border: 0; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px" width="80" />
+  {% endcapture %}
+  {% assign highlighted_title = "Your MFA code" %}
+  {% assign panel_title = "Please use the following code:" %}
+  {% capture panel_code_tile %}
+    Your code is: <strong>{{ code }}</strong>
+  {% endcapture %}
+  {% capture bottom_text %}
+    You’re receiving this email because you have an account in {{ company_name }}. If you are not sure why you’re receiving this, please contact us through our <a href="{{ support_url }}" style="color: #0a84ae; text-decoration: none">Support Center</a>.
+  {% endcapture %}
+{% endif %}
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
-  <head>
-    <title> </title>
-    <!--[if !mso]>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <![endif]-->
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style type="text/css">
-      #outlook a {
-        padding: 0;
-      }
-      body {
-        margin: 0;
-        padding: 0;
-        -webkit-text-size-adjust: 100%;
-        -ms-text-size-adjust: 100%;
-      }
-      table,
-      td {
-        border-collapse: collapse;
-        mso-table-lspace: 0pt;
-        mso-table-rspace: 0pt;
-      }
-      img {
-        border: 0;
-        height: auto;
-        line-height: 100%;
-        outline: none;
-        text-decoration: none;
-        -ms-interpolation-mode: bicubic;
-      }
-      p {
-        display: block;
-        margin: 13px 0;
-      }
-    </style>
-    <!--[if mso]>
-      <xml>
-        <o:OfficeDocumentSettings>
-          <o:AllowPNG />
-          <o:PixelsPerInch>96</o:PixelsPerInch>
-        </o:OfficeDocumentSettings>
-      </xml>
-    <![endif]-->
-    <!--[if lte mso 11]>
-      <style type="text/css">
-        .mj-outlook-group-fix {
-          width: 100% !important;
-        }
-      </style>
-    <![endif]-->
+<head>
+  <!--[if !mso]>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <![endif]-->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style type="text/css">
+    #outlook a {
+      padding: 0;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    table,
+    td {
+      border-collapse: collapse;
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+    img {
+      border: 0;
+      height: auto;
+      line-height: 100%;
+      outline: none;
+      text-decoration: none;
+      -ms-interpolation-mode: bicubic;
+    }
+    p {
+      display: block;
+      margin: 13px 0;
+    }
+  </style>
+  <!--[if mso]>
+  <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG />
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+  </xml>
+  <![endif]-->
+  <!--[if lte mso 11]>
+  <style type="text/css">
+    .mj-outlook-group-fix {
+      width: 100% !important;
+    }
+  </style>
+  <![endif]-->
 
-    <style type="text/css">
-      @media only screen and (min-width: 480px) {
-        .mj-column-per-100 {
-          width: 100% !important;
-          max-width: 100%;
-        }
-        .mj-column-per-80 {
-          width: 80% !important;
-          max-width: 80%;
-        }
+  <style type="text/css">
+    @media only screen and (min-width: 480px) {
+      .mj-column-per-100 {
+        width: 100% !important;
+        max-width: 100%;
       }
-    </style>
-
-    <style type="text/css">
-      @media only screen and (max-width: 480px) {
-        table.mj-full-width-mobile {
-          width: 100% !important;
-        }
-        td.mj-full-width-mobile {
-          width: auto !important;
-        }
+      .mj-column-per-80 {
+        width: 80% !important;
+        max-width: 80%;
       }
-    </style>
-  </head>
-  <body style="background-color: #e3e5e7">
-    <div style="background-color: #e3e5e7">
-      <!--[if mso | IE]>
-    <table
-            align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
-    >
-        <tr>
-            <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
-    <![endif]-->
+    }
+  </style>
 
-      <div style="background: white; background-color: white; margin: 0px auto; max-width: 600px">
-        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background: white; background-color: white; width: 100%">
-          <tbody>
+  <style type="text/css">
+    @media only screen and (max-width: 480px) {
+      table.mj-full-width-mobile {
+        width: 100% !important;
+      }
+      td.mj-full-width-mobile {
+        width: auto !important;
+      }
+    }
+  </style>
+</head>
+<body style="background-color: #e3e5e7">
+<div style="background-color: #e3e5e7">
+  <!--[if mso | IE]>
+  <table
+          align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+  >
+    <tr>
+      <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+  <![endif]-->
+
+  <div style="background: white; background-color: white; margin: 0px auto; max-width: 600px">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background: white; background-color: white; width: 100%">
+      <tbody>
+      <tr>
+        <td style="direction: ltr; font-size: 0px; padding: 20px 0; text-align: center">
+          <!--[if mso | IE]>
+          <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+
             <tr>
-              <td style="direction: ltr; font-size: 0px; padding: 20px 0; text-align: center">
-                <!--[if mso | IE]>
-                    <table role="presentation" border="0" cellpadding="0" cellspacing="0">
 
-                        <tr>
+              <td
+                      class="" style="vertical-align:top;width:600px;"
+              >
+          <![endif]-->
 
-                            <td
-                                    class="" style="vertical-align:top;width:600px;"
-                            >
-                    <![endif]-->
-
-                <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size: 0px; text-align: left; direction: ltr; display: inline-block; vertical-align: top; width: 100%">
-                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align: top" width="100%">
+          <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size: 0px; text-align: left; direction: ltr; display: inline-block; vertical-align: top; width: 100%">
+            <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align: top" width="100%">
+              <tr>
+                <td align="center" style="font-size: 0px; padding: 10px 25px; word-break: break-word">
+                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; border-spacing: 0px">
+                    <tbody>
                     <tr>
-                      <td align="center" style="font-size: 0px; padding: 10px 25px; word-break: break-word">
-                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; border-spacing: 0px">
-                          <tbody>
-                            <tr>
-                              <td style="width: 150px">
-                                <img alt="auth0" height="auto" src="https://avatars.githubusercontent.com/u/83559025?s=200&v=4" style="border: 0; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px" width="150" />
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
+                      <td style="width: 150px">
+                        {{ company_image }}
                       </td>
                     </tr>
+                    </tbody>
                   </table>
-                </div>
+                </td>
+              </tr>
+            </table>
+          </div>
 
-                <!--[if mso | IE]>
-                    </td>
+          <!--[if mso | IE]>
+          </td>
 
-                    </tr>
+          </tr>
 
-                    </table>
-                    <![endif]-->
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!--[if mso | IE]>
-    </td>
-    </tr>
+          </table>
+          <![endif]-->
+        </td>
+      </tr>
+      </tbody>
     </table>
+  </div>
 
-    <table
-            align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
-    >
-        <tr>
-            <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
-    <![endif]-->
+  <!--[if mso | IE]>
+  </td>
+  </tr>
+  </table>
 
-      <div style="background: #222228; background-color: #222228; margin: 0px auto; max-width: 600px">
-        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background: #222228; background-color: #222228; width: 100%">
-          <tbody>
+  <table
+          align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+  >
+    <tr>
+      <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+  <![endif]-->
+
+  <div style="background: #222228; background-color: #222228; margin: 0px auto; max-width: 600px">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background: #222228; background-color: #222228; width: 100%">
+      <tbody>
+      <tr>
+        <td style="direction: ltr; font-size: 0px; padding: 20px 0; text-align: center">
+          <!--[if mso | IE]>
+          <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+
             <tr>
-              <td style="direction: ltr; font-size: 0px; padding: 20px 0; text-align: center">
-                <!--[if mso | IE]>
-                    <table role="presentation" border="0" cellpadding="0" cellspacing="0">
 
-                        <tr>
+              <td
+                      class="" style="vertical-align:top;width:480px;"
+              >
+          <![endif]-->
 
-                            <td
-                                    class="" style="vertical-align:top;width:480px;"
-                            >
-                    <![endif]-->
-
-                <div class="mj-column-per-80 mj-outlook-group-fix" style="font-size: 0px; text-align: left; direction: ltr; display: inline-block; vertical-align: top; width: 100%">
-                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align: top" width="100%">
+          <div class="mj-column-per-80 mj-outlook-group-fix" style="font-size: 0px; text-align: left; direction: ltr; display: inline-block; vertical-align: top; width: 100%">
+            <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align: top" width="100%">
+              <tr>
+                <td align="center" style="font-size: 0px; padding: 10px 25px; padding-top: 30px; word-break: break-word">
+                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; border-spacing: 0px">
+                    <tbody>
                     <tr>
-                      <td align="center" style="font-size: 0px; padding: 10px 25px; padding-top: 30px; word-break: break-word">
-                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse: collapse; border-spacing: 0px">
-                          <tbody>
-                            <tr>
-                              <td style="width: 80px">
-                                <img alt="Zero To Launch" height="auto" src="http://cdn.auth0.com/website/emails/product/top-verification.png" style="border: 0; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px" width="80" />
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
+                      <td style="width: 80px">
+                        {{ action_image }}
                       </td>
                     </tr>
-
-                    <tr>
-                      <td align="center" style="font-size: 0px; padding: 0 20px 0 20px; word-break: break-word">
-                        <div style="font-family: 'Avenir Next', Avenir, sans-serif; font-size: 32px; line-height: 60px; text-align: center; color: white">Seu código MFA</div>
-                      </td>
-                    </tr>
+                    </tbody>
                   </table>
-                </div>
+                </td>
+              </tr>
 
-                <!--[if mso | IE]>
-                    </td>
+              <tr>
+                <td align="center" style="font-size: 0px; padding: 0 20px 0 20px; word-break: break-word">
+                  <div style="font-family: 'Avenir Next', Avenir, sans-serif; font-size: 32px; line-height: 60ps; text-align: center; color: white">
+                    {{ highlighted_title }}</div>
+                </td>
+              </tr>
+            </table>
+          </div>
 
-                    </tr>
+          <!--[if mso | IE]>
+          </td>
 
-                    </table>
-                    <![endif]-->
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+          </tr>
 
-      <!--[if mso | IE]>
-    </td>
-    </tr>
+          </table>
+          <![endif]-->
+        </td>
+      </tr>
+      </tbody>
     </table>
+
+  </div>
+
+
+  <!--[if mso | IE]>
+  </td>
+  </tr>
+  </table>
+
+  <table
+          align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+  >
+    <tr>
+      <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+  <![endif]-->
+
+
+  <div  style="background:white;background-color:white;margin:0px auto;max-width:600px;">
 
     <table
-            align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+            align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:white;background-color:white;width:100%;"
     >
-        <tr>
-            <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
-    <![endif]-->
+      <tbody>
+      <tr>
+        <td
+                style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;"
+        >
+          <!--[if mso | IE]>
+          <table role="presentation" border="0" cellpadding="0" cellspacing="0">
 
-      <div style="background: white; background-color: white; margin: 0px auto; max-width: 600px">
-        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background: white; background-color: white; width: 100%">
-          <tbody>
             <tr>
-              <td style="direction: ltr; font-size: 0px; padding: 40px 25px; text-align: center">
-                <!--[if mso | IE]>
-                    <table role="presentation" border="0" cellpadding="0" cellspacing="0">
 
-                        <tr>
+              <td
+                      class="" style="vertical-align:top;width:600px;"
+              >
+          <![endif]-->
 
-                            <td
-                                    align="left" class="" style=""
-                            >
-                    <![endif]-->
+          <div
+                  class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;"
+          >
 
-                <div style="font-family: 'Avenir Next', Avenir, sans-serif; font-size: 16px; line-height: 30px; text-align: left; color: #222228">Seu código é <strong>{{ code }}</strong></div>
+            <table
+                    border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%"
+            >
 
-                <!--[if mso | IE]>
-                    </td>
+              <tr>
+                <td
+                        align="center" style="font-size:0px;padding:0 45px;word-break:break-word;"
+                >
 
-                    </tr>
+                  <div
+                          style="font-family:'Avenir Next', Avenir, sans-serif;font-size:13px;line-height:30px;text-align:center;color:#222228;"
+                  >{{ panel_title }}</div>
 
-                    </table>
-                    <![endif]-->
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+                </td>
+              </tr>
 
-      <!--[if mso | IE]>
-    </td>
-    </tr>
+            </table>
+
+          </div>
+
+          <!--[if mso | IE]>
+          </td>
+
+          </tr>
+
+          </table>
+          <![endif]-->
+        </td>
+      </tr>
+      </tbody>
     </table>
+
+  </div>
+
+
+  <!--[if mso | IE]>
+  </td>
+  </tr>
+  </table>
+
+  <table
+          align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+  >
+    <tr>
+      <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+  <![endif]-->
+
+
+  <div  style="background:white;background-color:white;margin:0px auto;max-width:600px;">
 
     <table
-            align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+            align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:white;background-color:white;width:100%;"
     >
-        <tr>
-            <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
-    <![endif]-->
+      <tbody>
+      <tr>
+        <td
+                style="direction:ltr;font-size:0px;padding:0 25px 40px;text-align:center;"
+        >
+          <!--[if mso | IE]>
+          <table role="presentation" border="0" cellpadding="0" cellspacing="0">
 
-      <div style="background: #f5f7f9; background-color: #f5f7f9; margin: 0px auto; max-width: 600px">
-        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background: #f5f7f9; background-color: #f5f7f9; width: 100%">
-          <tbody>
             <tr>
-              <td style="direction: ltr; font-size: 0px; padding: 20px 0; text-align: center">
-                <!--[if mso | IE]>
-                    <table role="presentation" border="0" cellpadding="0" cellspacing="0">
 
-                        <tr>
+              <td
+                      class="" style="vertical-align:top;width:550px;"
+              >
+          <![endif]-->
 
-                            <td
-                                    class="" style="vertical-align:top;width:600px;"
-                            >
-                    <![endif]-->
+          <div
+                  class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;"
+          >
 
-                <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size: 0px; text-align: left; direction: ltr; display: inline-block; vertical-align: top; width: 100%">
-                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align: top" width="100%">
-                    <tr>
-                      <td align="center" style="font-size: 0px; padding: 0 20px 0 20px; word-break: break-word">
-                        <div style="font-family: 'Avenir Next', Avenir, sans-serif; font-size: 13px; line-height: 20px; text-align: center; color: #222228">Você recebeu este e-mail porque você tem uma conta no Rave of Phonetics. Se você não sabe o porquê está recebendo esta mensagem, por favor entre em <a href="{{ support_url }}" style="color: #0a84ae; text-decoration: none">contato conosco</a>.</div>
-                      </td>
-                    </tr>
-                  </table>
-                </div>
+            <table
+                    border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%"
+            >
 
-                <!--[if mso | IE]>
-                    </td>
+              <tr>
+                <td
+                        align="center" style="font-size:0px;padding:0px;word-break:break-word;"
+                >
 
-                    </tr>
+                  <div
+                          style="font-family:'Avenir Next', Avenir, sans-serif;font-size:16px;line-height:30px;text-align:center;color:#222228;"
+                  >{{ panel_code_tile }}</div>
 
-                    </table>
-                    <![endif]-->
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+                </td>
+              </tr>
 
-      <!--[if mso | IE]>
-    </td>
-    </tr>
+            </table>
+
+          </div>
+
+          <!--[if mso | IE]>
+          </td>
+
+          </tr>
+
+          </table>
+          <![endif]-->
+        </td>
+      </tr>
+      </tbody>
     </table>
-    <![endif]-->
-    </div>
-  </body>
+
+  </div>
+
+
+  <!--[if mso | IE]>
+  </td>
+  </tr>
+  </table>
+
+  <table
+          align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+  >
+    <tr>
+      <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+  <![endif]-->
+
+
+  <div  style="background:#F5F7F9;background-color:#F5F7F9;margin:0px auto;max-width:600px;">
+
+    <table
+            align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#F5F7F9;background-color:#F5F7F9;width:100%;"
+    >
+      <tbody>
+      <tr>
+        <td
+                style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;"
+        >
+          <!--[if mso | IE]>
+          <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+
+            <tr>
+
+              <td
+                      class="" style="vertical-align:top;width:600px;"
+              >
+          <![endif]-->
+
+          <div
+                  class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;"
+          >
+
+            <table
+                    border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%"
+            >
+
+              <tr>
+                <td
+                        align="center" style="font-size:0px;padding:0 20px 0 20px;word-break:break-word;"
+                >
+
+                  <div
+                          style="font-family:'Avenir Next', Avenir, sans-serif;font-size:13px;line-height:20px;text-align:center;color:#222228;"
+                  >{{ bottom_text }}</div>
+
+                </td>
+              </tr>
+
+            </table>
+
+          </div>
+
+          <!--[if mso | IE]>
+          </td>
+
+          </tr>
+
+          </table>
+          <![endif]-->
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <!--[if mso | IE]>
+  </td>
+  </tr>
+  </table>
+  <![endif]-->
+
+
+</div>
+
+</body>
 </html>
