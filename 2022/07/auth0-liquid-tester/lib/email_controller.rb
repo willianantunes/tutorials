@@ -18,7 +18,6 @@ class EmailController < CustomSinatraBase
     liquid_variables = {
       user: user_attributes,
       code: 'ACMEQWERTY',
-      url: 'https://www.willianantunes.com/',
       support_url: 'https://github.com/willianantunes/tutorials',
     }
 

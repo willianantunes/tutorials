@@ -3,7 +3,7 @@ require('spec_helper')
 RSpec.describe(Auth0LiquidTester) do
   let(:request_path) { '/' }
 
-  it 'should render liquid template' do
+  it 'should render index page' do
     get request_path
 
     expected_templates = [
