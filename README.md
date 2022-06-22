@@ -6,6 +6,7 @@ Contents:
 
 - 2022
   - 06
+    - [Email and Universal Login Templates with Liquid on Auth0](./2022/06/auth0-liquid-tester)
     - [Rundeck recipe repository](./2022/06/rundeck-recipe-repository)
   - 05
     - [Django Admin Authentication using SSO through Auth0](./2022/05/django-admin-auth-sso)
