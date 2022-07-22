@@ -19,6 +19,7 @@ kubectl apply -f k8s-manifests/2-secrets-and-configmap.yaml
 kubectl logs -f deployment/db-postgres-deployment
 kubectl apply -f k8s-manifests/3-service-and-deployment.yaml
 kubectl logs -f deployment/rundeck-k8s-deployment
+kubectl exec -it deploy/rundeck-k8s-deployment -- bash
 ```
 
 Wait a few minutes, and you should be able to access `http://localhost:8000/`. Use `admin` for username and password.
