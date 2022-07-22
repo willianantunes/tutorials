@@ -21,7 +21,10 @@ class NewUniversalLoginController < CustomSinatraBase
   end
 
   get '/nul-terms-of-use' do
-    liquid_variables = { locale: "en", }
+    name = params[:promptName]
+    name = if name then name else "signup" end
+    prompt_details = { 'name' => name }
+    liquid_variables = { prompt: prompt_details, locale: "en", }
 
     liquid :new_universal_login_terms, locals: liquid_variables
   end
