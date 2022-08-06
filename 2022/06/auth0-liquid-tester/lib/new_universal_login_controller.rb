@@ -24,7 +24,9 @@ class NewUniversalLoginController < CustomSinatraBase
     name = params[:promptName]
     name = if name then name else "signup" end
     prompt_details = { 'name' => name }
-    liquid_variables = { prompt: prompt_details, locale: "en", }
+    application_id = params[:applicationId]
+    application_details = { 'id' => application_id }
+    liquid_variables = { prompt: prompt_details, locale: "en", application: application_details}
 
     liquid :new_universal_login_terms, locals: liquid_variables
   end
