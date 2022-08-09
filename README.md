@@ -5,6 +5,8 @@ I have a [blog where I talk about technology](https://www.willianantunes.com/), 
 Contents:
 
 - 2022
+  - 08
+    - [Terms of use through Auth0 Actions](./2022/08/django-redirect-with-actions)
   - 06
     - [Email and Universal Login Templates with Liquid on Auth0](./2022/06/auth0-liquid-tester)
     - [Rundeck recipe repository](./2022/06/rundeck-recipe-repository)
