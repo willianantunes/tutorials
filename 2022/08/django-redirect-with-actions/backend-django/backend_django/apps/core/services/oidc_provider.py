@@ -1,3 +1,4 @@
+import inspect
 import logging
 
 from dataclasses import dataclass
@@ -40,6 +41,10 @@ class OIDCConfigurationDocument:
     claims_supported: List[str]
     request_uri_parameter_supported: bool
 
+    @classmethod
+    def from_dict(cls, env):
+        return cls(**{k: v for k, v in env.items() if k in inspect.signature(cls).parameters})
+
 
 class JWTPublicKey(TypedDict):
     alg: str
@@ -77,7 +82,7 @@ class OIDCProvider:
     @classmethod
     def configure_oidc_configuration_document(cls):
         document = requests.get(f"https://{cls.domain}/.well-known/openid-configuration").json()
-        cls.oidc_configuration_document = OIDCConfigurationDocument(**document)
+        cls.oidc_configuration_document = OIDCConfigurationDocument.from_dict(document)
         cls.jwks_client = PyJWKClient(f"https://{cls.domain}/.well-known/jwks.json")
 
     @classmethod
