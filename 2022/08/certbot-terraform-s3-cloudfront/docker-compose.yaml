@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./etc-letsencrypt:/etc/letsencrypt
+      - ./var-lib-letsencrypt:/var/lib/letsencrypt
+      - ./var-log-letsencrypt:/var/log/letsencrypt
