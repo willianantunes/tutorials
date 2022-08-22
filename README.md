@@ -6,6 +6,7 @@ Contents:
 
 - 2022
   - 08
+    - [Create a certificate using Certbot through Docker](./2022/08/certbot-terraform-s3-cloudfront)
     - [Terms of use through Auth0 Actions](./2022/08/django-redirect-with-actions)
   - 06
     - [Email and Universal Login Templates with Liquid on Auth0](./2022/06/auth0-liquid-tester)

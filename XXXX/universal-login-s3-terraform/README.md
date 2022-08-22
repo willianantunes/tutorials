@@ -18,4 +18,4 @@ In case you want to erase the bucket:
 
 Finally, we can upload the HTML files to Auth0. You can save them manually on Auth0 or use the following commands:
 
-    TODO
+    aws s3 sync --acl public-read ./universal-login/out/_next/ s3://dev-auth0-idp-sandbox/_next
