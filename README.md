@@ -5,6 +5,8 @@ I have a [blog where I talk about technology](https://www.willianantunes.com/), 
 Contents:
 
 - 2022
+  - 10
+    - [Using GZIP between your backend and frontend services](./2022/10/gzip-between-backend-frontend-sample)
   - 08
     - [Create a certificate using Certbot through Docker](./2022/08/certbot-terraform-s3-cloudfront)
     - [Terms of use through Auth0 Actions](./2022/08/django-redirect-with-actions)
