@@ -1,0 +1,21 @@
+version: "3.8"
+
+x-build: &dockerfile-dev-build
+  context: .
+  dockerfile: Dockerfile
+
+services:
+  app:
+    build: *dockerfile-dev-build
+    volumes:
+      - .:/app
+    ports:
+      - "5128:5128"
+  formatter:
+    build: *dockerfile-dev-build
+    volumes:
+      - .:/app
+    command:
+      [
+        "./scripts/start-formatter.sh",
+      ]

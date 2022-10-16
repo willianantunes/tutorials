@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@section HeadScripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.4/pako.min.js" integrity="sha512-EAKzSKex+PXC0U9OG13r1059ysjrjkJEpZoONCnZa0mBROY28iBOOxZSErUVw1LzLr2+U5PhR7zPCPKidUVJqg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+}
+
+<div class="p-3 pb-md-4 mx-auto text-center">
+    <h1 class="display-4 fw-normal">Just do it 🏃</h1>
+    <form id="form-async" method="GET" asp-controller="Home" asp-action="RetrieveGZippedContent">
+        <div class="mb-3">
+            <label for="fieldText" class="form-label">Type something and check its output as GZip!</label>
+            <textarea class="form-control" id="fieldText" name="text" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">GZip it</button>
+    </form>
+</div>
+
+<div class="p-3 pb-md-4 mx-auto text-center custom-result-box" style="display: none">
+    <p class="fs-5 text-muted custom-encoded-title">This is the result as base64 built from the server-side. It has <span>XYZ</span> bytes.</p>
+    <p class="lead custom-encoded-text" style="overflow: auto">
+        Here you'll see the encoded text
+    </p>
+    <hr/>
+    <p class="fs-5 text-muted custom-decoded-title">This is the decoded text. It has <span>XYZ</span> bytes.</p>
+    <p class="lead custom-decoded-text" style="overflow: auto">
+        Here you'll see the decoded text
+    </p>
+    <hr/>    
+    <p class="fs-5 text-muted custom-raw-title">This is what you sent. It has <span>XYZ</span> bytes.</p>
+    <p class="lead custom-raw-text" style="overflow: auto">
+        Here you'll see the raw text
+    </p>
+</div>
+
+<script>
+
+const retrieveInflatedFromDeflateAsBase64 = (value) => {
+    try {
+        const decodedBase64 = window.atob(value)
+        const stringToChar = decodedBase64.split('').map((x) => x.charCodeAt(0))
+        const compressedToken = new Uint8Array(stringToChar)
+        
+        const inflated = pako.inflate(compressedToken)
+        return String.fromCharCode.apply(null, new Uint16Array(inflated))
+    } catch (error) {
+        console.error(error);
+        return "An error has been caught! Look at the console and see the details"
+    }
+}
+
+const keyCompressedText = "compressedTextAsBase64"
+const urlParams = new URLSearchParams(window.location.search)
+
+if (urlParams.has(keyCompressedText)) {
+    document.querySelector(".custom-result-box").style.display = "block"
+    const encodedCompressedText = urlParams.get(keyCompressedText)
+    document.querySelector(".custom-encoded-title span").textContent = new Blob([encodedCompressedText]).size
+    document.querySelector('.custom-encoded-text').textContent = encodedCompressedText
+    const decodedCompressedText = window.atob(encodedCompressedText)
+    document.querySelector(".custom-decoded-title span").textContent = new Blob([decodedCompressedText]).size
+    document.querySelector('.custom-decoded-text').textContent = decodedCompressedText
+    const rawText = retrieveInflatedFromDeflateAsBase64(encodedCompressedText)
+    document.querySelector(".custom-raw-title span").textContent = new Blob([rawText]).size
+    document.querySelector('.custom-raw-text').textContent = rawText
+}
+
+</script>
