@@ -1,5 +1,6 @@
 using System.Net;
 using System.Web;
+using GZipBackendFrontendSample.Helpers;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.WebUtilities;
 using Xunit;
@@ -27,5 +28,17 @@ public class GZipNegotiatorTests
         var compressedStringAsBase64 = HttpUtility.ParseQueryString(queryFromRequestUri)["compressedTextAsBase64"];
         Assert.True(Utils.IsBase64String(compressedStringAsBase64!));
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+    }
+
+    [Fact]
+    public async Task ShouldDecompress()
+    {
+        // Arrange
+        var sampleCompressedValueAsBase64 = "H4sIAAAAAAAAA0vOT85OLMlMzQEAMZnGCQkAAAA=";
+        // Act
+        var result = await GZipNegotiator.DecompressBase64StringAsync(sampleCompressedValueAsBase64);
+        // Assert
+        var expectedResult = "cockatiel";
+        Assert.Equal(expectedResult, result);
     }
 }
