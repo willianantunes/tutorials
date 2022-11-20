@@ -1,0 +1,62 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+    env_file: .env.development
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    command:
+      [
+        "./scripts/wait-for-it.sh",
+        "db:5432",
+        "-t",
+        "120",
+        "--",
+        "./scripts/start-development.sh",
+      ]
+  n8n:
+    # https://docs.n8n.io/hosting/server-setups/docker-compose/
+    image: n8nio/n8n:0.202.1
+    depends_on:
+      - db
+    ports:
+      - 5678:5678
+    environment:
+      # https://docs.n8n.io/hosting/environment-variables/
+      - DB_POSTGRESDB_DATABASE=postgres
+      - DB_POSTGRESDB_USER=postgres
+      - DB_POSTGRESDB_PASSWORD=postgres
+      - DB_POSTGRESDB_HOST=db
+      - DB_POSTGRESDB_PORT=5432
+      - DB_TYPE=postgresdb
+      - N8N_BASIC_AUTH_PASSWORD=admin
+      - N8N_BASIC_AUTH_USER=admin
+      - EXECUTIONS_DATA_MAX_AGE=72
+      - EXECUTIONS_DATA_PRUNE=true
+      - GENERIC_TIMEZONE=America/Sao_Paulo
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_ENCRYPTION_KEY=why-are-you-reading-this-question-mark
+      - N8N_DISABLE_PRODUCTION_MAIN_PROCESS=false
+      - N8N_SKIP_WEBHOOK_DEREGISTRATION_SHUTDOWN=true
+      # https://github.com/n8n-io/n 8n/blob/53d2526cd1a20f8149a0d688c4a736bfba0d61b6/packages/core/package.json#L56
+      # https://community.n8n.io/t/how-to-import-library-inside-the-function-node/10975/7
+      - NODE_FUNCTION_ALLOW_EXTERNAL=uuid
+      # https://docs.n8n.io/hosting/logging/#setup
+      - N8N_LOG_LEVEL=debug
+  db:
+    image: postgres:15.1-alpine
+    ports:
+      - 5432:5432
+    user: postgres
+    volumes:
+      - ./scripts/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres

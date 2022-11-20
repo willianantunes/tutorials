@@ -1,0 +1,147 @@
+{
+  "name": "Queue sniffer",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "*/5 * * * *"
+            }
+          ]
+        }
+      },
+      "id": "41edca15-fc9c-4e3e-ae22-24b5d469710b",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        460,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "url": "http://app:8080/api/v1/queues",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "options": {}
+      },
+      "id": "888138ea-68bf-47ad-987b-0e64eba53015",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        680,
+        460
+      ],
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "2",
+          "name": "Queue API Credential"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// https://docs.n8n.io/code-examples/methods-variables-reference/#current-node-input\nconst items = $input.all()\n\nconst filteredItems = []\nfor (const { json: queueStatistics } of items) {\n  console.log(`Queue being evaluated: ${queueStatistics.name}`)\n  const currentNumberOfConsumers = queueStatistics.consumers\n  const currentNumberOfMessages = queueStatistics.messages\n  const isEligible = currentNumberOfConsumers < 50 || currentNumberOfMessages > 100_000\n  if (isEligible) {\n    filteredItems.push(queueStatistics)\n  }\n}\n\nreturn filteredItems\n"
+      },
+      "id": "e633ef3e-c9c8-419f-a87c-1e9a72d7e8e1",
+      "name": "Queue eligibility evaluator",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        940,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const uuid = require(\"uuid\")\nconst transactionId = uuid.v4()\nconsole.log(`Generated transaction ID: ${transactionId}`)\n\n// https://docs.n8n.io/code-examples/methods-variables-reference/#current-node-input\nconst items = $input.all()\n\nconst bodies = []\nfor (const { json: filteredQueueStatistics } of items) {\n  const body = {\n    correlation_id: transactionId,\n    action: \"alarm\",\n    metadata: filteredQueueStatistics,\n  }\n  bodies.push(body)\n}\n\nreturn bodies\n"
+      },
+      "id": "e68f640a-a926-4137-b506-6c1ee72b8d22",
+      "name": "Prepare transaction",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://app:8080/api/v1/audit",
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/json",
+        "body": "={{ $json }}",
+        "options": {}
+      },
+      "id": "3ceef7a5-e88a-4e94-ae5e-5c40a02619aa",
+      "name": "API: Dispatch event",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1400,
+        460
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Queue eligibility evaluator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Queue eligibility evaluator": {
+      "main": [
+        [
+          {
+            "node": "Prepare transaction",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare transaction": {
+      "main": [
+        [
+          {
+            "node": "API: Dispatch event",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {},
+  "hash": "d7a5af1fc7202936579dbf28acbd1109",
+  "id": 2,
+  "meta": {
+    "instanceId": "f6638877682df8eff850aff6eee60b73c543e75ed31031af53370b1280998b0f"
+  },
+  "tags": []
+}

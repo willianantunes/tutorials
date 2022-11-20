@@ -1,0 +1,304 @@
+{
+  "name": "Purchase webhook",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/purchase-listener",
+        "options": {}
+      },
+      "id": "8333434d-fc04-4510-845f-fc4ed38f7d15",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -340,
+        640
+      ],
+      "webhookId": "4aff487b-3dd7-4279-ad91-ca2334f0a57e"
+    },
+    {
+      "parameters": {
+        "value1": "={{ $json[\"body\"][\"price\"] }}",
+        "rules": {
+          "rules": [
+            {
+              "operation": "larger",
+              "value2": 100,
+              "output": "0 [object Object]"
+            },
+            {
+              "operation": "smallerEqual",
+              "value2": 100,
+              "output": 1
+            }
+          ]
+        }
+      },
+      "id": "ef122d55-4826-4bb8-8dc5-e4a497e46ac4",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        60,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const body = $input.item.json.body\nbody[\"tags\"] = [\"XYZ\"]\n\nreturn $input.item;"
+      },
+      "id": "d482b1b9-d364-46ba-938e-97209021fbdb",
+      "name": "Add tag XYZ",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        460,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const body = $input.item.json.body\nbody[\"tags\"] = [\"ACME\"]\n\nreturn $input.item;"
+      },
+      "id": "7da7551d-8a2c-408f-971a-79cee539a2dc",
+      "name": "Add tag ACME",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        460,
+        460
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "f7de6b9a-7b3c-490f-bfeb-518da083779e",
+      "name": "NoOp",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        460,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const uuid = require('uuid')\nconst transactionId = uuid.v4()\nconsole.log(`Generated transaction ID: ${transactionId}`)\n\n// https://docs.n8n.io/courses/level-two/chapter-1/#transforming-data\nconst body = $input.item.json.body\n// This is for the REQUEST node\nconst newBody = {\n  'correlation_id': transactionId,\n  'action': 'purchase',\n  'metadata': body\n}\nconsole.log(`New body: ${newBody}`)\n$input.item.json.body = newBody\n// This is for the Postgres INSERT operation\n$input.item.json.correlation_id = transactionId\n$input.item.json.message = 'purchase'\n$input.item.json.metadata = body\n\nreturn $input.item;"
+      },
+      "id": "2ecbf5cc-a51f-4535-9232-89d13b856301",
+      "name": "Prepare transaction",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        760,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "FAKE_API_ENDPOINT",
+              "value": "http://app:8080"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "6c46d12b-7fe7-4c43-87f2-30d12cc2c19a",
+      "name": "Set required params",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        -140,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{$json[\"FAKE_API_ENDPOINT\"]}}/api/v1/audit",
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/json",
+        "body": "={{ $json[\"body\"] }}",
+        "options": {}
+      },
+      "id": "51d02f0b-8186-4ebd-9893-ce992b854e39",
+      "name": "API: Dispatch event",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1160,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "schema": "tmp_schema_prd",
+        "table": "tmp_random_table",
+        "columns": "correlation_id,message,metadata",
+        "additionalFields": {}
+      },
+      "id": "e8de7b43-1954-48d4-a116-267fc160b0ca",
+      "name": "DB: Save record",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        760
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "1",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "6eefa691-e059-4ae8-b932-cdda9ef477b7",
+      "name": "NoOp1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1460,
+        660
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Set required params",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Add tag ACME",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Add tag XYZ",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "NoOp",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "NoOp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add tag XYZ": {
+      "main": [
+        [
+          {
+            "node": "Prepare transaction",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set required params": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare transaction": {
+      "main": [
+        [
+          {
+            "node": "DB: Save record",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "API: Dispatch event",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "API: Dispatch event": {
+      "main": [
+        [
+          {
+            "node": "NoOp1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DB: Save record": {
+      "main": [
+        [
+          {
+            "node": "NoOp1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add tag ACME": {
+      "main": [
+        [
+          {
+            "node": "Prepare transaction",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "saveExecutionProgress": "DEFAULT",
+    "saveManualExecutions": false,
+    "callerPolicy": "any",
+    "executionTimeout": 60
+  },
+  "hash": "54e91582f3e2294cf1bef1c89d2b4053",
+  "id": 1,
+  "meta": {
+    "instanceId": "f6638877682df8eff850aff6eee60b73c543e75ed31031af53370b1280998b0f"
+  },
+  "tags": []
+}

@@ -1,0 +1,171 @@
+{
+  "name": "Abandoned carts",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 * * * *"
+            }
+          ]
+        }
+      },
+      "id": "0bacec85-a9db-4cb8-9ef2-3791edeb9e19",
+      "name": "Execute every hour",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        460,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT COUNT(*)\nFROM tmp_random_table\nWHERE created_at BETWEEN NOW() - INTERVAL '1 HOUR' AND NOW();",
+        "additionalFields": {}
+      },
+      "id": "1af1296e-6746-46a9-a4ce-ecbe094c69b8",
+      "name": "Retrieve records",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        680,
+        460
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "1",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json[\"count\"] }}",
+              "operation": "largerEqual",
+              "value2": 5
+            }
+          ]
+        }
+      },
+      "id": "94aecf0e-faad-4548-bdf3-08f424e4a59a",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        920,
+        460
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "ca3eff79-72b2-4d0f-a495-e28f4a7a9df0",
+      "name": "NoOp",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const uuid = require('uuid')\nconst transactionId = uuid.v4()\nconsole.log(`Generated transaction ID: ${transactionId}`)\n\nconst body = {\n  'correlation_id': transactionId,\n  'action': 'abandoned-carts',\n  'metadata': { message : \"Jasmine, I do love you, but I gotta stop pretending to be something I'm not.\"}\n}\n\nreturn body"
+      },
+      "id": "eed11221-9295-4486-923f-5de7217d9bdf",
+      "name": "Prepare transaction",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://app:8080/api/v1/audit",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json) }}",
+        "options": {}
+      },
+      "id": "b55f7a94-f442-4923-9166-f9b36da2561b",
+      "name": "API: Dispatch event",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1460,
+        360
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Execute every hour": {
+      "main": [
+        [
+          {
+            "node": "Retrieve records",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Retrieve records": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "Prepare transaction",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "NoOp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare transaction": {
+      "main": [
+        [
+          {
+            "node": "API: Dispatch event",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {},
+  "hash": "a77b4fc4bf9950663056604f0ce2923d",
+  "id": 3,
+  "meta": {
+    "instanceId": "f6638877682df8eff850aff6eee60b73c543e75ed31031af53370b1280998b0f"
+  },
+  "tags": []
+}
