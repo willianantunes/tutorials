@@ -5,6 +5,8 @@ I have a [blog where I talk about technology](https://www.willianantunes.com/), 
 Contents:
 
 - 2022
+  - 11
+    - [Don't code but automate with N8N](./2022/11/n8n-playground)
   - 10
     - [Using GZIP between your backend and frontend services](./2022/10/gzip-between-backend-frontend-sample)
   - 08

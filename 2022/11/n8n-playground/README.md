@@ -1,5 +1,7 @@
 # Don't code but automate with N8N
 
+To understand it, please read the article [Don't code but automate with N8N](https://www.willianantunes.com/blog/2022/11/dont-code-but-automate-with-n8n/).
+
 ## Project details
 
 Just execute the command:
