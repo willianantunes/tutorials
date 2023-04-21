@@ -1,0 +1,26 @@
+{
+  "name": "sample-application-regular-webapp",
+  "private": true,
+  "scripts": {
+    "test": "jest tests",
+    "format": "prettier --write \"app_python_django/apps/core/static/**/*.{js,jsx,ts,tsx,json,md}\"",
+    "build": "parcel build app_python_django/apps/core/static/core/js/parcel-entry.js --out-dir app_python_django/apps/core/static/core/dist --out-file main --no-source-maps",
+    "start": "parcel serve app_python_django/apps/core/static/core/js/parcel-entry.js --public-url /static/core/dist --hmr-port 34471 --out-file main --out-dir app_python_django/apps/core/static/core/dist"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "parcel": "1.12.3",
+    "prettier": "^2.4.1",
+    "sass": "^1.45.1"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "axios": "^0.21.4",
+    "materialize-css": "^1.0.0",
+    "unleash-proxy-client": "^2.4.3"
+  }
+}

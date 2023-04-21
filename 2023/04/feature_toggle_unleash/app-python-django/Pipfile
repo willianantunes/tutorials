@@ -1,0 +1,32 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "~=3.2"
+djangorestframework = "*"
+python-jose = "*"
+requests = "*"
+auth0-python = "*"
+python-dotenv = "*"
+faker = "*"
+unleashclient = "*"
+pyyaml = "*"
+ua-parser = "*"
+user-agents = "*"
+django-user-agents = "*"
+
+[dev-packages]
+pytest-django = "*"
+pytest-mock = "*"
+pytest-cov = "*"
+black = "*"
+isort = "*"
+mypy = "*"
+
+[requires]
+python_version = "3.9"
+
+[pipenv]
+allow_prereleases = true

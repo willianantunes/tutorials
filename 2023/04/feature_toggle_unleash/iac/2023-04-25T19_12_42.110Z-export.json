@@ -1,0 +1,291 @@
+{
+  "features": [
+    {
+      "name": "ALLOW_PROFILE_MANAGEMENT",
+      "description": "User can manage profiles",
+      "type": "permission",
+      "project": "default",
+      "stale": false,
+      "impressionData": true,
+      "archived": false
+    },
+    {
+      "name": "ENABLE_PROFILE_ADMIN",
+      "description": "",
+      "type": "permission",
+      "project": "default",
+      "stale": false,
+      "impressionData": false,
+      "archived": false
+    },
+    {
+      "name": "ENABLE_PROFILE_API",
+      "description": "",
+      "type": "kill-switch",
+      "project": "default",
+      "stale": false,
+      "impressionData": false,
+      "archived": false
+    },
+    {
+      "name": "GAME_SHARK_MODE",
+      "description": "",
+      "type": "kill-switch",
+      "project": "default",
+      "stale": false,
+      "impressionData": true,
+      "archived": false
+    },
+    {
+      "name": "PROFILE_MANAGEMENT_BUTTON_SCHEME",
+      "description": "It changes the button scheme in terms of color and dimension",
+      "type": "experiment",
+      "project": "default",
+      "stale": false,
+      "impressionData": true,
+      "archived": false
+    },
+    {
+      "name": "SHOW_EASTER_EGG",
+      "description": "",
+      "type": "release",
+      "project": "default",
+      "stale": false,
+      "impressionData": false,
+      "archived": false
+    },
+    {
+      "name": "SHOW_PROFILES",
+      "description": "Users can see the profiles list",
+      "type": "permission",
+      "project": "default",
+      "stale": false,
+      "impressionData": true,
+      "archived": false
+    },
+    {
+      "name": "TEXT_PRESENTATION",
+      "description": "",
+      "type": "experiment",
+      "project": "default",
+      "stale": false,
+      "impressionData": true,
+      "archived": false
+    }
+  ],
+  "featureStrategies": [
+    {
+      "name": "flexibleRollout",
+      "id": "cdda0798-64bd-4405-86dc-97d57d928939",
+      "featureName": "ALLOW_PROFILE_MANAGEMENT",
+      "parameters": {
+        "groupId": "ALLOW_PROFILE_MANAGEMENT",
+        "rollout": "100",
+        "stickiness": "default"
+      },
+      "constraints": [],
+      "segments": []
+    },
+    {
+      "name": "flexibleRollout",
+      "id": "598bb18f-f75e-42a8-aee6-c025e5ff9aff",
+      "featureName": "ENABLE_PROFILE_ADMIN",
+      "parameters": {
+        "groupId": "ENABLE_PROFILE_ADMIN",
+        "rollout": "100",
+        "stickiness": "default"
+      },
+      "constraints": [],
+      "segments": []
+    },
+    {
+      "name": "flexibleRollout",
+      "id": "f018d532-7b7d-46c9-b7a7-402e9a663f1a",
+      "featureName": "ENABLE_PROFILE_API",
+      "parameters": {
+        "groupId": "ENABLE_PROFILE_API",
+        "rollout": "100",
+        "stickiness": "default"
+      },
+      "constraints": [],
+      "segments": []
+    },
+    {
+      "name": "userWithId",
+      "id": "9e307481-3c8d-4855-a262-4ee4e63bf374",
+      "featureName": "GAME_SHARK_MODE",
+      "parameters": {
+        "userIds": "d821cbc0-2e4d-49fc-a5b4-990eb991beec"
+      },
+      "constraints": [],
+      "segments": []
+    },
+    {
+      "name": "flexibleRollout",
+      "id": "07a169e4-9aaf-4ca2-bf49-e1a4714bb759",
+      "featureName": "PROFILE_MANAGEMENT_BUTTON_SCHEME",
+      "parameters": {
+        "groupId": "PROFILE_MANAGEMENT_BUTTON_SCHEME",
+        "rollout": "100",
+        "stickiness": "default"
+      },
+      "constraints": [],
+      "segments": []
+    },
+    {
+      "name": "flexibleRollout",
+      "id": "27c64808-bd52-43c9-8f72-71e316e315c6",
+      "featureName": "SHOW_EASTER_EGG",
+      "parameters": {
+        "groupId": "SHOW_EASTER_EGG",
+        "rollout": "100",
+        "stickiness": "default"
+      },
+      "constraints": [],
+      "segments": []
+    },
+    {
+      "name": "flexibleRollout",
+      "id": "37d8b7b6-1bdf-4e00-a2ac-82ddd02b6655",
+      "featureName": "SHOW_PROFILES",
+      "parameters": {
+        "groupId": "SHOW_PROFILES",
+        "rollout": "100",
+        "stickiness": "default"
+      },
+      "constraints": [],
+      "segments": []
+    },
+    {
+      "name": "flexibleRollout",
+      "id": "a0e7156f-9da2-4d5f-9d1b-18d2fb957968",
+      "featureName": "TEXT_PRESENTATION",
+      "parameters": {
+        "groupId": "TEXT_PRESENTATION",
+        "rollout": "100",
+        "stickiness": "default"
+      },
+      "constraints": [],
+      "segments": []
+    }
+  ],
+  "featureEnvironments": [
+    {
+      "enabled": true,
+      "featureName": "ALLOW_PROFILE_MANAGEMENT",
+      "environment": "development",
+      "variants": [],
+      "name": "ALLOW_PROFILE_MANAGEMENT"
+    },
+    {
+      "enabled": false,
+      "featureName": "ENABLE_PROFILE_ADMIN",
+      "environment": "development",
+      "variants": [],
+      "name": "ENABLE_PROFILE_ADMIN"
+    },
+    {
+      "enabled": true,
+      "featureName": "ENABLE_PROFILE_API",
+      "environment": "development",
+      "variants": [],
+      "name": "ENABLE_PROFILE_API"
+    },
+    {
+      "enabled": true,
+      "featureName": "GAME_SHARK_MODE",
+      "environment": "development",
+      "variants": [],
+      "name": "GAME_SHARK_MODE"
+    },
+    {
+      "enabled": true,
+      "featureName": "PROFILE_MANAGEMENT_BUTTON_SCHEME",
+      "environment": "development",
+      "variants": [
+        {
+          "name": "BLUE",
+          "weight": 334,
+          "payload": {
+            "type": "string",
+            "value": "btn-primary"
+          },
+          "overrides": [],
+          "stickiness": "random",
+          "weightType": "variable"
+        },
+        {
+          "name": "DARK-WITHOUT-OUTLINE",
+          "weight": 333,
+          "payload": {
+            "type": "string",
+            "value": "btn-dark"
+          },
+          "overrides": [],
+          "stickiness": "random",
+          "weightType": "variable"
+        },
+        {
+          "name": "OUTLINE-DARK",
+          "weight": 333,
+          "payload": {
+            "type": "string",
+            "value": "btn-outline-dark"
+          },
+          "overrides": [],
+          "stickiness": "random",
+          "weightType": "variable"
+        }
+      ],
+      "name": "PROFILE_MANAGEMENT_BUTTON_SCHEME"
+    },
+    {
+      "enabled": false,
+      "featureName": "SHOW_EASTER_EGG",
+      "environment": "development",
+      "variants": [],
+      "name": "SHOW_EASTER_EGG"
+    },
+    {
+      "enabled": true,
+      "featureName": "SHOW_PROFILES",
+      "environment": "development",
+      "variants": [],
+      "name": "SHOW_PROFILES"
+    },
+    {
+      "enabled": true,
+      "featureName": "TEXT_PRESENTATION",
+      "environment": "development",
+      "variants": [
+        {
+          "name": "DEFAULT",
+          "weight": 500,
+          "payload": {
+            "type": "json",
+            "value": "{\n\"title\": \"Hello there 😄!\",\n\"subTitle\": \"Change how this app behave by changing the feature toggle tool ⚒\",\n\"profileTitle\": \"Registered profiles\"\n}"
+          },
+          "overrides": [],
+          "stickiness": "random",
+          "weightType": "variable"
+        },
+        {
+          "name": "FRIENDLIER",
+          "weight": 500,
+          "payload": {
+            "type": "json",
+            "value": "{ \"title\": \"Hello you handsome 😉!\", \"subTitle\": \"Psiu! You can change how this thing behaves. Just change the feature toggles ⚒\", \"profileTitle\": \"Profiles we've found\" }"
+          },
+          "overrides": [],
+          "stickiness": "random",
+          "weightType": "variable"
+        }
+      ],
+      "name": "TEXT_PRESENTATION"
+    }
+  ],
+  "contextFields": [],
+  "featureTags": [],
+  "segments": [],
+  "tagTypes": []
+}
