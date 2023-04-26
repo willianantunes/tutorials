@@ -4,18 +4,23 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "~=3.2"
+django = "~=4.1"
 djangorestframework = "*"
-python-jose = "*"
+### WSGI and static serving
+gunicorn = "~=20.1"
+gevent = "~=22.10"
+whitenoise = { extras = ['brotli'] }
+### Add-ons
 requests = "*"
-auth0-python = "*"
 python-dotenv = "*"
-faker = "*"
 unleashclient = "*"
 pyyaml = "*"
 ua-parser = "*"
 user-agents = "*"
 django-user-agents = "*"
+### Generators
+faker = "*"
+
 
 [dev-packages]
 pytest-django = "*"

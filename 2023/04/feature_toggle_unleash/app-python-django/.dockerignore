@@ -6,3 +6,4 @@
 !Pipfile*
 !.babelrc
 !package*.json
+!gunicorn_config.py
