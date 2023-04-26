@@ -17,6 +17,6 @@ const featureToggleHandler = () => {
   }
 }
 
-unleash.start()
 unleash.on("ready", featureToggleHandler)
 unleash.on("update", featureToggleHandler)
+unleash.start()
