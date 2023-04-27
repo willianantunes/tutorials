@@ -1,6 +1,7 @@
 version: "3.9"
+
 services:
-  unleash:
+  web-feature-toggle:
     # https://docs.getunleash.io/reference/deploy/getting-started#option-one---use-docker
     image: unleashorg/unleash-server:4.22.5
     ports:
@@ -48,21 +49,3 @@ services:
       timeout: 1m
       retries: 5
       start_period: 10s
-  project-be-and-fe:
-    depends_on:
-      unleash:
-        condition: service_healthy
-    build:
-      context: app-python-django
-    env_file: app-python-django/.env.development
-    ports:
-      - "8000:8000"
-  product-fe:
-    depends_on:
-      unleash:
-        condition: service_healthy
-    build:
-      context: app-javascript-nextjs
-    env_file: app-javascript-nextjs/.env.development
-    ports:
-      - "3000:3000"

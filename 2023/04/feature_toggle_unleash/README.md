@@ -15,13 +15,17 @@ admin
 unleash4all
 ```
 
-You can access the application at three addresses:
+You can access the Python/Django application at three addresses:
 
 - Home: http://localhost:8000/
 - APIs: http://localhost:8000/api/v1/
 - Admin: http://localhost:8000/admin/
 
 Use the credential `admin:admin` for the last address.
+
+You can access the JavaScript/Next.js application from the address:
+
+- http://localhost:3000/
 
 ## Importing the configuration
 
