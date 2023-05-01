@@ -1,6 +1,6 @@
 # Feature Toggle Unleash
 
-To understand it, please read the article XYZ.
+To understand it, please read the article [Understand Feature Flags by Practice with Unleash](https://www.willianantunes.com/blog/2023/05/understand-feature-flags-by-practice-with-unleash/).
 
 ## Project details
 

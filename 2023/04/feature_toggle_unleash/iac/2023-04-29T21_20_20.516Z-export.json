@@ -1,1 +1,319 @@
-{"features":[{"name":"ALLOW_PROFILE_MANAGEMENT","description":"User can manage profiles","type":"permission","project":"default","stale":false,"impressionData":true,"archived":false},{"name":"DISABLE_CLAIMS_PAGE","description":"","type":"permission","project":"default","stale":false,"impressionData":false,"archived":false},{"name":"ENABLE_PROFILE_ADMIN","description":"","type":"permission","project":"default","stale":false,"impressionData":false,"archived":false},{"name":"ENABLE_PROFILE_API","description":"","type":"kill-switch","project":"default","stale":false,"impressionData":false,"archived":false},{"name":"GAME_SHARK_MODE","description":"","type":"kill-switch","project":"default","stale":false,"impressionData":true,"archived":false},{"name":"PROFILE_MANAGEMENT_BUTTON_SCHEME","description":"It changes the button scheme in terms of color and dimension","type":"experiment","project":"default","stale":false,"impressionData":true,"archived":false},{"name":"SHOW_EASTER_EGG","description":"","type":"release","project":"default","stale":false,"impressionData":false,"archived":false},{"name":"SHOW_PROFILES","description":"Users can see the profiles list","type":"permission","project":"default","stale":false,"impressionData":true,"archived":false},{"name":"TEXT_PRESENTATION","description":"","type":"experiment","project":"default","stale":false,"impressionData":true,"archived":false}],"featureStrategies":[{"name":"flexibleRollout","id":"a95dd627-b837-416d-bdea-a7483de78003","featureName":"ALLOW_PROFILE_MANAGEMENT","parameters":{"groupId":"ALLOW_PROFILE_MANAGEMENT","rollout":"100","stickiness":"default"},"constraints":[],"segments":[]},{"name":"flexibleRollout","id":"331527af-c32c-4953-b22c-a5047fa0cc5b","featureName":"DISABLE_CLAIMS_PAGE","parameters":{"groupId":"DISABLE_CLAIMS_PAGE","rollout":"100","stickiness":"default"},"constraints":[],"segments":[]},{"name":"flexibleRollout","id":"14ee14ab-5107-4af1-86d1-5e96664af5f6","featureName":"ENABLE_PROFILE_ADMIN","parameters":{"groupId":"ENABLE_PROFILE_ADMIN","rollout":"100","stickiness":"default"},"constraints":[],"segments":[]},{"name":"flexibleRollout","id":"55161291-e908-4ea8-ac39-c4f6962e5887","featureName":"ENABLE_PROFILE_API","parameters":{"groupId":"ENABLE_PROFILE_API","rollout":"100","stickiness":"default"},"constraints":[],"segments":[]},{"name":"userWithId","id":"e740dacb-60c3-477d-9a4c-7bbd9b6176e6","featureName":"GAME_SHARK_MODE","parameters":{"userIds":"d821cbc0-2e4d-49fc-a5b4-990eb991beec"},"constraints":[],"segments":[]},{"name":"flexibleRollout","id":"52db3a1b-0bfb-47a5-b99d-10a248171fda","featureName":"PROFILE_MANAGEMENT_BUTTON_SCHEME","parameters":{"groupId":"PROFILE_MANAGEMENT_BUTTON_SCHEME","rollout":"100","stickiness":"default"},"constraints":[],"segments":[]},{"name":"flexibleRollout","id":"6376f4cd-332c-491c-bb8e-ed2ab2c0ba41","featureName":"SHOW_EASTER_EGG","parameters":{"groupId":"SHOW_EASTER_EGG","rollout":"100","stickiness":"default"},"constraints":[],"segments":[]},{"name":"flexibleRollout","id":"a0b5e5e5-428f-4dc7-a681-e9931c8a2ca6","featureName":"SHOW_PROFILES","parameters":{"groupId":"SHOW_PROFILES","rollout":"100","stickiness":"default"},"constraints":[],"segments":[]},{"name":"flexibleRollout","id":"d07621e0-cf46-4a8c-86ab-fdffc9cba0eb","featureName":"TEXT_PRESENTATION","parameters":{"groupId":"TEXT_PRESENTATION","rollout":"100","stickiness":"default"},"constraints":[],"segments":[]}],"featureEnvironments":[{"enabled":true,"featureName":"ALLOW_PROFILE_MANAGEMENT","environment":"development","variants":[],"name":"ALLOW_PROFILE_MANAGEMENT"},{"enabled":true,"featureName":"DISABLE_CLAIMS_PAGE","environment":"development","variants":[],"name":"DISABLE_CLAIMS_PAGE"},{"enabled":false,"featureName":"ENABLE_PROFILE_ADMIN","environment":"development","variants":[],"name":"ENABLE_PROFILE_ADMIN"},{"enabled":true,"featureName":"ENABLE_PROFILE_API","environment":"development","variants":[],"name":"ENABLE_PROFILE_API"},{"enabled":true,"featureName":"GAME_SHARK_MODE","environment":"development","variants":[],"name":"GAME_SHARK_MODE"},{"enabled":true,"featureName":"PROFILE_MANAGEMENT_BUTTON_SCHEME","environment":"development","variants":[{"name":"BLUE","weight":334,"payload":{"type":"string","value":"btn-primary"},"overrides":[],"stickiness":"random","weightType":"variable"},{"name":"DARK-WITHOUT-OUTLINE","weight":333,"payload":{"type":"string","value":"btn-dark"},"overrides":[],"stickiness":"random","weightType":"variable"},{"name":"OUTLINE-DARK","weight":333,"payload":{"type":"string","value":"btn-outline-dark"},"overrides":[],"stickiness":"random","weightType":"variable"}],"name":"PROFILE_MANAGEMENT_BUTTON_SCHEME"},{"enabled":false,"featureName":"SHOW_EASTER_EGG","environment":"development","variants":[],"name":"SHOW_EASTER_EGG"},{"enabled":true,"featureName":"SHOW_PROFILES","environment":"development","variants":[],"name":"SHOW_PROFILES"},{"enabled":true,"featureName":"TEXT_PRESENTATION","environment":"development","variants":[{"name":"DEFAULT","weight":500,"payload":{"type":"json","value":"{\n\"title\": \"Hello there 😄!\",\n\"subTitle\": \"Change how this app behave by changing the feature toggle tool ⚒\",\n\"profileTitle\": \"Registered profiles\"\n}"},"overrides":[],"stickiness":"random","weightType":"variable"},{"name":"FRIENDLIER","weight":500,"payload":{"type":"json","value":"{ \"title\": \"Hello you handsome 😉!\", \"subTitle\": \"Psiu! You can change how this thing behaves. Just change the feature toggles ⚒\", \"profileTitle\": \"Profiles we've found\" }"},"overrides":[],"stickiness":"random","weightType":"variable"}],"name":"TEXT_PRESENTATION"}],"contextFields":[],"featureTags":[],"segments":[],"tagTypes":[]}
+{
+  "features": [
+    {
+      "name": "ALLOW_PROFILE_MANAGEMENT",
+      "description": "User can manage profiles",
+      "type": "permission",
+      "project": "default",
+      "stale": false,
+      "impressionData": true,
+      "archived": false
+    },
+    {
+      "name": "DISABLE_CLAIMS_PAGE",
+      "description": "",
+      "type": "permission",
+      "project": "default",
+      "stale": false,
+      "impressionData": false,
+      "archived": false
+    },
+    {
+      "name": "ENABLE_PROFILE_ADMIN",
+      "description": "",
+      "type": "permission",
+      "project": "default",
+      "stale": false,
+      "impressionData": false,
+      "archived": false
+    },
+    {
+      "name": "ENABLE_PROFILE_API",
+      "description": "",
+      "type": "kill-switch",
+      "project": "default",
+      "stale": false,
+      "impressionData": false,
+      "archived": false
+    },
+    {
+      "name": "GAME_SHARK_MODE",
+      "description": "",
+      "type": "kill-switch",
+      "project": "default",
+      "stale": false,
+      "impressionData": true,
+      "archived": false
+    },
+    {
+      "name": "PROFILE_MANAGEMENT_BUTTON_SCHEME",
+      "description": "It changes the button scheme in terms of color and dimension",
+      "type": "experiment",
+      "project": "default",
+      "stale": false,
+      "impressionData": true,
+      "archived": false
+    },
+    {
+      "name": "SHOW_EASTER_EGG",
+      "description": "",
+      "type": "release",
+      "project": "default",
+      "stale": false,
+      "impressionData": false,
+      "archived": false
+    },
+    {
+      "name": "SHOW_PROFILES",
+      "description": "Users can see the profiles list",
+      "type": "permission",
+      "project": "default",
+      "stale": false,
+      "impressionData": true,
+      "archived": false
+    },
+    {
+      "name": "TEXT_PRESENTATION",
+      "description": "",
+      "type": "experiment",
+      "project": "default",
+      "stale": false,
+      "impressionData": true,
+      "archived": false
+    }
+  ],
+  "featureStrategies": [
+    {
+      "name": "flexibleRollout",
+      "id": "a95dd627-b837-416d-bdea-a7483de78003",
+      "featureName": "ALLOW_PROFILE_MANAGEMENT",
+      "parameters": {
+        "groupId": "ALLOW_PROFILE_MANAGEMENT",
+        "rollout": "100",
+        "stickiness": "default"
+      },
+      "constraints": [],
+      "segments": []
+    },
+    {
+      "name": "flexibleRollout",
+      "id": "331527af-c32c-4953-b22c-a5047fa0cc5b",
+      "featureName": "DISABLE_CLAIMS_PAGE",
+      "parameters": {
+        "groupId": "DISABLE_CLAIMS_PAGE",
+        "rollout": "100",
+        "stickiness": "default"
+      },
+      "constraints": [],
+      "segments": []
+    },
+    {
+      "name": "flexibleRollout",
+      "id": "14ee14ab-5107-4af1-86d1-5e96664af5f6",
+      "featureName": "ENABLE_PROFILE_ADMIN",
+      "parameters": {
+        "groupId": "ENABLE_PROFILE_ADMIN",
+        "rollout": "100",
+        "stickiness": "default"
+      },
+      "constraints": [],
+      "segments": []
+    },
+    {
+      "name": "flexibleRollout",
+      "id": "55161291-e908-4ea8-ac39-c4f6962e5887",
+      "featureName": "ENABLE_PROFILE_API",
+      "parameters": {
+        "groupId": "ENABLE_PROFILE_API",
+        "rollout": "100",
+        "stickiness": "default"
+      },
+      "constraints": [],
+      "segments": []
+    },
+    {
+      "name": "userWithId",
+      "id": "e740dacb-60c3-477d-9a4c-7bbd9b6176e6",
+      "featureName": "GAME_SHARK_MODE",
+      "parameters": {
+        "userIds": "d821cbc0-2e4d-49fc-a5b4-990eb991beec"
+      },
+      "constraints": [],
+      "segments": []
+    },
+    {
+      "name": "flexibleRollout",
+      "id": "52db3a1b-0bfb-47a5-b99d-10a248171fda",
+      "featureName": "PROFILE_MANAGEMENT_BUTTON_SCHEME",
+      "parameters": {
+        "groupId": "PROFILE_MANAGEMENT_BUTTON_SCHEME",
+        "rollout": "100",
+        "stickiness": "default"
+      },
+      "constraints": [],
+      "segments": []
+    },
+    {
+      "name": "flexibleRollout",
+      "id": "6376f4cd-332c-491c-bb8e-ed2ab2c0ba41",
+      "featureName": "SHOW_EASTER_EGG",
+      "parameters": {
+        "groupId": "SHOW_EASTER_EGG",
+        "rollout": "100",
+        "stickiness": "default"
+      },
+      "constraints": [],
+      "segments": []
+    },
+    {
+      "name": "flexibleRollout",
+      "id": "a0b5e5e5-428f-4dc7-a681-e9931c8a2ca6",
+      "featureName": "SHOW_PROFILES",
+      "parameters": {
+        "groupId": "SHOW_PROFILES",
+        "rollout": "100",
+        "stickiness": "default"
+      },
+      "constraints": [],
+      "segments": []
+    },
+    {
+      "name": "flexibleRollout",
+      "id": "d07621e0-cf46-4a8c-86ab-fdffc9cba0eb",
+      "featureName": "TEXT_PRESENTATION",
+      "parameters": {
+        "groupId": "TEXT_PRESENTATION",
+        "rollout": "100",
+        "stickiness": "default"
+      },
+      "constraints": [],
+      "segments": []
+    }
+  ],
+  "featureEnvironments": [
+    {
+      "enabled": true,
+      "featureName": "ALLOW_PROFILE_MANAGEMENT",
+      "environment": "development",
+      "variants": [],
+      "name": "ALLOW_PROFILE_MANAGEMENT"
+    },
+    {
+      "enabled": true,
+      "featureName": "DISABLE_CLAIMS_PAGE",
+      "environment": "development",
+      "variants": [],
+      "name": "DISABLE_CLAIMS_PAGE"
+    },
+    {
+      "enabled": false,
+      "featureName": "ENABLE_PROFILE_ADMIN",
+      "environment": "development",
+      "variants": [],
+      "name": "ENABLE_PROFILE_ADMIN"
+    },
+    {
+      "enabled": true,
+      "featureName": "ENABLE_PROFILE_API",
+      "environment": "development",
+      "variants": [],
+      "name": "ENABLE_PROFILE_API"
+    },
+    {
+      "enabled": true,
+      "featureName": "GAME_SHARK_MODE",
+      "environment": "development",
+      "variants": [],
+      "name": "GAME_SHARK_MODE"
+    },
+    {
+      "enabled": true,
+      "featureName": "PROFILE_MANAGEMENT_BUTTON_SCHEME",
+      "environment": "development",
+      "variants": [
+        {
+          "name": "BLUE",
+          "weight": 334,
+          "payload": {
+            "type": "string",
+            "value": "btn-primary"
+          },
+          "overrides": [],
+          "stickiness": "random",
+          "weightType": "variable"
+        },
+        {
+          "name": "DARK-WITHOUT-OUTLINE",
+          "weight": 333,
+          "payload": {
+            "type": "string",
+            "value": "btn-dark"
+          },
+          "overrides": [],
+          "stickiness": "random",
+          "weightType": "variable"
+        },
+        {
+          "name": "OUTLINE-DARK",
+          "weight": 333,
+          "payload": {
+            "type": "string",
+            "value": "btn-outline-dark"
+          },
+          "overrides": [],
+          "stickiness": "random",
+          "weightType": "variable"
+        }
+      ],
+      "name": "PROFILE_MANAGEMENT_BUTTON_SCHEME"
+    },
+    {
+      "enabled": false,
+      "featureName": "SHOW_EASTER_EGG",
+      "environment": "development",
+      "variants": [],
+      "name": "SHOW_EASTER_EGG"
+    },
+    {
+      "enabled": true,
+      "featureName": "SHOW_PROFILES",
+      "environment": "development",
+      "variants": [],
+      "name": "SHOW_PROFILES"
+    },
+    {
+      "enabled": true,
+      "featureName": "TEXT_PRESENTATION",
+      "environment": "development",
+      "variants": [
+        {
+          "name": "DEFAULT",
+          "weight": 500,
+          "payload": {
+            "type": "json",
+            "value": "{\n\"title\": \"Hello there 😄!\",\n\"subTitle\": \"Change how this app behave by changing the feature toggle tool ⚒\",\n\"profileTitle\": \"Registered profiles\"\n}"
+          },
+          "overrides": [],
+          "stickiness": "random",
+          "weightType": "variable"
+        },
+        {
+          "name": "FRIENDLIER",
+          "weight": 500,
+          "payload": {
+            "type": "json",
+            "value": "{ \"title\": \"Hello you handsome 😉!\", \"subTitle\": \"Psiu! You can change how this thing behaves. Just change the feature toggles ⚒\", \"profileTitle\": \"Profiles we've found\" }"
+          },
+          "overrides": [],
+          "stickiness": "random",
+          "weightType": "variable"
+        }
+      ],
+      "name": "TEXT_PRESENTATION"
+    }
+  ],
+  "contextFields": [],
+  "featureTags": [],
+  "segments": [],
+  "tagTypes": []
+}
