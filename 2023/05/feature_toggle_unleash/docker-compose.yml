@@ -48,7 +48,7 @@ services:
       timeout: 1m
       retries: 5
       start_period: 10s
-  project-be-and-fe:
+  project-python-be-and-fe:
     depends_on:
       unleash:
         condition: service_healthy
@@ -57,7 +57,7 @@ services:
     env_file: app-python-django/.env.development
     ports:
       - "8000:8000"
-  product-fe:
+  product-javascript-be:
     depends_on:
       unleash:
         condition: service_healthy
@@ -66,3 +66,30 @@ services:
     env_file: app-javascript-nextjs/.env.development
     ports:
       - "3000:3000"
+  db-sql-server:
+    image: mcr.microsoft.com/mssql/server
+    environment:
+      SA_PASSWORD: Password1
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    healthcheck:
+      test: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "Password1" -Q "SELECT 1" -b -o /dev/null
+      interval: 10s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+  project-csharp-be-and-fe:
+    image: mcr.microsoft.com/dotnet/sdk:7.0
+    env_file: app-csharp-aspnet/.env.development
+    depends_on:
+      db-sql-server:
+        condition: service_healthy
+      unleash:
+        condition: service_healthy
+    volumes:
+      - "./app-csharp-aspnet/:/app/"
+    ports:
+      - "5238:80"
+    working_dir: /app
+    command: "/app/scripts/start.sh"
