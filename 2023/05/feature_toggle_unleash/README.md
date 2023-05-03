@@ -8,14 +8,14 @@ Execute the command:
 
     docker-compose up
 
-When everything is up, you can access Unleash with the address `http://localhost:4242/` and credential:
+When everything is up, you can access Unleash with the address http://localhost:4242/ and credential:
 
 ```
 admin
 unleash4all
 ```
 
-You can access the Python/Django application at three addresses:
+You can access the [**Python/Django application**](./app-python-django) at three addresses:
 
 - Home: http://localhost:8000/
 - APIs: http://localhost:8000/api/v1/
@@ -23,9 +23,13 @@ You can access the Python/Django application at three addresses:
 
 Use the credential `admin:admin` for the last address.
 
-You can access the JavaScript/Next.js application from the address:
+You can access the [**JavaScript/Next.js application**](./app-javascript-nextjs) from the address:
 
 - http://localhost:3000/
+
+You can access the [**C#/ASP.NET Core with Razor Pages**](./app-csharp-aspnet) from the address:
+
+- http://localhost:5238/
 
 ## Importing the configuration
 
@@ -35,7 +39,7 @@ Access the project's link:
 
 Then click on `Import` icon. It's above the `Event log` tab. Now select the file the JSON file from the iac folder:
 
-- [2023-04-25T19_12_42.110Z-export.json](./iac/2023-04-25T19_12_42.110Z-export.json)
+- [2023-04-29T21_20_20.516Z-export.json](./iac/2023-04-29T21_20_20.516Z-export.json)
 
 Follow the wizard and finish the importing process. If you access `http://localhost:4242/features` you should see the following image:
 
