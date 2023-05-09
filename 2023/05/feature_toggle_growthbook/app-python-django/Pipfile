@@ -1,0 +1,37 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "~=4.1"
+djangorestframework = "*"
+### WSGI and static serving
+gunicorn = "~=20.1"
+gevent = "~=22.10"
+whitenoise = { extras = ['brotli'] }
+### Add-ons
+requests = "*"
+python-dotenv = "*"
+growthbook = "*"
+pyyaml = "*"
+ua-parser = "*"
+user-agents = "*"
+django-user-agents = "*"
+### Generators
+faker = "*"
+
+
+[dev-packages]
+pytest-django = "*"
+pytest-mock = "*"
+pytest-cov = "*"
+black = "*"
+isort = "*"
+mypy = "*"
+
+[requires]
+python_version = "3.9"
+
+[pipenv]
+allow_prereleases = true

@@ -1,0 +1,59 @@
+{% extends "core/templates/base.html" %}
+
+{% block content %}
+
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <h1 class="display-4 fw-normal">{{ text_presentation.title }}</h1>
+        <p class="fs-5 text-muted">{{ text_presentation.subTitle }}</p>
+    </div>
+
+    <div class="card">
+        <h5 class="card-header">{{ text_presentation.profileTitle }}</h5>
+        <div class="card-body">
+            {% if show_profiles %}
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">username</th>
+                        <th scope="col">name</th>
+                        <th scope="col">sex</th>
+                        <th scope="col">address</th>
+                        <th scope="col">mail</th>
+                        <th scope="col">birthdate</th>
+                        {% if allow_profile_management %}
+                            <th scope="col">actions</th>
+                        {% endif %}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for profile in profiles %}
+                        <tr>
+                            <td>{{ profile.username }}</td>
+                            <td>{{ profile.name }}</td>
+                            <td>{{ profile.sex }}</td>
+                            <td>{{ profile.address }}</td>
+                            <td>{{ profile.mail }}</td>
+                            <td>{{ profile.birthdate }}</td>
+                            {% if allow_profile_management %}
+                                <td>
+                                    <form method="post" action="{% url 'forms_v1_manage_profiles' %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn {{ button_scheme_value }} mb-3 ">Delete row</button>
+                                        <input type="hidden" name="profileId" value="{{ profile.id }}">
+                                        <input type="hidden" name="method" value="DELETE">
+                                    </form>
+                                </td>
+                            {% endif %}
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p class="card-text">This is not available. Try again later.</p>
+            {% endif %}
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,9 @@
+# https://docs.docker.com/engine/reference/builder/#dockerignore-file
+*
+!app_python_django
+!scripts
+!manage.py
+!Pipfile*
+!.babelrc
+!package*.json
+!gunicorn_config.py

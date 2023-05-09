@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  mongo:
+    image: "mongo:6.0.5"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./scripts/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ../mongodb-dump/:/tmp/mongodb-dump
+    healthcheck:
+      test: [ "CMD","mongosh", "-u", "root", "-p", "password", "--eval", "db.adminCommand('ping')" ]
+      interval: 5s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+  growthbook:
+    image: "growthbook/growthbook:2.0.0"
+    ports:
+      - "3000:3000"
+      - "3100:3100"
+    depends_on:
+      mongo:
+        condition: service_healthy
+    environment:
+      - MONGODB_URI=mongodb://root:password@mongo:27017/
