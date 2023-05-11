@@ -23,6 +23,10 @@ You can access the [**Python/Django application**](./app-python-django) at three
 
 Use the credential `admin:admin` for the last address.
 
+You can access the [**JavaScript/Next.js application**](./app-javascript-nextjs) from the address:
+
+- http://localhost:3001/
+
 ## Exporting the configuration
 
 Let's say your GrowthBook instance is fully configured, then you can access the MongoDB container with `docker-compose exec mongo bash` and execute the following command:
