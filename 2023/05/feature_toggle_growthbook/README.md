@@ -27,6 +27,10 @@ You can access the [**JavaScript/Next.js application**](./app-javascript-nextjs)
 
 - http://localhost:3001/
 
+You can access the [**C#/ASP.NET Core with Razor Pages**](./app-csharp-aspnet) from the address:
+
+- http://localhost:5238/
+
 ## Exporting the configuration
 
 Let's say your GrowthBook instance is fully configured, then you can access the MongoDB container with `docker-compose exec mongo bash` and execute the following command:
@@ -39,6 +43,7 @@ Copy the dump from the container to your local machine using the docker cp comma
 
 ```
 docker cp <container_name>:/tmp/growthbook-mongodump ./
+docker cp f8a511caf489:/tmp/growthbook-mongodump ./
 ```
 
 Now you are able to use `mongorestore`.

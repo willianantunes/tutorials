@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commands", "commands\Commands.csproj", "{C0027E03-5722-4BFE-9ED1-E3FD78796EBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flaggy", "src\Flaggy.csproj", "{BC32AF43-6D5E-47CF-900D-257DD026AE17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flaggy.Tests", "tests\Flaggy.Tests.csproj", "{BE17DF38-5F3F-4992-8B15-BB1B7E4A7694}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{6E58E1B2-D361-41A2-AFB9-A49A6740CDB2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C0027E03-5722-4BFE-9ED1-E3FD78796EBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0027E03-5722-4BFE-9ED1-E3FD78796EBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0027E03-5722-4BFE-9ED1-E3FD78796EBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0027E03-5722-4BFE-9ED1-E3FD78796EBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC32AF43-6D5E-47CF-900D-257DD026AE17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC32AF43-6D5E-47CF-900D-257DD026AE17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC32AF43-6D5E-47CF-900D-257DD026AE17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC32AF43-6D5E-47CF-900D-257DD026AE17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE17DF38-5F3F-4992-8B15-BB1B7E4A7694}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE17DF38-5F3F-4992-8B15-BB1B7E4A7694}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE17DF38-5F3F-4992-8B15-BB1B7E4A7694}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE17DF38-5F3F-4992-8B15-BB1B7E4A7694}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

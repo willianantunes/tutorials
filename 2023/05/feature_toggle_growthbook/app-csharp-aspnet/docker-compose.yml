@@ -1,4 +1,5 @@
 version: "3.9"
+
 services:
   mongo:
     image: "mongo:6.0.5"
@@ -8,8 +9,8 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
-      - ./mongodb-dump/:/tmp/mongodb-dump
+      - ../docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ../mongodb-dump/:/tmp/mongodb-dump
     healthcheck:
       test: [ "CMD","mongosh", "-u", "root", "-p", "password", "--eval", "db.adminCommand('ping')" ]
       interval: 5s
@@ -26,30 +27,6 @@ services:
         condition: service_healthy
     environment:
       - MONGODB_URI=mongodb://root:password@mongo:27017/
-    healthcheck:
-      test: [ "CMD", "python", "-c", "import socket; socket.create_connection(('localhost', 3000), timeout=3)" ]
-      interval: 5s
-      timeout: 3s
-      retries: 3
-      start_period: 5s
-  project-python-be-and-fe:
-    depends_on:
-      growthbook:
-        condition: service_healthy
-    build:
-      context: app-python-django
-    env_file: app-python-django/.env.development
-    ports:
-      - "8000:8000"
-  product-javascript-be:
-    depends_on:
-      growthbook:
-        condition: service_healthy
-    build:
-      context: app-javascript-nextjs
-    env_file: app-javascript-nextjs/.env.development
-    ports:
-      - "3001:3000"
   db-sql-server:
     image: mcr.microsoft.com/mssql/server
     environment:
@@ -63,16 +40,14 @@ services:
       timeout: 3s
       retries: 10
       start_period: 10s
-  project-csharp-be-and-fe:
+  app:
     image: mcr.microsoft.com/dotnet/sdk:7.0
-    env_file: app-csharp-aspnet/.env.development
+    env_file: .env.development
     depends_on:
       db-sql-server:
         condition: service_healthy
-      growthbook:
-        condition: service_healthy
     volumes:
-      - "./app-csharp-aspnet/:/app/"
+      - "./:/app/"
     ports:
       - "5238:80"
     working_dir: /app
