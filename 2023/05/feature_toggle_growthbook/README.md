@@ -68,4 +68,4 @@ Given you have the dump file, then you can issue:
 
 If you open [GrowthBook UI](http://localhost:3000/features), you should see the following toggles:
 
-![](./docs/2023-05-10-17-21-30-Screenshot.png)
+![](./docs/2023-05-17-16-20-28-Screenshot.png)
