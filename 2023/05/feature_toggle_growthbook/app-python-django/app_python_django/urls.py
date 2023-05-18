@@ -17,6 +17,7 @@ urlpatterns = [
     path("", views.index, name="index"),
     # APIs forms
     path("forms/v1/profiles", views.manage_profiles, name="forms_v1_manage_profiles"),
+    path("users/v1/define-cnpj", views.define_cnpj, name="users_v1_define_cnpj"),
     # APIs
     path("api/v1/", include(router.urls)),
 ]

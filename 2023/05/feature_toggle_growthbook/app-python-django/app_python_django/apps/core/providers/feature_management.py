@@ -43,6 +43,9 @@ class FeatureManagementMiddleware:
             "userId": user_id,
             "browser": browser,
         }
+        cnpj = request.session.get("cnpj")
+        if cnpj:
+            user_context["cnpj"] = cnpj
         client = GrowthBook(
             attributes=user_context,
             api_host=setting("GROWTHBOOK_URL"),

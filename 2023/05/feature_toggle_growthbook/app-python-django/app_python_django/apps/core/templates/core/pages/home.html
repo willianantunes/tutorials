@@ -7,6 +7,28 @@
         <p class="fs-5 text-muted">{{ text_presentation.subTitle }}</p>
     </div>
 
+    {% if 'cnpj' in request.session and request.session.cnpj %}
+        <div class="pb-md-3 mx-auto text-center">
+            <p class="text-muted">Your CNPJ: {{ request.session.cnpj }}</p>
+        </div>
+        {% if your_are_special %}
+            <div class="pb-md-3 mx-auto text-center">
+                <p class="text-muted">Your are special 🚀</p>
+            </div>
+        {% endif %}
+    {% endif %}
+
+    <form method="post" action="{% url 'users_v1_define_cnpj' %}" class="row g-3">
+        {% csrf_token %}
+        <div class="col-auto">
+            <label for="inputCnpj" class="visually-hidden">CNPJ</label>
+            <input type="text" class="form-control" id="inputCnpj" name="inputCnpj" placeholder="CNPJ">
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">Confirm CNPJ</button>
+        </div>
+    </form>
+
     <div class="card">
         <h5 class="card-header">{{ text_presentation.profileTitle }}</h5>
         <div class="card-body">

@@ -43,7 +43,6 @@ Copy the dump from the container to your local machine using the docker cp comma
 
 ```
 docker cp <container_name>:/tmp/growthbook-mongodump ./
-docker cp f8a511caf489:/tmp/growthbook-mongodump ./
 ```
 
 Now you are able to use `mongorestore`.
