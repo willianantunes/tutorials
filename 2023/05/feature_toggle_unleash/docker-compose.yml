@@ -36,6 +36,9 @@ services:
       POSTGRES_DB: "development"
       POSTGRES_USER: "unleash"
       POSTGRES_PASSWORD: "jasmine"
+    volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./iac/:/tmp/postgresql-dump
     healthcheck:
       test:
         [
