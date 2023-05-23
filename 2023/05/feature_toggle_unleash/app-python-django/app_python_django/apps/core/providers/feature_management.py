@@ -1,10 +1,11 @@
 import logging
 
-from django.conf import settings
 from UnleashClient import UnleashClient
 
 
 def setting(name, default=None):
+    from django.conf import settings
+
     """
     Helper function to get a Django setting by name. If setting doesn't exist it will return a default.
     """
@@ -21,9 +22,9 @@ class Client:
         self._app_name = setting("UNLEASH_APP_NAME")
         self._environment = setting("UNLEASH_ENVIRONMENT", "default")
         self._instance_id = setting("UNLEASH_INSTANCE_ID", "unleash-client-python")
-        self._refresh_interval = setting("UNLEASH_INTERVAL_RATE", 15)
+        self._refresh_interval = setting("UNLEASH_INTERVAL_RATE", 5)
         self._refresh_jitter = setting("UNLEASH_REFRESH_JITTER", None)
-        self._metrics_interval = setting("UNLEASH_METRICS_INTERVAL", 60)
+        self._metrics_interval = setting("UNLEASH_METRICS_INTERVAL", 10)
         self._metrics_jitter = setting("UNLEASH_METRICS_JITTER", None)
         self._disable_metrics = setting("UNLEASH_DISABLE_METRICS", False)
         self._disable_registration = setting("UNLEASH_DISABLE_REGISTRATION", False)
@@ -48,7 +49,7 @@ class Client:
         for logger_name in ["UnleashClient", "apscheduler.scheduler", "apscheduler.executors"]:
             logging.getLogger(logger_name).setLevel(self._verbose_log_level)
 
-    def connect(self):
+    def connect(self) -> UnleashClient:
         self._update_custom_header()
         self._set_log_severity()
 
@@ -70,6 +71,11 @@ class Client:
             project_name=self._project_name,
             verbose_log_level=self._verbose_log_level,
             cache=self._cache,
+            # https://apscheduler.readthedocs.io/en/3.x/userguide.html#choosing-the-right-scheduler-job-store-s-executor-s-and-trigger-s
+            # Using the default scheduler provided by Unleash, you'll only execute the jobs when a request is made
+            # I haven't been able to make it work, though
+            # scheduler=GeventScheduler(),
+            # scheduler_executor=f"unleash_executor_{uuid4()}",
         )
 
         if self._fake_initialize:
@@ -80,5 +86,39 @@ class Client:
         return unleash_client
 
 
+class FeatureManagementMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        self._before_calling_view(request)
+        response = self.get_response(request)
+        self._after_calling_view(request)
+        return response
+
+    def _before_calling_view(self, request):
+        user_id_pc = "40956364-e486-4d8e-b35e-60660721f467"
+        user_id_mobile = "d821cbc0-2e4d-49fc-a5b4-990eb991beec"
+        user_id = user_id_pc if request.user_agent.is_pc else user_id_mobile
+        browser = request.user_agent.browser.family.lower()
+        user_context = {
+            "userId": user_id,
+            "browser": browser,
+        }
+        cnpj = request.session.get("cnpj")
+        if cnpj:
+            user_context["cnpj"] = cnpj
+        # https://docs.getunleash.io/unleash-client-python/usage.html
+        client = retrieve_client()
+        client.unleash_static_context = client.unleash_static_context | user_context
+
+    def _after_calling_view(self, request):
+        pass
+
+
 # https://docs.getunleash.io/unleash-client-python/usage.html
-client = Client().connect()
+_client = Client().connect()
+
+
+def retrieve_client() -> UnleashClient:
+    return _client

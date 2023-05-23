@@ -8,7 +8,7 @@ from app_python_django.apps.core.api.v1.serializers import ProfileSerializer
 from app_python_django.apps.core.models import Category
 from app_python_django.apps.core.models import Ingredient
 from app_python_django.apps.core.models import Profile
-from app_python_django.apps.core.providers.feature_management import client
+from app_python_django.apps.core.providers.feature_management import retrieve_client
 
 
 class ProfileViewSet(viewsets.ModelViewSet):
@@ -21,7 +21,7 @@ class ProfileViewSet(viewsets.ModelViewSet):
         """
         https://www.django-rest-framework.org/api-guide/views/#initialself-request-args-kwargs
         """
-        enable_profile_api = client.is_enabled("ENABLE_PROFILE_API")
+        enable_profile_api = retrieve_client().is_enabled("ENABLE_PROFILE_API")
         if not enable_profile_api:
             raise Http404("Not available")
         super().initial(request, *args, **kwargs)

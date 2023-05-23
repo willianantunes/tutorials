@@ -30,3 +30,12 @@ How to create a profile:
 How to find records:
 
     http GET :8000/api/v1/profile/ search==Jafar
+
+### CNPJs
+
+Special CNPJs:
+
+- 60832098000175
+- 79456582000175
+- 66606413000122
+- 59878210000120
