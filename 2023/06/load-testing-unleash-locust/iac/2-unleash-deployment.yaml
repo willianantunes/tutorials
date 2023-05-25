@@ -1,0 +1,96 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: unleash-secret
+  namespace: development
+data:
+  DATABASE_USERNAME: "dW5sZWFzaA=="
+  DATABASE_PASSWORD: "amFzbWluZQ=="
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: unleash-configmap
+  namespace: development
+data:
+  # Logs
+  LOG_LEVEL: "info"
+  # DB
+  DATABASE_HOST: "db-postgres-service.development.svc.cluster.local"
+  DATABASE_PORT: "5432"
+  DATABASE_NAME: "featuretoggle"
+  DATABASE_SSL: "false"
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: development
+  name: unleash-service
+spec:
+  selector:
+    app: unleash-server
+    tier: web
+  type: NodePort
+  ports:
+    - name: http
+      protocol: TCP
+      # See `kind-config.yaml` to understand why I configured port 32000!
+      nodePort: 32000
+      port: 4242
+      targetPort: web-server
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unleash-deployment
+  namespace: development
+  labels:
+    app: unleash-server
+    tier: web
+    project: feature-toggle
+    bu: core
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: unleash-server
+      tier: web
+  template:
+    metadata:
+      labels:
+        app: unleash-server
+        tier: web
+        project: feature-toggle
+        bu: core
+    spec:
+      containers:
+        - name: unleash-server
+          image: unleashorg/unleash-server:4.22.5
+          ports:
+            - name: web-server
+              containerPort: 4242
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 4242
+            initialDelaySeconds: 15
+            periodSeconds: 5
+            timeoutSeconds: 5
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 200m
+              memory: 384Mi
+          envFrom:
+            - configMapRef:
+                name: unleash-configmap
+            - secretRef:
+                name: unleash-secret

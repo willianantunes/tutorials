@@ -1,0 +1,21 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+  - role: control-plane
+    # https://github.com/kubernetes-sigs/kind/releases/tag/v0.19.0
+    image: kindest/node:v1.27.1@sha256:b7d12ed662b873bd8510879c1846e87c7e676a79fefc93e17b2a52989d3ff42b
+    extraPortMappings:
+      - containerPort: 32000
+        # Unleash Server
+        hostPort: 4242
+        listenAddress: "127.0.0.1"
+      - containerPort: 30000
+        # PostgreSQL socket port
+        hostPort: 5432
+        listenAddress: "127.0.0.1"
+      - containerPort: 30100
+        # Locust
+        hostPort: 8089
+        listenAddress: "127.0.0.1"
+  - role: worker
+    image: kindest/node:v1.27.1@sha256:b7d12ed662b873bd8510879c1846e87c7e676a79fefc93e17b2a52989d3ff42b

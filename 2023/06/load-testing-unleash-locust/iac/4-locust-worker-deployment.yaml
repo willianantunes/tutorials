@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: development
+  name: locust-worker
+  labels:
+    name: locust-worker
+    tier: worker
+spec:
+  replicas: 50
+  selector:
+    matchLabels:
+      app: locust-worker
+      tier: worker
+  template:
+    metadata:
+      labels:
+        app: locust-worker
+        tier: worker
+    spec:
+      containers:
+        - name: locust-worker
+          image: load-testing-unleash-locust_performance-testing
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: LOCUST_MODE_WORKER
+              value: "true"
+            - name: LOCUST_MASTER_NODE_HOST
+              value: "locust-master.development.svc.cluster.local"
+          envFrom:
+            - configMapRef:
+                name: locust-configmap
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 200m
+              memory: 384Mi

@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "load_testing_unleash_locust"
+version = "0.1.0"
+description = ""
+authors = ["Willian Antunes <willian.lima.antunes@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+locust = "^2.15.1"
+requests = "^2.31.0"
+UnleashClient = "^5.6.0"
+wrapt = "^1.15.0"
+
+[tool.poetry.dev-dependencies]
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+target_version = ["py310"]
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs
+    | \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+    | migrations
+    | settings.py
+  )/
+)
+'''
+
+[tool.isort]
+force_single_line = true
+line_length = 120
+use_parentheses = true
+multi_line_output = 5
+include_trailing_comma = true
+lines_between_types = 1
