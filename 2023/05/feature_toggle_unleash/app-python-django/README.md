@@ -12,6 +12,7 @@ This project demonstrates how to use feature toggles with Unleash, either in the
 Where you can see feature toggles:
 
 - [app_python_django/apps/core/views.py](./app_python_django/apps/core/views.py)
+- [app_python_django/apps/core/api/v1/views.py](./app_python_django/apps/core/api/v1/views.py)
 - [app_python_django/apps/core/templates/core/templates/header.html](./app_python_django/apps/core/templates/core/templates/header.html)
 - [app_python_django/apps/core/templates/core/pages/home.html](./app_python_django/apps/core/templates/core/pages/home.html)
 - [app_python_django/apps/core/admin.py](./app_python_django/apps/core/admin.py)
