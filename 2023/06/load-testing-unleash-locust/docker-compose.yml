@@ -63,6 +63,7 @@ services:
     depends_on:
       unleash:
         condition: service_healthy
+    entrypoint: sh -ce
     command:
       [
         "./scripts/start-development-locust.sh",

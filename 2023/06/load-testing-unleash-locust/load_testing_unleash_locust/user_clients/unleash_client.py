@@ -151,30 +151,8 @@ class BackendUser(locust.User):
         user_details = admin_client.create_api_token(app_name)
         user_secret = user_details["secret"]
 
-        def locust_handler(wrapped, args, kwargs):
-            feature_toggle_name = args[0]
-            start_time = time.time()
-            start_perf_counter = time.perf_counter()
-            request_meta = {
-                "request_type": wrapped.__name__,
-                "name": feature_toggle_name,
-                "context": {},
-                "start_time": start_time,
-                "response_length": 0,
-            }
-            try:
-                response = wrapped(*args, **kwargs)
-            except Exception as e:
-                request_meta["exception"] = e
-            response_time = (time.perf_counter() - start_perf_counter) * 1000
-            # This is what makes the request actually get logged in Locust!
-            request_meta = request_meta | {"response_time": response_time, "response": response}
-            request_event.fire(**request_meta)
-            return response
-
-        self._unleash_client = ClientUnleash(f"{settings.UNLEASH_URL}/api", user_secret, app_name).connect()
-        self.unleash_client = UnleashClientWrapped(self._unleash_client, locust_handler)
+        self.unleash_client = ClientUnleash(f"{settings.UNLEASH_URL}/api", user_secret, app_name).connect()
         logging.info("User has been configured")
 
     def on_stop(self):
-        self._unleash_client.destroy()
+        self.unleash_client.destroy()

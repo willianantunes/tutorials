@@ -37,3 +37,20 @@ kubectl -n development run tmp-shell --rm -i --tty --image nicolaka/netshoot -- 
 nmap db-postgres-service.development.svc.cluster.local -PS5432
 nmap unleash-service.development.svc.cluster.local -PS4242
 ```
+
+### Test plan
+
+The test plan is a JSON stored in the toggle `TEST_PLAN`. By default, it has the following keys:
+
+```json
+{
+  "ENABLE_PROFILE_ADMIN": false,
+  "ENABLE_PROFILE_API": true,
+  "SHOW_PROFILES": true,
+  "ALLOW_PROFILE_MANAGEMENT": true,
+  "PROFILE_MANAGEMENT_BUTTON_SCHEME": ["btn-primary", "btn-dark", "btn-outline-dark"],
+  "SHOW_EASTER_EGG": false
+}
+```
+
+Locust will assert the expected toggle value according to this test plan. Change it and verify the failures, update the toggles, and so on.

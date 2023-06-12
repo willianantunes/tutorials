@@ -4,6 +4,3 @@
 set -e
 
 locust -f load_testing_unleash_locust/locustfile.py
-
-
-
