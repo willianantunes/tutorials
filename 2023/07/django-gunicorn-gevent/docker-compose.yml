@@ -1,0 +1,89 @@
+version: "3.9"
+
+services:
+  remote-interpreter:
+    build:
+      context: .
+    env_file: .env.development
+    volumes:
+      - .:/app
+    depends_on:
+      db:
+        condition: service_healthy
+      slow-service:
+        condition: service_healthy
+  db:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: "development"
+      POSTGRES_USER: "aladdin"
+      POSTGRES_PASSWORD: "jasmine"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "pg_isready",
+          "--dbname=development",
+          "--username=aladdin"
+        ]
+      interval: 2s
+      timeout: 1m
+      retries: 5
+      start_period: 10s
+  slow-service:
+    image: willianantunes/runner-said-no-one-ever
+    ports:
+      - "8001:8080"
+    environment:
+      PUMA_BIND_ADDRESS: 0.0.0.0
+      PUMA_BIND_PORT: 8080
+      PUMA_MIN_THREADS: 4
+      PUMA_MAX_THREADS: 20
+      PUMA_NUMBER_OF_WORKERS: 0
+      PUMA_PERSISTENT_TIMEOUT: 20
+      PUMA_FIRST_DATA_TIMEOUT: 30
+      RACK_ENV: production
+      APP_ENV: production
+      PROJECT_LOG_LEVEL: DEBUG
+      RACK_IP_ADDRESS_HEADER: REMOTE_ADDR
+      DELAY_ANSWER_IN_SECONDS: 1
+  app:
+    build:
+      context: .
+    env_file: .env.development
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    # CHANGE THE SCRIPT TO AFFECT HOW THE LOAD BEHAVES!
+    # command: [ "./scripts/start-patch_almost_all.sh" ]
+    command: [ "./scripts/start-patch_all.sh" ]
+    # command: [ "./scripts/start-patch_nothing.sh" ]
+    depends_on:
+      db:
+        condition: service_healthy
+      slow-service:
+        condition: service_healthy
+    healthcheck:
+      test: [ "CMD", "python", "healthcheck.py" ]
+      interval: 2s
+      timeout: 1m
+      retries: 5
+      start_period: 10s
+  send-load:
+    # https://github.com/rakyll/hey
+    image: williamyeh/hey
+    volumes:
+      - .:/app
+    entrypoint: [ "/bin/sh", "-ce" ]
+    # CHANGE THE SCRIPT TO AFFECT HOW THE LOAD BEHAVES!
+    command: [ "/app/scripts/load-database-call.sh" ]
+    # command: [ "/app/scripts/load-http-and-database-calls.sh" ]
+    # command: [ "/app/scripts/load-http-call.sh" ]
+    # The following is supposed to be used with gevent worker
+    # command: [ "/app/scripts/load-route-that-does-10-other-requests.sh" ]
+    depends_on:
+      app:
+        condition: service_healthy

@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "django-gunicorn-gevent"
+version = "0.1.0"
+description = ""
+authors = ["Willian Antunes <willian.lima.antunes@gmail.com>"]
+readme = "README.md"
+packages = [{include = "django_gunicorn_gevent"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.2.3"
+gevent = "^22.10.2"
+psycogreen = "^1.0.2"
+requests = "^2.31.0"
+psycopg2-binary = "^2.9.6"
+gunicorn = "^20.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+target_version = ["py311"]
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs
+    | \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+    | migrations
+    | settings.py
+  )/
+)
+'''
