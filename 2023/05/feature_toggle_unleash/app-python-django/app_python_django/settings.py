@@ -1,3 +1,4 @@
+import logging
 import os
 import pathlib
 
@@ -175,6 +176,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 #####
 # Custom settings for Unleash
+UNLEASH_VERBOSE_LOG_LEVEL = int(os.getenv("UNLEASH_VERBOSE_LOG_LEVEL", logging.WARNING))
 UNLEASH_API_TOKEN = os.getenv("UNLEASH_API_TOKEN", "default:development.unleash-insecure-api-token")
 UNLEASH_APP_NAME = os.getenv("UNLEASH_APP_NAME", "app-django-python")
 UNLEASH_URL = os.getenv("UNLEASH_URL", "https://app.unleash-hosted.com/demo/api/")
