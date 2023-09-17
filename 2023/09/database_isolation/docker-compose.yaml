@@ -1,0 +1,74 @@
+version: "3.9"
+
+services:
+  remote-interpreter-mariadb:
+    build:
+      context: .
+    env_file: .env.mariadb
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      db-mariadb:
+        condition: service_healthy
+  db-mariadb:
+    image: mariadb:11
+    ports:
+      - "3306:3306"
+    environment:
+      MARIADB_DATABASE: "development"
+      MARIADB_ROOT_PASSWORD: "root"
+    volumes:
+      - ./mariadb-docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "healthcheck.sh",
+          "--su-mysql",
+          "--connect",
+          "--innodb_initialized"
+        ]
+      interval: 2s
+      timeout: 1m
+      retries: 5
+      start_period: 10s
+  terminal-mariadb:
+    image: mariadb:11
+    command: [ "bash" ]
+  remote-interpreter-postgresql:
+    build:
+      context: .
+    env_file: .env.postgresql
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      db-postgresql:
+        condition: service_healthy
+  db-postgresql:
+    image: postgres:16
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    volumes:
+      - ./postgresql-docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "pg_isready",
+          "--dbname=postgres",
+          "--username=postgres"
+        ]
+      interval: 2s
+      timeout: 1m
+      retries: 5
+      start_period: 10s
+  terminal-postgresql:
+    image: postgres:16
+    command: [ "bash" ]
