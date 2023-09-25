@@ -1,8 +1,10 @@
 # Database Isolations
 
-I'll just cover the basics. For a business developer I think that's crucial, though you can go a lot deeper. It's worth mentioning that the isolation level in MariaDB is `REPEATABLE READ` by default. Know more in the [knowledge base](https://mariadb.com/kb/en/mariadb-transactions-and-isolation-levels-for-sql-server-users/#isolation-levels-and-locks).
+I'll just cover the basics. For a business developer I think that's crucial, though you can go a lot deeper.
 
 ## Understanding read phenomena by practice in MariaDB
+
+It's worth mentioning that the isolation level in MariaDB is `REPEATABLE READ` by default. Know more in the [knowledge base](https://mariadb.com/kb/en/mariadb-transactions-and-isolation-levels-for-sql-server-users/#isolation-levels-and-locks).
 
 You start with the following command:
 
@@ -176,7 +178,7 @@ BEGIN;
 -- At this point the balance is 1001.0000. In case it's not:
 -- UPDATE core_account SET balance = 1001.0000 WHERE username = 'ysullivan';
 UPDATE core_account SET balance = balance - 1000.0000 WHERE username = 'ysullivan';
-SELECT balance FROM core_account WHERE username = 'ysullivan' FOR UPDATE;
+SELECT balance FROM core_account WHERE username = 'ysullivan';
 ```
 
 Output:
@@ -244,6 +246,13 @@ TX 2's update is lost and in the end we have a negative balance 😱:
 
 ## Understanding read phenomena in PostgreSQL
 
+https://mbukowicz.github.io/databases/2020/05/01/snapshot-isolation-in-postgresql.html
+https://www.postgresql.org/docs/current/mvcc.html
+http://www.interdb.jp/pg/pgsql05.html
+https://wiki.postgresql.org/wiki/SSI
+
+The default isolation level in PostgreSQL is `READ COMMITTED`. Know more in [its documentation](https://www.postgresql.org/docs/16/transaction-iso.html).
+
 You start with the following command:
 
 ```shell
@@ -260,6 +269,92 @@ Then connect to the database instance using [PostgreSQL CLI](https://www.postgre
 
 ```shell
 psql postgresql://postgres:postgres@db-postgresql:5432/postgres
+```
+
+### Dirty read
+
+It doesn't happen on any isolation level. If we look at the [`SET TRANSACTION` guide](https://www.postgresql.org/docs/16/sql-set-transaction.html), it says the following:
+
+> The SQL standard defines one additional level, READ UNCOMMITTED. In PostgreSQL READ UNCOMMITTED is treated as READ COMMITTED.
+
+### Non-repeatable read
+
+TX 1:
+
+```sql
+BEGIN;
+SELECT SUM(balance) FROM core_account;
+```
+
+Output:
+
+```text
+    sum     
+------------
+ 55000.0000
+```
+
+TX 2:
+
+```sql
+BEGIN;
+UPDATE core_account SET balance = balance + 1 WHERE username = 'ysullivan';
+COMMIT;
+```
+
+TX 1:
+
+```sql
+SELECT SUM(balance) FROM core_account;
+```
+
+You don't get `55000`, but `55001` actually. If we want to fix it, we can start the first transaction with `BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ;`.
+
+Output:
+
+```text
+    sum     
+------------
+ 55001.0000
+```
+
+### Phantom read
+
+TX 1:
+
+```sql
+BEGIN;
+SELECT COUNT(*), SUM(balance) FROM core_account;
+```
+
+Output:
+
+```text
+ count |    sum     
+-------+------------
+    10 | 55001.0000
+```
+
+TX 2:
+
+```sql
+BEGIN;
+INSERT INTO core_account (id, created_at, updated_at, username, balance) VALUES (gen_random_uuid(),CURRENT_TIMESTAMP(6),CURRENT_TIMESTAMP(6),'willianantunes',50.0000);
+COMMIT;
+```
+
+TX 1:
+
+```sql
+SELECT COUNT(*), SUM(balance) FROM core_account;
+```
+
+We get 11 rows and `55051` when it should be 10 rows and `55001`. In PostgreSQL you can fix it by starting the first transaction with the command `BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ;`. PostgreSQL uses [snapshot](https://en.wikipedia.org/wiki/Snapshot_isolation) that's why you don't get phantom reads from it.
+
+```text
+ count |    sum     
+-------+------------
+    11 | 55051.0000
 ```
 
 ## Recurring procedures
