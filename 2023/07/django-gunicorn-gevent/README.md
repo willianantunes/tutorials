@@ -1,6 +1,6 @@
 # Django Gunicorn Gevent
 
-To understand it, please read the article TBD.
+To understand it, please read the article [Understand Async Workers by Practice with Django, Gunicorn, and Gevent](https://www.willianantunes.com/blog/2023/07/understand-async-workers-by-practice-with-django-gunicorn-and-gevent/).
 
 ## Recurring procedures
 
