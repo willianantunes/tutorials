@@ -37,6 +37,7 @@ services:
   terminal-mariadb:
     image: mariadb:11
     command: [ "bash" ]
+
   remote-interpreter-postgresql:
     build:
       context: .
@@ -72,3 +73,35 @@ services:
   terminal-postgresql:
     image: postgres:16
     command: [ "bash" ]
+
+  remote-interpreter-sqlserver:
+    build:
+      context: .
+    env_file: .env.sqlserver
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      db-sqlserver:
+        condition: service_healthy
+  db-sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+      - "1433:1433"
+    environment:
+      MSSQL_SA_PASSWORD: "T@R63dis"
+      MSSQL_TCP_PORT: 1433
+      # Developer / Express / Standard / Enterprise  / EnterpriseCore
+      MSSQL_PID: Developer
+      ACCEPT_EULA: "Y"
+      # Custom
+      DB_DATABASE: development
+    volumes:
+      - ./sqlserver-docker-entrypoint-initdb.d:/usr/src/app/
+    command: "/usr/src/app/restore-backup-and-start-sqlserver.sh"
+    healthcheck:
+      test: /opt/mssql-tools/bin/sqlcmd -d "$$DB_DATABASE" -U sa -P "$$MSSQL_SA_PASSWORD" -Q "SELECT 1" || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 5
