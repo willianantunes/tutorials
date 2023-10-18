@@ -1,0 +1,44 @@
+[
+  {
+    "httpRequest": {
+      "path": "/api/v1/acme.*"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "body": {
+            "type": "JSON",
+            "json": {
+                "health": "OK"
+            }
+        }
+    }
+  },
+  {
+    "httpRequest": {
+      "path": "/api/v1/xyz.*"
+    },
+    "httpResponse": {
+      "statusCode": 201,
+      "body": {
+            "type": "JSON",
+            "json": {
+                "salt": "wig"
+            }
+        }
+    }
+  },
+  {
+    "httpRequest": {
+      "path": "/api/v1/qwerty.*"
+    },
+    "httpResponse": {
+      "statusCode": 403,
+      "body": {
+            "type": "JSON",
+            "json": {
+                "message": "There is nothing to tell!"
+            }
+        }
+    }
+  }
+]

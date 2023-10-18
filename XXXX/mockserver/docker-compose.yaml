@@ -1,0 +1,17 @@
+version: "2.4"
+services:
+  mockserver:
+    image: mockserver/mockserver:5.15.0
+    # https://www.mock-server.com/mock_server/configuration_properties.html
+    environment:
+      MOCKSERVER_LOG_LEVEL: DEBUG
+      # https://www.mock-server.com/mock_server/creating_expectations.html
+      # https://github.com/mock-server/mockserver/blob/b607ad690543b17a6f6d6ecd92292ca3f28afe0d/mockserver-examples/json_examples.md
+      MOCKSERVER_INITIALIZATION_JSON_PATH: /app/initializer.json
+      MOCKSERVER_SERVER_PORT: 1080
+      MOCKSERVER_CORS_ALLOW_ORIGIN: "*"
+      MOCKSERVER_ATTEMPT_TO_PROXY_IF_NO_MATCHING_EXPECTATION: "false"
+    ports:
+      - "1080:1080"
+    volumes:
+      - ./src:/app
