@@ -3,6 +3,7 @@
   executionEnabled: true
   id: 854e8dad-40f1-49d2-b4da-b9655c003a05
   loglevel: INFO
+  group: PostgreSQL
   name: Create a user with CRUD permission in a dedicated database and schema
   nodeFilterEditable: false
   options:
@@ -33,28 +34,51 @@
         namespace: support-tools
         type: Job
         verify_ssl: 'false'
-        yaml: "apiVersion: batch/v1\nkind: Job\nmetadata:\n  name: rundeck-db-management-new-schema-user-${job.execid}\n\
-          \  namespace: support-tools\nspec:\n  parallelism: 1\n  backoffLimit: 0\n\
-          \  template:\n    metadata:\n      name: rundeck-db-management-new-schema-user-${job.execid}\n\
-          \    spec:\n      restartPolicy: Never\n      containers:\n        - name:\
-          \ rundeck-db-management-new-schema\n          image: postgres:13.2-alpine\n\
-          \          resources:\n            requests:\n              cpu: 5m\n  \
-          \            memory: 8Mi\n            limits:\n              cpu: 25m\n\
-          \              memory: 32Mi         \n          env:\n            - name:\
-          \ DATABASE_HOST\n              value: \"db-postgres-service.support-tools.svc.cluster.local\"\
-          \n            - name: DATABASE_PORT\n              value: \"5432\"\n   \
-          \         - name: DATABASE_USER\n              value: \"postgres\"\n   \
-          \         - name: DATABASE_PASSWORD\n              value: \"postgres\"\n\
-          \            - name: DATABASE_NAME\n              value: \"postgres\"\n\
-          \          command:\n            - sh\n            - \"-ce\"\n         \
-          \   - |\n              set -ex\n              psql -v ON_ERROR_STOP=1 \"\
-          postgresql://$DATABASE_USER:$DATABASE_PASSWORD@$DATABASE_HOST:$DATABASE_PORT/${unquotedoption.databaseName}\"\
-          \ <<-EOSQL\n                CREATE ROLE \"${unquotedoption.userName}\" WITH\
-          \ LOGIN PASSWORD '${unquotedoption.userPassword}';\n                GRANT\
-          \ ALL PRIVILEGES ON SCHEMA \"${unquotedoption.schemaName}\" TO \"${unquotedoption.userName}\"\
-          ;\n                ALTER ROLE \"${unquotedoption.userName}\" IN DATABASE\
-          \ \"${unquotedoption.databaseName}\" SET search_path TO \"${unquotedoption.schemaName}\"\
-          ;\n              EOSQL\n"
+        yaml: |
+          apiVersion: batch/v1
+          kind: Job
+          metadata:
+            name: rundeck-db-management-new-schema-user-${job.execid}
+            namespace: support-tools
+          spec:
+            parallelism: 1
+            backoffLimit: 0
+            template:
+              metadata:
+                name: rundeck-db-management-new-schema-user-${job.execid}
+              spec:
+                restartPolicy: Never
+                containers:
+                  - name: rundeck-db-management-new-schema
+                    image: postgres:13.2-alpine
+                    resources:
+                      requests:
+                        cpu: 5m
+                        memory: 8Mi
+                      limits:
+                        cpu: 25m
+                        memory: 32Mi         
+                    env:
+                      - name: DATABASE_HOST
+                        value: "db-postgres-service.support-tools.svc.cluster.local"
+                      - name: DATABASE_PORT
+                        value: "5432"
+                      - name: DATABASE_USER
+                        value: "postgres"
+                      - name: DATABASE_PASSWORD
+                        value: "postgres"
+                      - name: DATABASE_NAME
+                        value: "postgres"
+                    command:
+                      - sh
+                      - "-ce"
+                      - |
+                        set -ex
+                        psql -v ON_ERROR_STOP=1 "postgresql://$DATABASE_USER:$DATABASE_PASSWORD@$DATABASE_HOST:$DATABASE_PORT/${unquotedoption.databaseName}" <<-EOSQL
+                          CREATE ROLE "${unquotedoption.userName}" WITH LOGIN PASSWORD '${unquotedoption.userPassword}';
+                          GRANT ALL PRIVILEGES ON SCHEMA "${unquotedoption.schemaName}" TO "${unquotedoption.userName}";
+                          ALTER ROLE "${unquotedoption.userName}" IN DATABASE "${unquotedoption.databaseName}" SET search_path TO "${unquotedoption.schemaName}";
+                        EOSQL
       nodeStep: true
       type: Kubernetes-Create
     - configuration:
