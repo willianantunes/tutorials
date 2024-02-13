@@ -1,0 +1,5 @@
+# https://btcrecover.readthedocs.io/en/latest/tokenlist_file/
+wig
+salt
+^,^. ^,^, ^,^_
+2000$

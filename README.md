@@ -4,6 +4,9 @@ I have a [blog where I talk about technology](https://www.willianantunes.com/), 
 
 Contents:
 
+- 2024
+  - 02
+    - [Recover your wallet password if you have an idea about what your password might be](./2024/02/btcrecover)
 - 2023
   - XX
     - [Feature Flags with GrowthBook](./2023/06/feature_toggle_growthbook)

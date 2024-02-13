@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  recover:
+    network_mode: none
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app/btcrecover/playground
