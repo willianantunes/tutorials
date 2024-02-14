@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  docker:
+    image: docker:latest
+    privileged: true
+    volumes:
+      - ./certs:/certs
+  docker-client-tf-did:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    privileged: true
+    depends_on:
+      docker:
+        condition: service_started
+    environment:
+      - ARM_CLIENT_ID=
+      - ARM_CLIENT_SECRET=
+      - ARM_TENANT_ID=
+      - ARM_SUBSCRIPTION_ID=
+      - DOCKER_HOST=tcp://docker:2376
+      - DOCKER_TLS_VERIFY=1
+      - DOCKER_CERT_PATH=/certs/client
+    volumes:
+      - ./:/app
+      - ./certs:/certs
