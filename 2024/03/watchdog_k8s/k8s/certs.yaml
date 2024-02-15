@@ -1,0 +1,53 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: develop-willianantunesi-com-br
+  namespace: development
+spec:
+  commonName: '*.develop.willianantunesi.com.br'
+  dnsNames:
+  - '*.develop.willianantunesi.com.br'
+  - develop.willianantunesi.com.br
+  duration: 2160h0m0s
+  issuerRef:
+    kind: ClusterIssuer
+    name: this-cluster-issuer-does-not-exist
+  renewBefore: 480h0m0s
+  secretName: develop-willianantunesi-com-br-tls
+  subject:
+    organizations:
+    - willianantunes
+status:
+  conditions:
+  - lastTransitionTime: "2024-02-06T13:11:28Z"
+    message: Certificate is up to date and has not expired
+    observedGeneration: 1
+    reason: Ready
+    status: "True"
+    type: Ready
+  notAfter: "2024-05-15T13:04:35Z"
+  notBefore: "2024-02-15T13:04:36Z"
+  renewalTime: "2024-04-25T13:04:35Z"
+  revision: 2
+
+---
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: develop-wigi-com-br
+  namespace: development
+spec:
+  commonName: '*.develop.wigi.com.br'
+  dnsNames:
+  - '*.develop.wigi.com.br'
+  - develop.wigi.com.br
+  duration: 2160h0m0s
+  issuerRef:
+    kind: ClusterIssuer
+    name: this-cluster-issuer-does-not-exist
+  renewBefore: 480h0m0s
+  secretName: develop-wigi-com-br-tls
+  subject:
+    organizations:
+    - wig

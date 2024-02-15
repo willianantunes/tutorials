@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  namespace: development
+  name: watchdog-k8s-cronjob
+spec:
+  schedule: "* * * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: watchdog-k8s-sa
+          containers:
+            - name: watchdog-k8s
+              image: watchdog_k8s-remote-interpreter
+              imagePullPolicy: IfNotPresent
+              envFrom:
+                - configMapRef:
+                    name: watchdog-k8s-configmap
+          restartPolicy: Never

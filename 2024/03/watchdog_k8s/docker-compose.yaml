@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  remote-interpreter:
+    build:
+      context: .
+    volumes:
+      - .:/app
+  integration-tests:
+    build:
+      context: .
+    volumes:
+      - .:/app
+    command:
+      [
+        "./scripts/start-tests.sh",
+      ]
