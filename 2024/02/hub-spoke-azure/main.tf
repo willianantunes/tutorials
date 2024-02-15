@@ -3,6 +3,20 @@ locals {
     terraform   = true
     environment = "sandbox"
   }
+  networks = {
+    hub = {
+      name = "hub"
+      host = "hub-host-1"
+    }
+    spoke_site_a = {
+      name = "spoke-site-a"
+      host = "spoke-site-a-host-1"
+    }
+    spoke_site_b = {
+      name = "spoke-site-b"
+      host = "spoke-site-b-host-1"
+    }
+  }
 }
 
 resource "random_string" "arbitrary_id" {
@@ -11,6 +25,8 @@ resource "random_string" "arbitrary_id" {
   special = false
   upper   = false
 }
+
+// region VNET
 
 resource "azurerm_resource_group" "sandbox_rg" {
   name     = "sandbox-${random_string.arbitrary_id.result}-rg"
@@ -25,6 +41,13 @@ resource "azurerm_virtual_network" "hub" {
   tags                = local.tags
 }
 
+resource "azurerm_subnet" "hub_subnet_main" {
+  name                 = "hub-main-${random_string.arbitrary_id.result}-sn"
+  resource_group_name  = azurerm_resource_group.sandbox_rg.name
+  virtual_network_name = azurerm_virtual_network.hub.name
+  address_prefixes     = [azurerm_virtual_network.hub.address_space[0]]
+}
+
 resource "azurerm_virtual_network" "spoke_site_a" {
   name                = "spoke-site-a-${random_string.arbitrary_id.result}-vnet"
   address_space       = ["10.11.0.0/16"]
@@ -34,14 +57,14 @@ resource "azurerm_virtual_network" "spoke_site_a" {
 }
 
 resource "azurerm_subnet" "spoke_site_a_subnet_blue" {
-  name                 = "blue-${random_string.arbitrary_id.result}-sn"
+  name                 = "spoke-site-a-blue-${random_string.arbitrary_id.result}-sn"
   resource_group_name  = azurerm_resource_group.sandbox_rg.name
   virtual_network_name = azurerm_virtual_network.spoke_site_a.name
   address_prefixes     = ["10.11.0.0/21"]
 }
 
 resource "azurerm_subnet" "spoke_site_a_subnet_purple" {
-  name                 = "purple-${random_string.arbitrary_id.result}-sn"
+  name                 = "spoke-site-a-purple-${random_string.arbitrary_id.result}-sn"
   resource_group_name  = azurerm_resource_group.sandbox_rg.name
   virtual_network_name = azurerm_virtual_network.spoke_site_a.name
   address_prefixes     = ["10.11.8.0/21"]
@@ -54,3 +77,177 @@ resource "azurerm_virtual_network" "spoke_site_b" {
   resource_group_name = azurerm_resource_group.sandbox_rg.name
   tags                = local.tags
 }
+
+resource "azurerm_subnet" "spoke_site_b_subnet_main" {
+  name                 = "spoke-site-b-main-${random_string.arbitrary_id.result}-sn"
+  resource_group_name  = azurerm_resource_group.sandbox_rg.name
+  virtual_network_name = azurerm_virtual_network.spoke_site_b.name
+  address_prefixes     = [azurerm_virtual_network.spoke_site_b.address_space[0]]
+}
+
+
+// endregion
+
+
+// region Peering connections
+
+resource "azurerm_virtual_network_peering" "hub_and_spoke_site_a_peering" {
+  name                      = "${local.networks.hub.name}-to-${local.networks.spoke_site_a.name}-peering"
+  resource_group_name       = azurerm_resource_group.sandbox_rg.name
+  virtual_network_name      = azurerm_virtual_network.hub.name
+  remote_virtual_network_id = azurerm_virtual_network.spoke_site_a.id
+}
+
+resource "azurerm_virtual_network_peering" "spoke_site_a_and_hub_peering" {
+  name                      = "${local.networks.spoke_site_a.name}-to-${local.networks.hub.name}-peering"
+  resource_group_name       = azurerm_resource_group.sandbox_rg.name
+  virtual_network_name      = azurerm_virtual_network.spoke_site_a.name
+  remote_virtual_network_id = azurerm_virtual_network.hub.id
+}
+
+resource "azurerm_virtual_network_peering" "hub_and_spoke_site_b_peering" {
+  name                      = "${local.networks.hub.name}-to-${local.networks.spoke_site_b.name}-peering"
+  resource_group_name       = azurerm_resource_group.sandbox_rg.name
+  virtual_network_name      = azurerm_virtual_network.hub.name
+  remote_virtual_network_id = azurerm_virtual_network.spoke_site_b.id
+}
+
+resource "azurerm_virtual_network_peering" "spoke_site_b_and_hub_peering" {
+  name                      = "${local.networks.spoke_site_b.name}-to-${local.networks.hub.name}-peering"
+  resource_group_name       = azurerm_resource_group.sandbox_rg.name
+  virtual_network_name      = azurerm_virtual_network.spoke_site_b.name
+  remote_virtual_network_id = azurerm_virtual_network.hub.id
+}
+
+// endregion
+
+// region Virtual machines
+
+resource "random_password" "vm_admin_password" {
+  length  = 16
+  special = false
+}
+
+resource "azurerm_network_interface" "hub_host_1" {
+  name                = "${local.networks.hub.host}-${random_string.arbitrary_id.result}-nic"
+  tags                = local.tags
+  location            = azurerm_resource_group.sandbox_rg.location
+  resource_group_name = azurerm_resource_group.sandbox_rg.name
+  ip_configuration {
+    name                          = "${local.networks.hub.host}-${random_string.arbitrary_id.result}-ip-configuration"
+    private_ip_address_allocation = "Dynamic"
+    subnet_id                     = azurerm_subnet.hub_subnet_main.id
+  }
+}
+
+resource "azurerm_linux_virtual_machine" "hub_host_1" {
+  name                  = "${local.networks.hub.host}-${random_string.arbitrary_id.result}-vm"
+  tags                  = local.tags
+  location              = azurerm_resource_group.sandbox_rg.location
+  resource_group_name   = azurerm_resource_group.sandbox_rg.name
+  size                  = "Standard_B2pts_v2"
+  network_interface_ids = [azurerm_network_interface.hub_host_1.id]
+
+  computer_name                   = "${local.networks.hub.host}-vm"
+  admin_username                  = local.networks.hub.host
+  admin_password                  = random_password.vm_admin_password.result
+  disable_password_authentication = false
+
+  source_image_reference {
+    # Find images through this link: https://learn.microsoft.com/en-us/azure/virtual-machines/linux/cli-ps-findimage
+    # az vm image list --location westus2 --publisher Canonical --offer 0001-com-ubuntu-server-jammy --all --output table
+    publisher = "Canonical"
+    offer     = "0001-com-ubuntu-server-jammy"
+    sku       = "22_04-lts-arm64"
+    version   = "22.04.202206220"
+  }
+  os_disk {
+    caching              = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+  }
+  boot_diagnostics {
+    storage_account_uri = null
+  }
+}
+
+resource "azurerm_network_interface" "spoke_site_a_host_1" {
+  name                = "${local.networks.spoke_site_a.host}-${random_string.arbitrary_id.result}-nic"
+  tags                = local.tags
+  location            = azurerm_resource_group.sandbox_rg.location
+  resource_group_name = azurerm_resource_group.sandbox_rg.name
+  ip_configuration {
+    name                          = "${local.networks.spoke_site_a.host}-${random_string.arbitrary_id.result}-ip-configuration"
+    private_ip_address_allocation = "Dynamic"
+    subnet_id                     = azurerm_subnet.spoke_site_a_subnet_blue.id
+  }
+}
+
+resource "azurerm_linux_virtual_machine" "spoke_site_a_host_1" {
+  name                  = "${local.networks.spoke_site_a.host}-${random_string.arbitrary_id.result}-vm"
+  tags                  = local.tags
+  location              = azurerm_resource_group.sandbox_rg.location
+  resource_group_name   = azurerm_resource_group.sandbox_rg.name
+  size                  = "Standard_B2pts_v2"
+  network_interface_ids = [azurerm_network_interface.spoke_site_a_host_1.id]
+
+  computer_name                   = "${local.networks.spoke_site_a.host}-vm"
+  admin_username                  = local.networks.spoke_site_a.host
+  admin_password                  = random_password.vm_admin_password.result
+  disable_password_authentication = false
+
+  source_image_reference {
+    publisher = "Canonical"
+    offer     = "0001-com-ubuntu-server-jammy"
+    sku       = "22_04-lts-arm64"
+    version   = "22.04.202206220"
+  }
+  os_disk {
+    caching              = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+  }
+  boot_diagnostics {
+    storage_account_uri = null
+  }
+}
+
+resource "azurerm_network_interface" "spoke_site_b_host_1" {
+  name                = "${local.networks.spoke_site_b.host}-${random_string.arbitrary_id.result}-nic"
+  tags                = local.tags
+  location            = azurerm_resource_group.sandbox_rg.location
+  resource_group_name = azurerm_resource_group.sandbox_rg.name
+  ip_configuration {
+    name                          = "${local.networks.spoke_site_b.host}-${random_string.arbitrary_id.result}-ip-configuration"
+    private_ip_address_allocation = "Dynamic"
+    subnet_id                     = azurerm_subnet.spoke_site_b_subnet_main.id
+  }
+}
+
+resource "azurerm_linux_virtual_machine" "spoke_site_b_host_1" {
+  name                  = "${local.networks.spoke_site_b.host}-${random_string.arbitrary_id.result}-vm"
+  tags                  = local.tags
+  location              = azurerm_resource_group.sandbox_rg.location
+  resource_group_name   = azurerm_resource_group.sandbox_rg.name
+  size                  = "Standard_B2pts_v2"
+  network_interface_ids = [azurerm_network_interface.spoke_site_b_host_1.id]
+
+  computer_name                   = "${local.networks.spoke_site_b.host}-vm"
+  admin_username                  = local.networks.spoke_site_b.host
+  admin_password                  = random_password.vm_admin_password.result
+  disable_password_authentication = false
+
+  source_image_reference {
+    publisher = "Canonical"
+    offer     = "0001-com-ubuntu-server-jammy"
+    sku       = "22_04-lts-arm64"
+    version   = "22.04.202206220"
+  }
+  os_disk {
+    caching              = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+  }
+  boot_diagnostics {
+    storage_account_uri = null
+  }
+}
+
+// endregion
