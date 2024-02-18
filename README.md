@@ -7,6 +7,7 @@ Contents:
 - 2024
   - 02
     - [Recover your wallet password if you have an idea about what your password might be](./2024/02/btcrecover)
+    - [Learning hub-spoke with Packet Tracer and deploying it through Terraform on Azure](./2024/02/hub-spoke-azure)
 - 2023
   - XX
     - [Feature Flags with GrowthBook](./2023/06/feature_toggle_growthbook)

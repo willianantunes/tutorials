@@ -1,6 +1,6 @@
 # Hub-spoke network topology on Azure
 
-Work in progress.
+To understand it, please read the article [Learning hub-spoke with Packet Tracer and deploying it through Terraform on Azure](https://www.willianantunes.com/blog/2024/02/learning-hub-spoke-with-packet-tracer-and-deploying-it-through-terraform-on-azure/).
 
 ## Prerequisites
 
