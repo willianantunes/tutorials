@@ -38,7 +38,6 @@ terrascan scan --iac-type terraform
 Inside the container, run the following command:
 
 ```shell
-```shell
 az login \
 --service-principal \
 -t $ARM_TENANT_ID \
