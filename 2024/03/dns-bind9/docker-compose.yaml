@@ -1,0 +1,55 @@
+version: "3.9"
+services:
+  dns-initial-dnsmasq:
+    build:
+      context: .
+      dockerfile: Dockerfile.dnsmasq
+    networks:
+      custom:
+        ipv4_address: 192.20.0.5
+    ports:
+      - "30005:53/udp"
+    volumes:
+      - ./dnsmasq.dns.conf:/etc/dnsmasq.conf
+  dns-initial:
+    build:
+      context: .
+    networks:
+      custom:
+        ipv4_address: 192.20.0.10
+    ports:
+      - "30010:53/udp"
+    volumes:
+      - ./named.conf.local.dns-initial:/etc/bind/named.conf.local
+      - ./named.conf.options.dns-initial:/etc/bind/named.conf.options
+  dns-a:
+    build:
+      context: .
+    networks:
+      custom:
+        ipv4_address: 192.20.0.20
+    ports:
+      - "30020:53/udp"
+    volumes:
+      - ./named.conf.local.dns-a:/etc/bind/named.conf.local
+      - ./named.conf.options.dns-a:/etc/bind/named.conf.options
+      - ./db.privatelink.database.windows.net.dns-a:/etc/bind/db.privatelink.database.windows.net
+  dns-b:
+    build:
+      context: .
+    networks:
+      custom:
+        ipv4_address: 192.20.0.30
+    ports:
+      - "30030:53/udp"
+    volumes:
+      - ./named.conf.local.dns-b:/etc/bind/named.conf.local
+      - ./named.conf.options.dns-b:/etc/bind/named.conf.options
+      - ./db.privatelink.database.windows.net.dns-b:/etc/bind/db.privatelink.database.windows.net
+
+networks:
+  custom:
+    ipam:
+      config:
+        - subnet: 192.20.0.0/24
+          gateway: 192.20.0.1

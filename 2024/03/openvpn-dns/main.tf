@@ -136,7 +136,7 @@ resource "azurerm_linux_virtual_machine" "openvpn" {
   }
 }
 
-resource "azurerm_virtual_machine_extension" "jump_server_vmext" {
+resource "azurerm_virtual_machine_extension" "openvpn" {
   virtual_machine_id = azurerm_linux_virtual_machine.openvpn.id
   tags               = local.tags
   name               = "openvpn-essential-packages"

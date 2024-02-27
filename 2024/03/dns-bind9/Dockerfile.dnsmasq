@@ -1,0 +1,9 @@
+FROM ubuntu:24.04
+
+RUN apt update && apt install -y dnsutils iputils-ping dnsmasq lsof
+
+RUN mkdir -p /var/log/dnsmasq/ && touch /var/log/dnsmasq/dnsmasq.log
+
+CMD dnsmasq --keep-in-foreground --log-facility='-' --log-debug
+
+EXPOSE 53/udp

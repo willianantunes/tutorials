@@ -1,0 +1,17 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your organization
+// include "/etc/bind/zones.rfc1918";
+
+// https://bind9.readthedocs.io/en/latest/reference.html#namedconf-statement-type%20forward
+zone "privatelink.database.windows.net" {
+    type forward;
+    forwarders { 192.20.0.20; 192.20.0.30; };
+};
+
+zone "0.20.192.in-addr.arpa" {
+    type forward;
+    forwarders { 192.20.0.20; 192.20.0.30; };
+};
