@@ -1,6 +1,6 @@
 # Monitoring K8S resources
 
-Work in progress.
+To understand it, please read the article [Monitoring K8S resources through its APIs](https://www.willianantunes.com/blog/2024/03/monitoring-k8s-resources-through-its-apis/).
 
 ## Project details
 
