@@ -23,6 +23,8 @@ sudo apt-get install -yq git \
 
 echo "<<<<<< Installing OpenVPN Community Edition"
 # https://openvpn.net/community-resources/
+# The latest version of the script can be consulted at: https://github.com/angristan/openvpn-install
+# The script below is a fork of the original script.
 curl -O https://raw.githubusercontent.com/dumrauf/openvpn-install/master/openvpn-install.sh
 chmod +x openvpn-install.sh
 sudo AUTO_INSTALL=y \

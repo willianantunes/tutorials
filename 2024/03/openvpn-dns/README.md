@@ -1,6 +1,6 @@
 # OpenVPN on Azure
 
-WIP.
+To understand it, please read the article [OpenVPN Community on Azure with Terraform](https://www.willianantunes.com/blog/2024/03/openvpn-community-on-azure-with-terraform/).
 
 ## Prerequisites
 

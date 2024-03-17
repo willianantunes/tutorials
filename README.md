@@ -5,6 +5,9 @@ I have a [blog where I talk about technology](https://www.willianantunes.com/), 
 Contents:
 
 - 2024
+  - 03
+    - [Monitoring K8S resources through its APIs](./2024/03/watchdog-k8s)
+    - [OpenVPN Community on Azure with Terraform](./2024/03/openvpn-dns)
   - 02
     - [Recover your wallet password if you have an idea about what your password might be](./2024/02/btcrecover)
     - [Learning hub-spoke with Packet Tracer and deploying it through Terraform on Azure](./2024/02/hub-spoke-azure)
