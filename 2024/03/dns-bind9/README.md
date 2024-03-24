@@ -1,6 +1,6 @@
-# DNS Server with Bind9
+# DNS Server with Bind9 and dnsmasq
 
-WIP.
+To understand it, please read the article [Understanding DNS behavior with Bind9 and dnsmasq](https://www.willianantunes.com/blog/2024/03/understanding-dns-behavior-with-bind9-and-dnsmasq/).
 
 ## Start DNS Servers with zone `privatelink.database.windows.net`
 
