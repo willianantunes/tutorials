@@ -33,3 +33,7 @@ sudo AUTO_INSTALL=y \
   ./openvpn-install.sh
 mv openvpn-install.sh /home/${user}/openvpn-management.sh
 sudo chown -R ${user}:${user} /home
+# Command below fix the issue related to `Can't load /etc/openvpn/easy-rsa/pki/.rnd into RNG` during certificate generation and revoke
+# https://github.com/OpenVPN/easy-rsa/issues/261
+# https://superuser.com/a/1485182
+openssl rand -writerand  /etc/openvpn/easy-rsa/pki/.rnd
