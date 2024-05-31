@@ -1,0 +1,465 @@
+eth.getBalance("0x123463a4b065722e99115d6c222f267d9cabb524")
+eth.accounts
+personal
+eth
+eth.accounts.create
+eth.accounts
+etg
+eth
+web3.eth.accounts
+clear
+web3.eth.accounts.create();
+web3.eth.accounts
+eth.accounts
+eth.getAccounts()
+eth.getAccounts
+eth.getAccounts(console.log)
+eth.getBalance
+eth.getBalance(eth.accounts[0])
+eth.getBalance(eth.accounts[1])
+web3.toWei(0.5, 'ether')
+web3.toWei(0.1, 'ether')
+eth.sendTransaction({
+  to: eth.accounts[0],
+  to: eth.accounts[1],
+  value: web3.toWei(0.5, 'ether')
+});
+eth.accounts[0]
+eth.accounts[1]
+eth.sendTransaction({
+  to: eth.accounts[0],
+  to: eth.accounts[1],
+  value: web3.toWei(0.1, 'ether')
+});
+web3.eth.sendTransaction({
+    from: eth.accounts[0],
+    to: eth.accounts[1],
+    value: web3.toWei(0.1, 'ether')
+})
+eth.getBalance(eth.accounts[1])
+eth.getBalance(eth.accounts[0])
+web3.eth.getTransactionReceipt('0x635c967988b854b903e904ef75201f15cc8e46f4cb2b101ca229cf892704ce82')
+eth.accounts
+web3.eth.sendTransaction({
+    from: eth.accounts[0],
+    to: eth.accounts[1],
+    value: web3.toWei(0.05, 'ether')
+})
+eth.getTransaction('0x467fcc624679012d531fa75a2f17bfaed46230d60fe12521f25fb0e7f2d64dec')
+eth.getTransactionCount
+eth.getTransactionCount("0x467fcc624679012d531fa75a2f17bfaed46230d60fe12521f25fb0e7f2d64dec")
+eth.getTransactionReceipt("0x467fcc624679012d531fa75a2f17bfaed46230d60fe12521f25fb0e7f2d64dec")
+eth.getTransactionCount("0x467fcc624679012d531fa75a2f17bfaed46230d60fe12521f25fb0e7f2d64dec")
+eth.getTransactionCount
+eth.getTransaction('0x467fcc624679012d531fa75a2f17bfaed46230d60fe12521f25fb0e7f2d64dec')
+eth.accounts
+web3.eth.sendTransaction({
+    from: eth.accounts[0],
+    to: eth.accounts[1],
+    value: web3.toWei(0.5, 'ether')
+})
+eth.getTransaction('0x3048c79c67916cff5c4b9fc2aed35ba5023fd3b8b9275d3f27c1a6f59acabf78')
+eth.getBalance(eth.accounts[0])
+eth.getBalance(eth.accounts[1])
+eth.getBalance(eth.accounts[2])
+web3.eth.sendTransaction({
+    from: eth.accounts[1],
+    to: eth.accounts[2],
+    value: web3.toWei(0.05, 'ether')
+})
+eth.personal
+web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+web3.fromWei(eth.getBalance(eth.accounts[2]), "ether")
+eth.accounts
+web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+web3.eth.sendTransaction({
+    from: eth.accounts[0],
+    to: eth.accounts[1],
+    value: web3.toWei(0.5, 'ether')
+})
+eth.getTransaction("0x5c1f1b999b5926a809ed1af5bce8afa0a7a6769daf5ea1f2402a605fe868a216")
+eth.getTransactionReceipt("0x5c1f1b999b5926a809ed1af5bce8afa0a7a6769daf5ea1f2402a605fe868a216")
+clear
+web3.eth.sendTransaction({
+    from: eth.accounts[1],
+    to: eth.accounts[2],
+    value: web3.toWei(0.05, 'ether')
+})
+web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+eth.accounts[0]
+eth.accounts[1]
+docker compose run geth --datadir /execution --unlock 1603093cfa1c2a6cf310737403b7dd59eeb31fbe
+eth.accounts
+web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+web3.eth.sendTransaction({
+    from: eth.accounts[0],
+    to: eth.accounts[1],
+    value: web3.toWei(0.5, 'ether')
+})
+eth.getTransaction("0x5faa9cd1909be058e53be529a74645ac4ad1e592ee0c585ad6785611d18335f6")
+web3.eth.sendTransaction({
+    from: eth.accounts[0],
+    to: eth.accounts[1],
+    value: web3.toWei(0.5, 'ether')
+}).then(eth.getTransaction)
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+eth.getTransaction("0xf7a2c5ec2b44f99b159876efb0254ba87f8def7e43a2afcc29232544cbe16691")
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+eth.getTransaction("0x5d372fded5041bae0c9b4e62bd9bba94768b0230b03a7a2d0853320a2e5a467d")
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+eth.getTransactionReceipt("0xf7a2c5ec2b44f99b159876efb0254ba87f8def7e43a2afcc29232544cbe16691")
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+web3.eth.sendTransaction(
+    {
+        from: eth.accounts[1],
+        to: eth.accounts[2],
+        value: web3.toWei(0.05, 'ether')
+    }
+)
+web3.personal
+web3.eth.sendTransaction(
+    {
+        from: eth.accounts[1],
+        to: eth.accounts[2],
+        value: web3.toWei(0.05, 'ether')
+    }
+)
+web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+web3.eth.sendTransaction(
+    {
+        from: eth.accounts[1],
+        to: eth.accounts[2],
+        value: web3.toWei(0.05, 'ether')
+    }
+)
+web3.eth.sendTransaction(
+    {
+        from: eth.accounts[1],
+        to: eth.accounts[2],
+        value: web3.toWei(0.02, 'ether')
+    }
+)
+web3.eth.sendTransaction(
+    {
+        from: eth.accounts[1],
+        to: eth.accounts[2],
+        value: web3.toWei(0.02, 'ether')
+    }
+)
+eth.accounts
+eth.accounts[1]
+web3.eth.sendTransaction(
+    {
+        from: eth.accounts[1],
+        to: eth.accounts[2],
+        value: web3.toWei(0.02, 'ether')
+    }
+)
+web3.eth.sendTransaction(
+    {
+        from: eth.accounts[1],
+        to: eth.accounts[2],
+        value: web3.toWei(0.02, 'ether')
+    }
+)
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+eth.getTransaction("0x7dedd35a523d693baa35bdd455d787e334c48024fe2fc8002dcd9b37db86b170")
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+eth.getTransaction("0x534c2dcd9bb85411f17c5520737a3e81fcad9d9764c54fc58794c62ce737b5ff")
+web3.eth.sendTransaction(
+    {
+        from: eth.accounts[1],
+        to: eth.accounts[2],
+        value: web3.toWei(0.02, 'ether')
+    }
+)
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+eth.getTransaction("0x07c046a2d34da8b51cdd9154bebb8f13a37b0f14f375d900f814de2b0d962fa3")
+web3.eth.sendTransaction(
+    {
+        from: eth.accounts[1],
+        to: eth.accounts[2],
+        value: web3.toWei(0.02, 'ether')
+    }
+)
+eth.accounts
+eth.getGasPrice
+eth.getGasPrice()
+eth.getGasPrice(console.log)
+web3.eth.sendTransaction(
+    {
+        from: eth.accounts[1],
+        to: eth.accounts[2],
+        value: web3.toWei(0.02, 'ether')
+    }
+)
+eth.accounts
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+web3.personal
+web3.personal()
+personal
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+eth.getTransaction("0xf7a2c5ec2b44f99b159876efb0254ba87f8def7e43a2afcc29232544cbe16691")
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+persona
+personal
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+web3.eth.sendTransaction(
+    {
+        from: eth.accounts[1],
+        to: eth.accounts[2],
+        value: web3.toWei(0.02, 'ether')
+    }
+)
+web3.fromWei(eth.getBalance(eth.accounts[2]), "ether")
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+eth.accounts
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+eth.getTransaction("0xf7a2c5ec2b44f99b159876efb0254ba87f8def7e43a2afcc29232544cbe16691")
+web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+eth.getTransaction("0xb951151a1db93dde3a8c31005b21e5e5a6324275f1653c2c1ef2ae2a6db4ac12")
+web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+eth.accounts
+web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+eth.getTransaction("0x417cc1b4b6fc30f0542e64d4664f32e93b9c584adf40516ef5778151f26bc994")
+eth.accounts[1]
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+web3.fromWei(eth.getBalance(eth.accounts[2]), "ether")
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+web3.fromWei(eth.getBalance(eth.accounts[2]), "ether")
+eth.accounts
+eth.getTransaction(
+    web3.eth.sendTransaction(
+        {
+            from: eth.accounts[0],
+            to: eth.accounts[1],
+            value: web3.toWei(0.5, 'ether')
+        }
+    )
+)
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
