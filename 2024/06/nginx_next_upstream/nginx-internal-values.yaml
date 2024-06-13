@@ -1,0 +1,56 @@
+# Chart documentation: https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx
+# Setting up an ingress controller with Kind: https://kind.sigs.k8s.io/docs/user/ingress/
+controller:
+  tolerations:
+    - key: "node-role.kubernetes.io/master"
+      effect: "NoSchedule"
+      operator: "Equal"
+    - key: "node-role.kubernetes.io/control-plane"
+      effect: "NoSchedule"
+      operator: "Equal"
+  service:
+    type: NodePort
+    nodePorts:
+      # See `kind-config.yaml` to understand why I configured port 30000 and 31000
+      http: 30000
+      https: 31000
+  autoscaling:
+    enabled: true
+    maxReplicas: 10
+    minReplicas: 1
+    targetCPUUtilizationPercentage: 75
+    targetMemoryUtilizationPercentage: 85
+  config:
+    large-client-header-buffers: 4 16k
+    log-format-upstream: '{"time": "$time_iso8601", "remote_addr": "$proxy_protocol_addr",
+      "x_forward_for": "$proxy_add_x_forwarded_for", "request_id": "$req_id", "remote_user":
+      "$remote_user", "bytes_sent": $bytes_sent, "request_time": $request_time, "status":
+      $status, "vhost": "$host", "request_proto": "$server_protocol", "path": "$uri",
+      "request_query": "$args", "request_length": $request_length, "duration": $request_time,"method":
+      "$request_method", "http_referrer": "$http_referer", "http_user_agent": "$http_user_agent",
+      "http_origin": "$http_origin", "true_client_ip": "$http_true_client_ip"}'
+    map-hash-bucket-size: "128"
+    server-tokens: "false"
+  electionID: nginx-internal
+  ingressClass: nginx-internal
+  ingressClassByName: true
+  ingressClassResource:
+    controllerValue: k8s.io/nginx-internal
+    default: false
+    enabled: true
+    name: nginx-internal
+  lifecycle:
+    preStop:
+      exec:
+        # https://github.com/kubernetes-sigs/aws-load-balancer-controller/issues/2366
+        # https://github.com/kubernetes/ingress-nginx/issues/6928
+        command:
+          - sleep
+          - "420"
+  resources:
+    limits:
+      cpu: 300m
+      memory: 256Mi
+    requests:
+      cpu: 15m
+      memory: 128Mi

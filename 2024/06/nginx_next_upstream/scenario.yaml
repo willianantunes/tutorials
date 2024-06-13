@@ -1,0 +1,147 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: env-web-server-1
+  namespace: development
+  labels:
+    app: sample-application
+spec:
+  containers:
+    - name: env-web-server
+      image: python:3.9-slim
+      env:
+        - name: CUSTOM_OUTPUT_HTTP
+          value: |
+            <head>
+              <title>APP-1</title>
+            </head>
+            <body>
+              <h1>APP-1</h1>
+            </body>
+      command: [ "/bin/bash", "-c" ]
+      args:
+        - |
+          echo "from http.server import BaseHTTPRequestHandler, HTTPServer
+          import signal
+          import sys
+          import os
+          
+          class RequestHandler(BaseHTTPRequestHandler):
+              def _send_response(self, message):
+                  self.send_response(200)
+                  self.send_header('Content-type', 'text/html')
+                  self.end_headers()
+                  self.wfile.write(bytes(message, 'utf8'))
+          
+              def do_GET(self):
+                  self._send_response(os.getenv('CUSTOM_OUTPUT_HTTP'))
+          
+              def do_POST(self):
+                  self._send_response(os.getenv('CUSTOM_OUTPUT_HTTP'))
+
+          def handler(signum, frame):
+              print('Signal handler called with signal', signum)
+              sys.exit(0)
+
+          if __name__ == '__main__':
+              signal.signal(signal.SIGTERM, handler)
+              server = HTTPServer(('0.0.0.0', 8080), RequestHandler)
+              server.serve_forever()" > server.py
+          
+          python server.py
+      ports:
+        - name: web-server
+          containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: env-web-server-2
+  namespace: development
+  labels:
+    app: sample-application
+spec:
+  containers:
+    - name: env-web-server
+      image: python:3.9-slim
+      env:
+        - name: CUSTOM_OUTPUT_HTTP
+          value: |
+            <head>
+              <title>APP-2</title>
+            </head>
+            <body>
+              <h1>APP-2</h1>
+            </body>
+      command: [ "/bin/bash", "-c" ]
+      args:
+        - |
+          echo "from http.server import BaseHTTPRequestHandler, HTTPServer
+          import signal
+          import sys
+          import os
+          
+          class RequestHandler(BaseHTTPRequestHandler):
+              def _send_response(self, message):
+                  self.send_response(200)
+                  self.send_header('Content-type', 'text/html')
+                  self.end_headers()
+                  self.wfile.write(bytes(message, 'utf8'))
+          
+              def do_GET(self):
+                  self._send_response(os.getenv('CUSTOM_OUTPUT_HTTP'))
+          
+              def do_POST(self):
+                  self._send_response(os.getenv('CUSTOM_OUTPUT_HTTP'))
+
+          def handler(signum, frame):
+              print('Signal handler called with signal', signum)
+              sys.exit(0)
+
+          if __name__ == '__main__':
+              signal.signal(signal.SIGTERM, handler)
+              server = HTTPServer(('0.0.0.0', 8080), RequestHandler)
+              server.serve_forever()" > server.py
+          
+          python server.py
+      ports:
+        - name: web-server
+          containerPort: 8080
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  namespace: development
+  name: env-web-server-service
+spec:
+  selector:
+    app: sample-application
+  ports:
+    - name: http-web-svc
+      protocol: TCP
+      port: 8080
+      targetPort: web-server
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: development
+  name: all-rules
+spec:
+  ingressClassName: nginx-internal
+  rules:
+    - http:
+        paths:
+          - backend:
+              service:
+                name: env-web-server-service
+                port:
+                  name: http-web-svc
+            path: /
+            pathType: Prefix
