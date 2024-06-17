@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  # Don't publish the RPC port to the host unless you know what you're doing
+  # If you don't publish you're more protected from remote attacks
+  bitcoin-core-middleware:
+    build:
+      context: .
+    volumes:
+      - "./middleware:/home/bitcoin/.bitcoin/"
+    environment:
+      - UID=$UID
+      - GID=$GID
+  bitcoin-core-wallet:
+    build:
+      context: .
+    volumes:
+      - "./wallet:/home/bitcoin/.bitcoin/"
+    environment:
+      - UID=$UID
+      - GID=$GID
