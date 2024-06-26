@@ -25,6 +25,7 @@ spec:
           import signal
           import sys
           import os
+          import time
           
           class RequestHandler(BaseHTTPRequestHandler):
               def _send_response(self, message):
@@ -34,6 +35,7 @@ spec:
                   self.wfile.write(bytes(message, 'utf8'))
           
               def do_GET(self):
+                  time.sleep(3)
                   self._send_response(os.getenv('CUSTOM_OUTPUT_HTTP'))
           
               def do_POST(self):
@@ -131,6 +133,9 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
+#  annotations:
+#    nginx.ingress.kubernetes.io/proxy-read-timeout: "2"
+#    nginx.ingress.kubernetes.io/proxy-next-upstream: "off"
   namespace: development
   name: all-rules
 spec:

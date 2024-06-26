@@ -5,6 +5,10 @@ I have a [blog where I talk about technology](https://www.willianantunes.com/), 
 Contents:
 
 - 2024
+  - 06
+    - [Managing self-custody wallet accounts with Clef](./2024/06/account_management_with_clef_ethereum)
+    - [NGINX on Kubernetes Made Easy: Your Local Development Sandbox](./2024/06/nginx_next_upstream)
+    - [Self-hosted wallet setup with Bitcoin Core using Docker](./2024/06/self-hosted-wallet-bitcoin-core-docker)
   - 03
     - [Monitoring K8S resources through its APIs](./2024/03/watchdog-k8s)
     - [OpenVPN Community on Azure with Terraform](./2024/03/openvpn-dns)

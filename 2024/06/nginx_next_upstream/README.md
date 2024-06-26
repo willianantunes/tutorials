@@ -1,6 +1,6 @@
 # NGINX Next Upstream
 
-Have your own NGINX playground environment on localhost Kubernetes! Learn how it works, invoke automation, and many more!
+To understand it, please read the article [NGINX on Kubernetes Made Easy: Your Local Development Sandbox](https://www.willianantunes.com/blog/2024/06/nginx-on-kubernetes-made-easy-your-local-development-sandbox/).
 
 ```shell
 kind create cluster --config kind-config.yaml
@@ -8,7 +8,8 @@ kubectl create namespace development
 kubectl config set-context --current --namespace=development
 helm repo add ingress-nginx charts/ingress-nginx
 helm repo update
-helm install nginx-internal ingress-nginx/ingress-nginx --namespace development -f ./nginx-internal-values.yaml --dry-run
+helm install nginx-internal ingress-nginx/ingress-nginx --namespace development -f ./nginx-internal-values.yaml
+kubectl apply -f scenario.yaml
 ```
 
 You can use the following command to access the service directly without the Ingress: 
