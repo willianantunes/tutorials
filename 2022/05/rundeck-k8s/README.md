@@ -27,6 +27,7 @@ Wait a few minutes, and you should be able to access `http://localhost:8000/`. U
 ```shell
 kind delete cluster
 ```
+
 Set the context you had been using before the ride:
 
 ```shell
