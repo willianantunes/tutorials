@@ -1,0 +1,126 @@
+- defaultTab: nodes
+  description: Add a user to a SQL Server database
+  executionEnabled: true
+  uuid: cee76e8c-73fe-45e4-b9e4-7def0b9ca068
+  id: cee76e8c-73fe-45e4-b9e4-7def0b9ca068
+  loglevel: INFO
+  group: "SQL Server"
+  name: Create a user with the provided permission in a database
+  nodeFilterEditable: false
+  options:
+    - label: Username
+      name: username
+      regex: ^[a-z_A-Z]+$
+      required: true
+    - label: Target database name
+      name: databaseName
+      regex: ^[a-z_A-Z]+$
+      required: true
+    - label: Target server
+      enforced: true
+      name: server
+      required: true
+      value: db-sqlserver-0
+      values:
+        - salt-licker.database.windows.net
+        - wig.database.windows.net
+        - db-sqlserver-0
+      valuesListDelimiter: ","
+    - description: |-
+        Which permission should be granted to the user?
+
+        - db_datareader: only read.
+        - db_datawriter: read and write.
+        - db_owner: as the name suggests, full control.
+      enforced: true
+      label: Required permission
+      name: permission
+      required: true
+      value: db_datareader
+      values:
+        - db_datawriter
+        - db_datareader
+        - db_owner
+      valuesListDelimiter: ","
+  plugins:
+    ExecutionLifecycle: null
+  scheduleEnabled: true
+  sequence:
+    commands:
+      - configuration:
+          debug: "false"
+          namespace: support-tools
+          type: Job
+          verify_ssl: "false"
+          yaml: |
+            apiVersion: batch/v1
+            kind: Job
+            metadata:
+              name: mssql-add-users-${job.execid}
+              namespace: support-tools
+            spec:
+              parallelism: 1
+              backoffLimit: 0
+              template:
+                metadata:
+                  name: mssql-add-users-${job.execid}
+                spec:
+                  restartPolicy: Never
+                  containers:
+                    - name: mssql-add-users
+                      image: mcr.microsoft.com/mssql-tools
+                      resources:
+                        requests:
+                          cpu: 5m
+                          memory: 8Mi
+                        limits:
+                          cpu: 25m
+                          memory: 32Mi          
+                      env:
+                        - name: MSSQL_USER
+                          valueFrom:
+                            secretKeyRef:
+                              name: rundeck-sqlserver-secret
+                              key: RUNDECK_DATABASE_USERNAME
+                        - name: MSSQL_PASSWORD
+                          valueFrom:
+                            secretKeyRef:
+                              name: rundeck-sqlserver-secret
+                              key: RUNDECK_DATABASE_PASSWORD
+                      command:
+                        - sh
+                        - "-ce"
+                        - |
+                          set -e
+                          password=$(openssl rand -base64 32)
+                          server="${unquotedoption.server}"
+                          login_exists=$(/opt/mssql-tools/bin/sqlcmd -S $server -d master -U $MSSQL_USER -P "$MSSQL_PASSWORD" -I -Q "SET NOCOUNT ON; SELECT CASE WHEN EXISTS (SELECT 1 FROM sys.database_principals WHERE name = '${unquotedoption.username}') THEN "1" ELSE "0" END;" -W -h -1)
+                          if [ $login_exists -ne 1 ]; then
+                            echo "Creating new login ${unquotedoption.username} / ${unquotedoption.permission}"
+                            /opt/mssql-tools/bin/sqlcmd -S $server -d master -U $MSSQL_USER -P "$MSSQL_PASSWORD" -I -Q "CREATE LOGIN [${unquotedoption.username}] WITH PASSWORD = '$password';"
+                            /opt/mssql-tools/bin/sqlcmd -S $server -d master -U $MSSQL_USER -P "$MSSQL_PASSWORD" -I -Q "CREATE USER [${unquotedoption.username}] FROM LOGIN [${unquotedoption.username}];"
+                          fi
+                          user_exists=$(/opt/mssql-tools/bin/sqlcmd -S $server -d ${unquotedoption.databaseName} -U $MSSQL_USER -P "$MSSQL_PASSWORD" -I -Q "SET NOCOUNT ON; SELECT CASE WHEN EXISTS (SELECT 1 FROM sys.database_principals WHERE name = '${unquotedoption.username}') THEN "1" ELSE "0" END;" -W -h -1)    
+                          if [ $user_exists -ne 1 ]; then
+                            echo "Creating new login ${unquotedoption.username} / ${unquotedoption.permission} / ${unquotedoption.databaseName}"
+                            /opt/mssql-tools/bin/sqlcmd -S $server -d ${unquotedoption.databaseName} -U $MSSQL_USER -P "$MSSQL_PASSWORD" -I -Q "CREATE USER [${unquotedoption.username}] FROM LOGIN [${unquotedoption.username}];"
+                          fi      
+                          echo "Granting access to ${unquotedoption.username} on ${unquotedoption.databaseName} with ${unquotedoption.permission} permission."
+                          /opt/mssql-tools/bin/sqlcmd -S $server -d ${unquotedoption.databaseName} -U $MSSQL_USER -P "$MSSQL_PASSWORD" -I -Q "EXEC sp_addrolemember '${unquotedoption.permission}', '${unquotedoption.username}';"
+                          # This is wrong, but it's just for the sake of the demo.
+                          echo "Your password is: $password"
+                          echo "It's done!"
+        nodeStep: true
+        type: Kubernetes-Create
+      - configuration:
+          debug: "false"
+          name: mssql-add-users-${job.execid}
+          namespace: support-tools
+          retries: "100"
+          show_log: "true"
+          sleep: "10"
+          verify_ssl: "false"
+        nodeStep: true
+        type: Kubernetes-Wait-Job
+    keepgoing: false
+    strategy: node-first

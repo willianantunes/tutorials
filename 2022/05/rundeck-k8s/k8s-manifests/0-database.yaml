@@ -8,7 +8,7 @@ spec:
     app: db-postgres
   type: NodePort
   ports:
-    - name: http
+    - name: socket
       protocol: TCP
       # See `kind-config.yaml` to understand why I configured port 30000!
       nodePort: 30000
@@ -51,3 +51,66 @@ spec:
             limits:
               cpu: 200m
               memory: 256Mi
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-sqlserver-0
+  namespace: support-tools
+spec:
+  type: NodePort
+  selector:
+    statefulset.kubernetes.io/pod-name: db-sqlserver-statefulset-0
+  ports:
+    - name: socket
+      protocol: TCP
+      # See `kind-config.yaml` to understand why I configured port 30001!
+      nodePort: 30001
+      port: 1433
+      targetPort: db-socket-port
+
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: db-sqlserver-statefulset
+  namespace: support-tools
+spec:
+  serviceName: "mssql"
+  selector:
+    matchLabels:
+      app: db-sqlserver
+  template:
+    metadata:
+      labels:
+        app: db-sqlserver
+    spec:
+      securityContext:
+        fsGroup: 10001
+      containers:
+        - name: mssql
+          image: mcr.microsoft.com/mssql/server:2022-latest
+          ports:
+            - containerPort: 1433
+              name: db-socket-port
+          env:
+            - name: ACCEPT_EULA
+              value: "Y"
+            - name: MSSQL_ENABLE_HADR
+              value: "1"
+            - name: MSSQL_PID
+              value: "Developer"
+            - name: MSSQL_AGENT_ENABLED
+              value: "1"
+            - name: MSSQL_SA_PASSWORD
+              value: "Password1"
+          volumeMounts:
+            - name: mssql
+              mountPath: "/var/opt/mssql"
+      volumes:
+        - name: mssql
+          emptyDir: { }

@@ -9,6 +9,7 @@ Have your own [Rundeck playground environment on localhost Kubernetes](https://w
 Learn more in [this blog post](https://bit.ly/3PByXcj).
 
 ```shell
+cd rundeck-custom-image && docker build -t rundeck-k8s . && cd ..
 kind create cluster --config kind-config.yaml
 kubectl create namespace support-tools
 kubectl config set-context --current --namespace=support-tools
@@ -34,4 +35,10 @@ Set the context you had been using before the ride:
 kubectl config current-context
 kubectl config get-contexts
 kubectl config use-context YOUR_PREVIOUS_CONTEXT
+```
+
+Explore the Rundeck container:
+
+```shell
+docker run -it --rm --entrypoint bash rundeck-k8s
 ```
