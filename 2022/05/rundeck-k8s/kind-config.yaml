@@ -4,6 +4,14 @@ nodes:
   - role: control-plane
     image: kindest/node:v1.31.0@sha256:53df588e04085fd41ae12de0c3fe4c72f7013bba32a20e7325357a1ac94ba865
     extraPortMappings:
+      - containerPort: 31000
+        # Minio console
+        hostPort: 9001
+        listenAddress: "127.0.0.1"
+      - containerPort: 31001
+        # Minio S3 service
+        hostPort: 9000
+        listenAddress: "127.0.0.1"
       - containerPort: 32000
         # Rundeck web server postgresql
         hostPort: 8000

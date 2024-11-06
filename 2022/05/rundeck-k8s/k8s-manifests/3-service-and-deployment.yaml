@@ -173,10 +173,10 @@ spec:
             periodSeconds: 5
           resources:
             requests:
-              cpu: 350m
+              cpu: 1000m
               memory: 1250Mi
             limits:
-              cpu: 700m
+              cpu: 1500m
               memory: 1800Mi
       initContainers:
         - name: prepare-kube-config
