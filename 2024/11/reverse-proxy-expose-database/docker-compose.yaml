@@ -1,0 +1,43 @@
+services:
+  pgt-proxy:
+    # https://github.com/ambarltd/pgt-proxy
+    # Explore the container: docker run -it --rm --network host --entrypoint bash ambarltd/pgt-proxy:v1.2
+    # Know the options: docker run -it --rm ambarltd/pgt-proxy:v1.2 --help
+    build:
+      context: .
+    entrypoint: "bash -c"
+    working_dir: "/srv"
+    ports:
+      - "7000:9000"
+    volumes:
+      - ./pgt-proxy-startup.sh:/srv/pgt-proxy-startup.sh
+    environment:
+      ORIGIN_SERVER_ADDRESS: "db"
+    command: "./pgt-proxy-startup.sh"
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    # Explore the container: docker run -it --rm --network host --entrypoint bash postgres:17
+    # echo $PGDATA returns /var/lib/postgresql/data
+    image: postgres:17
+    environment:
+      POSTGRES_DB: "postgres"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    volumes:
+      - ./postgres-initdb:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "pg_isready",
+          "--dbname=postgres",
+          "--username=postgres"
+        ]
+      interval: 2s
+      timeout: 1m
+      retries: 5
+      start_period: 10s
