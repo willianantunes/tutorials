@@ -41,8 +41,6 @@ spec:
             - name: rundeck-realm-properties
               mountPath: /home/rundeck/server/config/realm.properties
               subPath: realm.properties
-            - name: created-kube-config
-              mountPath: /home/rundeck/.kube/
           envFrom:
             - configMapRef:
                 name: rundeck-postgresql-configmap
@@ -72,35 +70,10 @@ spec:
             limits:
               cpu: 700m
               memory: 1800Mi
-      initContainers:
-        - name: prepare-kube-config
-          image: bitnami/kubectl:1.31.2
-          securityContext:
-            # To match rundeck user UID!
-            runAsUser: 1000
-          volumeMounts:
-            - mountPath: /tmp/target
-              name: created-kube-config
-          command:
-            - sh
-            - "-ce"
-            - |
-              set -ex
-              SERVICE_ACCOUNT_API_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
-              kubectl config set-cluster kind-cluster \
-              --server=https://kind-control-plane:6443 \
-              --certificate-authority=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt  \
-              --embed-certs=true
-              kubectl config set-credentials rundeck-deployer --token=$SERVICE_ACCOUNT_API_TOKEN
-              kubectl config set-context kind-cluster --cluster kind-cluster --user rundeck-deployer
-              kubectl config use-context kind-cluster
-              cp -r /.kube/* /tmp/target/
       volumes:
         - name: rundeck-realm-properties
           secret:
             secretName: rundeck-realm-properties-secret
-        - name: created-kube-config
-          emptyDir: { }
 
 ---
 
@@ -147,8 +120,6 @@ spec:
             - name: rundeck-realm-properties
               mountPath: /home/rundeck/server/config/realm.properties
               subPath: realm.properties
-            - name: created-kube-config
-              mountPath: /home/rundeck/.kube/
           envFrom:
             - configMapRef:
                 name: rundeck-sqlserver-configmap
@@ -178,32 +149,10 @@ spec:
             limits:
               cpu: 1500m
               memory: 1800Mi
-      initContainers:
-        - name: prepare-kube-config
-          image: bitnami/kubectl:1.31.2
-          securityContext:
-            # To match rundeck user UID!
-            runAsUser: 1000
-          volumeMounts:
-            - mountPath: /tmp/target
-              name: created-kube-config
-          command:
-            - sh
-            - "-ce"
-            - |
-              set -ex
-              SERVICE_ACCOUNT_API_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
-              kubectl config set-cluster kind-cluster \
-              --server=https://kind-control-plane:6443 \
-              --certificate-authority=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt  \
-              --embed-certs=true
-              kubectl config set-credentials rundeck-deployer --token=$SERVICE_ACCOUNT_API_TOKEN
-              kubectl config set-context kind-cluster --cluster kind-cluster --user rundeck-deployer
-              kubectl config use-context kind-cluster
-              cp -r /.kube/* /tmp/target/
       volumes:
         - name: rundeck-realm-properties
           secret:
-            secretName: rundeck-realm-properties-secret
-        - name: created-kube-config
-          emptyDir: { }
+            secretName: rundeck-sqlserver-secret
+            items:
+              - key: realm.properties
+                path: realm.properties
