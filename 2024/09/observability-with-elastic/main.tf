@@ -2,7 +2,7 @@ terraform {
   required_providers {
     elasticstack = {
       source  = "elastic/elasticstack"
-      version = "0.11.6"
+      version = "0.11.9"
     }
     env = {
       source  = "tcarreira/env"
@@ -32,7 +32,7 @@ provider "elasticstack" {
 
 resource "elasticstack_fleet_integration" "k8s" {
   name    = "kubernetes"
-  version = "1.66.2"
+  version = "1.68.1"
 }
 
 resource "elasticstack_fleet_agent_policy" "k8s_kind" {
@@ -451,7 +451,7 @@ resource "elasticstack_fleet_integration_policy" "k8s_kind" {
 
 resource "elasticstack_elasticsearch_security_api_key" "k8s_kind" {
   name = "K8S Kind API Key"
-  # https://www.elastic.co/guide/en/fleet/8.15/grant-access-to-elasticsearch.html#create-api-key-standalone-agent
+  # https://www.elastic.co/guide/en/fleet/8.16/grant-access-to-elasticsearch.html#create-api-key-standalone-agent
   role_descriptors = jsonencode({
     "standalone_agent" : {
       "cluster" : [

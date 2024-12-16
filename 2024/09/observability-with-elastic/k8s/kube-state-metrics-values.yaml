@@ -1,0 +1,5 @@
+replicas: 1
+autosharding:
+  enabled: true
+podSecurityPolicy:
+  enabled: true

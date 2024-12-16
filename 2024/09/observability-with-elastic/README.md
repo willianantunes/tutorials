@@ -30,13 +30,24 @@ kubectl create namespace development
 kubectl config set-context --current --namespace=development
 ```
 
-5. Apply the configuration with the following command:
+5. Install the `kube-state-metrics` with the following commands:
+
+```shell
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+# https://github.com/kubernetes/kube-state-metrics?tab=readme-ov-file#helm-chart
+helm install kube-state-metrics prometheus-community/kube-state-metrics -f k8s/kube-state-metrics-values.yaml --namespace kube-system
+```
+
+`kube-system` is the namespace where Elastic Agent will be installed. If you want to change it, you must update the `k8s/elastic-agent-standalone-kubernetes.yml` file because it uses `kube-state-metrics:8080`.
+
+6. Apply Elastic Agent with the following command:
 
 ```shell
 kubectl apply -f k8s/elastic-agent-standalone-kubernetes.yml
 ```
 
-6. Check out the logs using `k8s`. You should be able to see all the pods in the Inventory page of the Observability section in Kibana.
+7. Check out the logs using `k8s`. You should be able to see all the pods in the Inventory page of the Observability section in Kibana. Use the credential `elastic:elastic` to log in.
 
 - https://localhost:5601/app/metrics/inventory
 
@@ -50,9 +61,10 @@ docker compose down --remove-orphans -t 0 && \
 docker volume rm elastic_elasticsearch-data
 ```
 
-## Tips
+## Tips and known errors you may face
 
 - If you Terraform raises an error saying Kibana returned 409, you can remove the created volume with the command `docker volume rm elastic_elasticsearch-data`. The command `docker compose down --remove-orphans -t 0` won't do it for you. When it's done, you can run `docker compose up` again.
+- You may receive an error saying `{"statusCode":400,"error":"Bad Request","message":"kubernetes-1.66.2 is out-of-date and cannot be installed or updated"}` when applying the Terraform configuration. Search for the latest version of Kubernetes integration at https://localhost:5601/app/integrations/browse and update `main.tf` with it.
 
 ## Links
 
