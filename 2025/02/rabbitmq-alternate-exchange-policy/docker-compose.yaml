@@ -1,0 +1,64 @@
+services:
+  remote-interpreter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    volumes:
+      - .:/app
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+  create-alternate-exchange:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    volumes:
+      - .:/app
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    command: [ "./scripts/start-create-alternate-exchange-environment.sh" ]
+
+  publish-messages-indefinitely:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    volumes:
+      - .:/app
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    command: [ "./scripts/start-publish-messages-indefinitely.sh" ]
+
+  delete-queue:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    volumes:
+      - .:/app
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    command: [ "./scripts/start-delete-queue.sh" ]
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      # Web UI
+      - 15672:15672
+      # # AMQP
+      # - 5672:5672
+      # # STOMP
+      # - 61613:61613
+    volumes:
+      - ./custom-rabbitmq-conf:/etc/rabbitmq/
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 10s
+      timeout: 5s
+      retries: 5
