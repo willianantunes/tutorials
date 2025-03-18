@@ -1,0 +1,6 @@
+server.host: "0.0.0.0"
+server.shutdownTimeout: "5s"
+
+elasticsearch.hosts: [ "http://es:9200" ]
+elasticsearch.username: "kibana_system"
+elasticsearch.password: "kibada-wig-123456"
