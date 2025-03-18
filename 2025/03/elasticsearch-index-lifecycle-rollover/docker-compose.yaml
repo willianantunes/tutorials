@@ -1,0 +1,68 @@
+# https://docs.docker.com/compose/compose-file/compose-file-v3/#extension-fields
+x-build: &dockerfile-dev-build
+  context: .
+  dockerfile: Dockerfile.dev
+
+services:
+  remote-interpreter:
+    build: *dockerfile-dev-build
+    env_file: .env.development
+    volumes:
+      - .:/app
+    depends_on:
+      kibana:
+        condition: service_started
+
+  integration-tests:
+    build: *dockerfile-dev-build
+    env_file: .env.development
+    volumes:
+      - .:/app
+    command:
+      - ./scripts/start-tests.sh
+    depends_on:
+      kibana:
+        condition: service_started
+
+  es:
+    # https://www.elastic.co/guide/en/elasticsearch/reference/8.1/docker.html
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.16.5
+    ports:
+      - "9200:9200"
+    environment:
+      - ES_JAVA_OPTS=-Xms256m -Xmx512m
+      - discovery.type=single-node
+      - xpack.security.enabled=true
+      - xpack.monitoring.collection.enabled=true
+      - ELASTIC_USERNAME=elastic
+      - ELASTIC_PASSWORD=elastic
+    healthcheck:
+          test: ["CMD", "sh", "-c", "curl -sf --insecure https://$ELASTIC_USERNAME:$ELASTIC_PASSWORD@localhost:9200/_cat/health | grep -ioE 'green|yellow' || echo 'not green/yellow cluster status'"]
+
+  kibana:
+    # https://www.elastic.co/guide/en/kibana/8.1/docker.html
+    image: docker.elastic.co/kibana/kibana:8.16.5
+    ports:
+      - "5601:5601"
+    volumes:
+      - ./kibana.yml:/usr/share/kibana/config/kibana.yml
+    depends_on:
+      es:
+        condition: service_healthy
+
+  lint-formatter:
+    build: *dockerfile-dev-build
+    volumes:
+      - .:/app
+    command: ["./scripts/start-formatter-lint.sh"]
+
+  tf:
+    image: juntossomosmais/terraform-development-image
+    volumes:
+      - ./:/app
+      - ./.bash_history:/root/.bash_history
+    environment:
+      - TF_VAR_kibana_endpoint=http://kibana:5601
+      - TF_VAR_elasticsearch_endpoint=http://es:9200
+      - TF_VAR_elasticsearch_service_account_name=elastic
+      - TF_VAR_elasticsearch_service_account_password=elastic

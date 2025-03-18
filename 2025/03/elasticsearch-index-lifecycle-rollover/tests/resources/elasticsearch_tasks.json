@@ -1,0 +1,4740 @@
+{
+  "nodes" : {
+    "ZbWb9vz-TOmo_qjXnVMnKg" : {
+      "name" : "instance-0000000058",
+      "transport_address" : "172.25.244.115:19119",
+      "host" : "172.25.244.115",
+      "ip" : "172.25.244.115:19119",
+      "roles" : [
+        "ingest",
+        "remote_cluster_client"
+      ],
+      "attributes" : {
+        "logical_availability_zone" : "zone-0",
+        "server_name" : "instance-0000000058.3015e00c547d4430b91fa2e9486c1b76",
+        "availability_zone" : "us-east-1e",
+        "xpack.installed" : "true",
+        "instance_configuration" : "aws.coordinating.m5",
+        "transform.node" : "false",
+        "region" : "us-east-1"
+      },
+      "tasks" : {
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060015" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060015,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[886], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.320Z",
+          "start_time_in_millis" : 1741641520320,
+          "running_time" : "2s",
+          "running_time_in_nanos" : 2094433564,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060014",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060014" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060014,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[886], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:40.319Z",
+          "start_time_in_millis" : 1741641520319,
+          "running_time" : "2s",
+          "running_time_in_nanos" : 2095638841,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060012" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060012,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[664], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.298Z",
+          "start_time_in_millis" : 1741641520298,
+          "running_time" : "2.1s",
+          "running_time_in_nanos" : 2116093759,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060011",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060011" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060011,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[664], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:40.296Z",
+          "start_time_in_millis" : 1741641520296,
+          "running_time" : "2.1s",
+          "running_time_in_nanos" : 2118602023,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060008" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060008,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[2222], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.270Z",
+          "start_time_in_millis" : 1741641520270,
+          "running_time" : "2.1s",
+          "running_time_in_nanos" : 2144535198,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060005",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060007" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060007,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[70], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.268Z",
+          "start_time_in_millis" : 1741641520268,
+          "running_time" : "2.1s",
+          "running_time_in_nanos" : 2145884482,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060006",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060006" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060006,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[70], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:40.268Z",
+          "start_time_in_millis" : 1741641520268,
+          "running_time" : "2.1s",
+          "running_time_in_nanos" : 2146113366,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060005" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060005,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[2222], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:40.254Z",
+          "start_time_in_millis" : 1741641520254,
+          "running_time" : "2.1s",
+          "running_time_in_nanos" : 2160572861,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060030" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060030,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[2], index[.kibana-event-log-7.17.7-000029][0]",
+          "start_time" : "2025-03-10T21:18:40.445Z",
+          "start_time_in_millis" : 1741641520445,
+          "running_time" : "1.9s",
+          "running_time_in_nanos" : 1969034491,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060029",
+          "headers" : {
+            "X-elastic-product-origin" : "kibana"
+          }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060029" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060029,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[2], indices[.kibana-event-log-7.17.7]",
+          "start_time" : "2025-03-10T21:18:40.445Z",
+          "start_time_in_millis" : 1741641520445,
+          "running_time" : "1.9s",
+          "running_time_in_nanos" : 1969112798,
+          "cancellable" : false,
+          "headers" : {
+            "X-elastic-product-origin" : "kibana"
+          }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060027" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060027,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[250], index[.monitoring-es-7-mb-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.434Z",
+          "start_time_in_millis" : 1741641520434,
+          "running_time" : "1.9s",
+          "running_time_in_nanos" : 1980504093,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060026",
+          "headers" : {
+            "X-elastic-product-origin" : "beats"
+          }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060026" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060026,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[250], indices[.monitoring-es-7-mb-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:40.433Z",
+          "start_time_in_millis" : 1741641520433,
+          "running_time" : "1.9s",
+          "running_time_in_nanos" : 1980912822,
+          "cancellable" : false,
+          "headers" : {
+            "X-elastic-product-origin" : "beats"
+          }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060047" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060047,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[15], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:40.675Z",
+          "start_time_in_millis" : 1741641520675,
+          "running_time" : "1.7s",
+          "running_time_in_nanos" : 1739580954,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060046" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060046,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[5], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.644Z",
+          "start_time_in_millis" : 1741641520644,
+          "running_time" : "1.7s",
+          "running_time_in_nanos" : 1770162846,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060045",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060045" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060045,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[5], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:40.644Z",
+          "start_time_in_millis" : 1741641520644,
+          "running_time" : "1.7s",
+          "running_time_in_nanos" : 1770258766,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060044" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060044,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[5], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.524Z",
+          "start_time_in_millis" : 1741641520524,
+          "running_time" : "1.8s",
+          "running_time_in_nanos" : 1890713372,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060043",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060043" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060043,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[5], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:40.523Z",
+          "start_time_in_millis" : 1741641520523,
+          "running_time" : "1.8s",
+          "running_time_in_nanos" : 1890785068,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060041" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060041,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[3], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.511Z",
+          "start_time_in_millis" : 1741641520511,
+          "running_time" : "1.9s",
+          "running_time_in_nanos" : 1903342156,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060039",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060039" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060039,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[3], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:40.511Z",
+          "start_time_in_millis" : 1741641520511,
+          "running_time" : "1.9s",
+          "running_time_in_nanos" : 1903419792,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060037" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060037,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[38], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.475Z",
+          "start_time_in_millis" : 1741641520475,
+          "running_time" : "1.9s",
+          "running_time_in_nanos" : 1939090012,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060036",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060036" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060036,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[38], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:40.475Z",
+          "start_time_in_millis" : 1741641520475,
+          "running_time" : "1.9s",
+          "running_time_in_nanos" : 1939182425,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060035" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060035,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[4], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.471Z",
+          "start_time_in_millis" : 1741641520471,
+          "running_time" : "1.9s",
+          "running_time_in_nanos" : 1942870282,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060034",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060034" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060034,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[4], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:40.471Z",
+          "start_time_in_millis" : 1741641520471,
+          "running_time" : "1.9s",
+          "running_time_in_nanos" : 1942935311,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060052" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060052,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[376], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.770Z",
+          "start_time_in_millis" : 1741641520770,
+          "running_time" : "1.6s",
+          "running_time_in_nanos" : 1644584292,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060051",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060051" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060051,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[376], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:40.769Z",
+          "start_time_in_millis" : 1741641520769,
+          "running_time" : "1.6s",
+          "running_time_in_nanos" : 1645527950,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060050" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060050,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[2], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.675Z",
+          "start_time_in_millis" : 1741641520675,
+          "running_time" : "1.7s",
+          "running_time_in_nanos" : 1739201363,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060049",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060049" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060049,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[2], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:40.675Z",
+          "start_time_in_millis" : 1741641520675,
+          "running_time" : "1.7s",
+          "running_time_in_nanos" : 1739262173,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060048" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060048,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[15], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.675Z",
+          "start_time_in_millis" : 1741641520675,
+          "running_time" : "1.7s",
+          "running_time_in_nanos" : 1739475897,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060047",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060079" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060079,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[9], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.103Z",
+          "start_time_in_millis" : 1741641521103,
+          "running_time" : "1.3s",
+          "running_time_in_nanos" : 1311468400,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060078" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060078,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[3], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.081Z",
+          "start_time_in_millis" : 1741641521081,
+          "running_time" : "1.3s",
+          "running_time_in_nanos" : 1332784951,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060077",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060077" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060077,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[3], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.081Z",
+          "start_time_in_millis" : 1741641521081,
+          "running_time" : "1.3s",
+          "running_time_in_nanos" : 1332887970,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060075" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060075,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[5], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.913Z",
+          "start_time_in_millis" : 1741641520913,
+          "running_time" : "1.5s",
+          "running_time_in_nanos" : 1500913232,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060074",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060074" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060074,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[5], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:40.913Z",
+          "start_time_in_millis" : 1741641520913,
+          "running_time" : "1.5s",
+          "running_time_in_nanos" : 1501011368,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060073" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060073,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[21], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.879Z",
+          "start_time_in_millis" : 1741641520879,
+          "running_time" : "1.5s",
+          "running_time_in_nanos" : 1535251383,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060072",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060072" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060072,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[21], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:40.879Z",
+          "start_time_in_millis" : 1741641520879,
+          "running_time" : "1.5s",
+          "running_time_in_nanos" : 1535362949,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060071" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060071,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.866Z",
+          "start_time_in_millis" : 1741641520866,
+          "running_time" : "1.5s",
+          "running_time_in_nanos" : 1548104011,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060070",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060070" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060070,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[6], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:40.866Z",
+          "start_time_in_millis" : 1741641520866,
+          "running_time" : "1.5s",
+          "running_time_in_nanos" : 1548199326,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060065" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060065,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[2], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.815Z",
+          "start_time_in_millis" : 1741641520815,
+          "running_time" : "1.5s",
+          "running_time_in_nanos" : 1598804252,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060064",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060064" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060064,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[2], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:40.815Z",
+          "start_time_in_millis" : 1741641520815,
+          "running_time" : "1.5s",
+          "running_time_in_nanos" : 1598935744,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060093" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060093,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[9], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.227Z",
+          "start_time_in_millis" : 1741641521227,
+          "running_time" : "1.1s",
+          "running_time_in_nanos" : 1186940375,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060092",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060092" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060092,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[9], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.227Z",
+          "start_time_in_millis" : 1741641521227,
+          "running_time" : "1.1s",
+          "running_time_in_nanos" : 1187030481,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060091" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060091,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[3], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.210Z",
+          "start_time_in_millis" : 1741641521210,
+          "running_time" : "1.2s",
+          "running_time_in_nanos" : 1204565680,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060090",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060090" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060090,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[3], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.210Z",
+          "start_time_in_millis" : 1741641521210,
+          "running_time" : "1.2s",
+          "running_time_in_nanos" : 1204631873,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060087" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060087,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[21], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.172Z",
+          "start_time_in_millis" : 1741641521172,
+          "running_time" : "1.2s",
+          "running_time_in_nanos" : 1242031119,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060086",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060086" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060086,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[21], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.172Z",
+          "start_time_in_millis" : 1741641521172,
+          "running_time" : "1.2s",
+          "running_time_in_nanos" : 1242108046,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060085" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060085,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[329], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.170Z",
+          "start_time_in_millis" : 1741641521170,
+          "running_time" : "1.2s",
+          "running_time_in_nanos" : 1244344162,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060084",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060084" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060084,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[329], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.169Z",
+          "start_time_in_millis" : 1741641521169,
+          "running_time" : "1.2s",
+          "running_time_in_nanos" : 1244773233,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060082" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060082,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[153], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.123Z",
+          "start_time_in_millis" : 1741641521123,
+          "running_time" : "1.2s",
+          "running_time_in_nanos" : 1291729336,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060081",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060081" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060081,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[153], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.122Z",
+          "start_time_in_millis" : 1741641521122,
+          "running_time" : "1.2s",
+          "running_time_in_nanos" : 1291984698,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060080" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060080,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[9], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.103Z",
+          "start_time_in_millis" : 1741641521103,
+          "running_time" : "1.3s",
+          "running_time_in_nanos" : 1311351550,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060079",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060111" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060111,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[6], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.407Z",
+          "start_time_in_millis" : 1741641521407,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1007086767,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060110" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060110,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[79], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.393Z",
+          "start_time_in_millis" : 1741641521393,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1021041899,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060108",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060109" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060109,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[7], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.393Z",
+          "start_time_in_millis" : 1741641521393,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1021117427,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060107",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060108" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060108,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[79], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.393Z",
+          "start_time_in_millis" : 1741641521393,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1021195830,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060107" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060107,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[7], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.393Z",
+          "start_time_in_millis" : 1741641521393,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1021215050,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060106" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060106,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[4], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.372Z",
+          "start_time_in_millis" : 1741641521372,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1042213586,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060105",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060105" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060105,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[4], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.372Z",
+          "start_time_in_millis" : 1741641521372,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1042288259,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060104" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060104,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.341Z",
+          "start_time_in_millis" : 1741641521341,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1073096946,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060103",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060103" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060103,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[6], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.341Z",
+          "start_time_in_millis" : 1741641521341,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1073163891,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060102" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060102,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.341Z",
+          "start_time_in_millis" : 1741641521341,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1073352098,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060101",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060101" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060101,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[6], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.341Z",
+          "start_time_in_millis" : 1741641521341,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1073438385,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060100" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060100,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[4], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.295Z",
+          "start_time_in_millis" : 1741641521295,
+          "running_time" : "1.1s",
+          "running_time_in_nanos" : 1119156653,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060099",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060099" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060099,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[4], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.295Z",
+          "start_time_in_millis" : 1741641521295,
+          "running_time" : "1.1s",
+          "running_time_in_nanos" : 1119245381,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060098" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060098,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[364], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.249Z",
+          "start_time_in_millis" : 1741641521249,
+          "running_time" : "1.1s",
+          "running_time_in_nanos" : 1165203775,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060097",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060097" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060097,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[364], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.248Z",
+          "start_time_in_millis" : 1741641521248,
+          "running_time" : "1.1s",
+          "running_time_in_nanos" : 1165760000,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060127" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060127,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[6], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.718Z",
+          "start_time_in_millis" : 1741641521718,
+          "running_time" : "696.6ms",
+          "running_time_in_nanos" : 696642474,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060126" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060126,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[26], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.693Z",
+          "start_time_in_millis" : 1741641521693,
+          "running_time" : "721.3ms",
+          "running_time_in_nanos" : 721314350,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060125",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060125" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060125,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[26], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.693Z",
+          "start_time_in_millis" : 1741641521693,
+          "running_time" : "721.4ms",
+          "running_time_in_nanos" : 721446208,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060124" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060124,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[2], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.651Z",
+          "start_time_in_millis" : 1741641521651,
+          "running_time" : "763.7ms",
+          "running_time_in_nanos" : 763751528,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060123",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060123" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060123,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[2], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.650Z",
+          "start_time_in_millis" : 1741641521650,
+          "running_time" : "763.8ms",
+          "running_time_in_nanos" : 763840267,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060122" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060122,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[2], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.618Z",
+          "start_time_in_millis" : 1741641521618,
+          "running_time" : "796.3ms",
+          "running_time_in_nanos" : 796322948,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060121",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060121" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060121,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[2], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.618Z",
+          "start_time_in_millis" : 1741641521618,
+          "running_time" : "796.4ms",
+          "running_time_in_nanos" : 796409374,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060120" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060120,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[2], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.558Z",
+          "start_time_in_millis" : 1741641521558,
+          "running_time" : "856.4ms",
+          "running_time_in_nanos" : 856438195,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060119",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060119" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060119,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[2], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.558Z",
+          "start_time_in_millis" : 1741641521558,
+          "running_time" : "856.5ms",
+          "running_time_in_nanos" : 856520534,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060116" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060116,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[39], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.486Z",
+          "start_time_in_millis" : 1741641521486,
+          "running_time" : "927.9ms",
+          "running_time_in_nanos" : 927922743,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060115",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060115" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060115,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[39], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.486Z",
+          "start_time_in_millis" : 1741641521486,
+          "running_time" : "928ms",
+          "running_time_in_nanos" : 928066460,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060114" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060114,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[172], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.411Z",
+          "start_time_in_millis" : 1741641521411,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1003393912,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060113",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060113" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060113,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[172], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.411Z",
+          "start_time_in_millis" : 1741641521411,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1003652410,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060112" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060112,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.407Z",
+          "start_time_in_millis" : 1741641521407,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1007022029,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060111",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060142" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060142,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.928Z",
+          "start_time_in_millis" : 1741641521928,
+          "running_time" : "485.9ms",
+          "running_time_in_nanos" : 485943958,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060141",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060141" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060141,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[6], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.928Z",
+          "start_time_in_millis" : 1741641521928,
+          "running_time" : "486ms",
+          "running_time_in_nanos" : 486051555,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060140" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060140,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[52], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.895Z",
+          "start_time_in_millis" : 1741641521895,
+          "running_time" : "518.9ms",
+          "running_time_in_nanos" : 518938828,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060139",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060139" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060139,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[52], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.895Z",
+          "start_time_in_millis" : 1741641521895,
+          "running_time" : "519ms",
+          "running_time_in_nanos" : 519077143,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060138" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060138,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[16], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.862Z",
+          "start_time_in_millis" : 1741641521862,
+          "running_time" : "552.2ms",
+          "running_time_in_nanos" : 552275401,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060137",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060137" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060137,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[16], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.862Z",
+          "start_time_in_millis" : 1741641521862,
+          "running_time" : "552.3ms",
+          "running_time_in_nanos" : 552383600,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060136" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060136,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[502], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.825Z",
+          "start_time_in_millis" : 1741641521825,
+          "running_time" : "588.7ms",
+          "running_time_in_nanos" : 588770053,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060135",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060135" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060135,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[502], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.825Z",
+          "start_time_in_millis" : 1741641521825,
+          "running_time" : "589.5ms",
+          "running_time_in_nanos" : 589574866,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060134" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060134,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[66], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.821Z",
+          "start_time_in_millis" : 1741641521821,
+          "running_time" : "593.4ms",
+          "running_time_in_nanos" : 593404857,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060133",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060133" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060133,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[66], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.821Z",
+          "start_time_in_millis" : 1741641521821,
+          "running_time" : "593.6ms",
+          "running_time_in_nanos" : 593604311,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060132" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060132,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.729Z",
+          "start_time_in_millis" : 1741641521729,
+          "running_time" : "685.2ms",
+          "running_time_in_nanos" : 685228720,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060131",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060131" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060131,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[6], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.729Z",
+          "start_time_in_millis" : 1741641521729,
+          "running_time" : "685.2ms",
+          "running_time_in_nanos" : 685297445,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060130" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060130,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[8], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.728Z",
+          "start_time_in_millis" : 1741641521728,
+          "running_time" : "685.7ms",
+          "running_time_in_nanos" : 685782555,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060129",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060129" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060129,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[8], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:41.728Z",
+          "start_time_in_millis" : 1741641521728,
+          "running_time" : "685.9ms",
+          "running_time_in_nanos" : 685913661,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060128" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060128,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.718Z",
+          "start_time_in_millis" : 1741641521718,
+          "running_time" : "696.5ms",
+          "running_time_in_nanos" : 696550354,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060127",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060159" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060159,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[2], indices[.monitoring-kibana-7-mb-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:42.231Z",
+          "start_time_in_millis" : 1741641522231,
+          "running_time" : "183ms",
+          "running_time_in_nanos" : 183086113,
+          "cancellable" : false,
+          "headers" : {
+            "X-elastic-product-origin" : "beats"
+          }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060158" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060158,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[24], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.203Z",
+          "start_time_in_millis" : 1741641522203,
+          "running_time" : "211.6ms",
+          "running_time_in_nanos" : 211676198,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060157",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060157" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060157,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[24], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:42.202Z",
+          "start_time_in_millis" : 1741641522202,
+          "running_time" : "211.7ms",
+          "running_time_in_nanos" : 211761735,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060156" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060156,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.197Z",
+          "start_time_in_millis" : 1741641522197,
+          "running_time" : "217ms",
+          "running_time_in_nanos" : 217044153,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060155",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060155" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060155,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[6], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:42.197Z",
+          "start_time_in_millis" : 1741641522197,
+          "running_time" : "217.1ms",
+          "running_time_in_nanos" : 217109704,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060154" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060154,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[260], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.195Z",
+          "start_time_in_millis" : 1741641522195,
+          "running_time" : "219.3ms",
+          "running_time_in_nanos" : 219362774,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060153",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060153" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060153,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[260], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:42.194Z",
+          "start_time_in_millis" : 1741641522194,
+          "running_time" : "220ms",
+          "running_time_in_nanos" : 220037491,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060151" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060151,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[2], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.099Z",
+          "start_time_in_millis" : 1741641522099,
+          "running_time" : "314.9ms",
+          "running_time_in_nanos" : 314906358,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060150",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060150" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060150,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[2], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:42.099Z",
+          "start_time_in_millis" : 1741641522099,
+          "running_time" : "314.9ms",
+          "running_time_in_nanos" : 314958811,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060149" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060149,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[70], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.093Z",
+          "start_time_in_millis" : 1741641522093,
+          "running_time" : "321.4ms",
+          "running_time_in_nanos" : 321478209,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060148",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060148" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060148,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[70], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:42.093Z",
+          "start_time_in_millis" : 1741641522093,
+          "running_time" : "321.6ms",
+          "running_time_in_nanos" : 321631616,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060147" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060147,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[7], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.089Z",
+          "start_time_in_millis" : 1741641522089,
+          "running_time" : "325.7ms",
+          "running_time_in_nanos" : 325740484,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060146",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060146" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060146,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[7], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:42.088Z",
+          "start_time_in_millis" : 1741641522088,
+          "running_time" : "325.8ms",
+          "running_time_in_nanos" : 325836835,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060145" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060145,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[89], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.076Z",
+          "start_time_in_millis" : 1741641522076,
+          "running_time" : "338ms",
+          "running_time_in_nanos" : 338068203,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060144",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060144" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060144,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[89], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:42.076Z",
+          "start_time_in_millis" : 1741641522076,
+          "running_time" : "338.2ms",
+          "running_time_in_nanos" : 338259922,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060175" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060175,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[6], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:42.342Z",
+          "start_time_in_millis" : 1741641522342,
+          "running_time" : "72.2ms",
+          "running_time_in_nanos" : 72203942,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060174" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060174,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[4], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.336Z",
+          "start_time_in_millis" : 1741641522336,
+          "running_time" : "78.2ms",
+          "running_time_in_nanos" : 78264619,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060173",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060173" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060173,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[4], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:42.336Z",
+          "start_time_in_millis" : 1741641522336,
+          "running_time" : "78.3ms",
+          "running_time_in_nanos" : 78323040,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060172" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060172,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[3], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.332Z",
+          "start_time_in_millis" : 1741641522332,
+          "running_time" : "82ms",
+          "running_time_in_nanos" : 82035220,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060171",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060171" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060171,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[3], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:42.332Z",
+          "start_time_in_millis" : 1741641522332,
+          "running_time" : "82.1ms",
+          "running_time_in_nanos" : 82113797,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060170" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060170,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[4], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.325Z",
+          "start_time_in_millis" : 1741641522325,
+          "running_time" : "89.3ms",
+          "running_time_in_nanos" : 89394147,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060169",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060169" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060169,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[4], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:42.325Z",
+          "start_time_in_millis" : 1741641522325,
+          "running_time" : "89.4ms",
+          "running_time_in_nanos" : 89473888,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060166" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060166,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[92], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.299Z",
+          "start_time_in_millis" : 1741641522299,
+          "running_time" : "114.8ms",
+          "running_time_in_nanos" : 114862275,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060165",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060165" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060165,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[92], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:42.299Z",
+          "start_time_in_millis" : 1741641522299,
+          "running_time" : "115ms",
+          "running_time_in_nanos" : 115065476,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060164" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060164,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[11], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.299Z",
+          "start_time_in_millis" : 1741641522299,
+          "running_time" : "115.1ms",
+          "running_time_in_nanos" : 115187706,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060163",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060163" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060163,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[11], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:42.299Z",
+          "start_time_in_millis" : 1741641522299,
+          "running_time" : "115.2ms",
+          "running_time_in_nanos" : 115295219,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060162" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060162,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[181], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.247Z",
+          "start_time_in_millis" : 1741641522247,
+          "running_time" : "167.5ms",
+          "running_time_in_nanos" : 167508646,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060161",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060161" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060161,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[181], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:42.246Z",
+          "start_time_in_millis" : 1741641522246,
+          "running_time" : "167.7ms",
+          "running_time_in_nanos" : 167770018,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060160" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060160,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[2], index[.monitoring-kibana-7-mb-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.231Z",
+          "start_time_in_millis" : 1741641522231,
+          "running_time" : "183ms",
+          "running_time_in_nanos" : 183026709,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060159",
+          "headers" : {
+            "X-elastic-product-origin" : "beats"
+          }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060188" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060188,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[2], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.399Z",
+          "start_time_in_millis" : 1741641522399,
+          "running_time" : "15.2ms",
+          "running_time_in_nanos" : 15220692,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060187",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060187" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060187,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[2], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:42.399Z",
+          "start_time_in_millis" : 1741641522399,
+          "running_time" : "15.2ms",
+          "running_time_in_nanos" : 15268468,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060184" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060184,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[192], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.380Z",
+          "start_time_in_millis" : 1741641522380,
+          "running_time" : "34.4ms",
+          "running_time_in_nanos" : 34499671,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060183",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060183" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060183,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[192], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:42.379Z",
+          "start_time_in_millis" : 1741641522379,
+          "running_time" : "34.7ms",
+          "running_time_in_nanos" : 34773180,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060182" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060182,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.378Z",
+          "start_time_in_millis" : 1741641522378,
+          "running_time" : "36.3ms",
+          "running_time_in_nanos" : 36348045,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060181",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060181" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060181,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[6], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:42.378Z",
+          "start_time_in_millis" : 1741641522378,
+          "running_time" : "36.4ms",
+          "running_time_in_nanos" : 36409268,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060180" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060180,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.369Z",
+          "start_time_in_millis" : 1741641522369,
+          "running_time" : "45.3ms",
+          "running_time_in_nanos" : 45385928,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060179",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060179" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060179,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[6], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:42.369Z",
+          "start_time_in_millis" : 1741641522369,
+          "running_time" : "45.4ms",
+          "running_time_in_nanos" : 45458321,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060176" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060176,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.342Z",
+          "start_time_in_millis" : 1741641522342,
+          "running_time" : "72.1ms",
+          "running_time_in_nanos" : 72153444,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060175",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060201" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060201,
+          "type" : "direct",
+          "action" : "cluster:monitor/tasks/lists[n]",
+          "description" : "",
+          "start_time" : "2025-03-10T21:18:42.414Z",
+          "start_time_in_millis" : 1741641522414,
+          "running_time" : "108.9micros",
+          "running_time_in_nanos" : 108956,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060200",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060200" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060200,
+          "type" : "transport",
+          "action" : "cluster:monitor/tasks/lists",
+          "description" : "",
+          "start_time" : "2025-03-10T21:18:42.414Z",
+          "start_time_in_millis" : 1741641522414,
+          "running_time" : "271.9micros",
+          "running_time_in_nanos" : 271977,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060198" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060198,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[1], index[.monitoring-es-7-mb-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.413Z",
+          "start_time_in_millis" : 1741641522413,
+          "running_time" : "1.4ms",
+          "running_time_in_nanos" : 1474475,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060197",
+          "headers" : {
+            "X-elastic-product-origin" : "beats"
+          }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060197" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060197,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[1], indices[.monitoring-es-7-mb-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:42.413Z",
+          "start_time_in_millis" : 1741641522413,
+          "running_time" : "1.5ms",
+          "running_time_in_nanos" : 1520420,
+          "cancellable" : false,
+          "headers" : {
+            "X-elastic-product-origin" : "beats"
+          }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060195" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060195,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[3], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.409Z",
+          "start_time_in_millis" : 1741641522409,
+          "running_time" : "4.8ms",
+          "running_time_in_nanos" : 4889658,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060194",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060194" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060194,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[3], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:42.409Z",
+          "start_time_in_millis" : 1741641522409,
+          "running_time" : "4.9ms",
+          "running_time_in_nanos" : 4937766,
+          "cancellable" : false,
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060193" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060193,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "rerouted"
+          },
+          "description" : "requests[3], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.409Z",
+          "start_time_in_millis" : 1741641522409,
+          "running_time" : "5ms",
+          "running_time_in_nanos" : 5096939,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060192",
+          "headers" : { }
+        },
+        "ZbWb9vz-TOmo_qjXnVMnKg:865060192" : {
+          "node" : "ZbWb9vz-TOmo_qjXnVMnKg",
+          "id" : 865060192,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk",
+          "description" : "requests[3], indices[logstash-nose-2025.03.10]",
+          "start_time" : "2025-03-10T21:18:42.409Z",
+          "start_time_in_millis" : 1741641522409,
+          "running_time" : "5.1ms",
+          "running_time_in_nanos" : 5147775,
+          "cancellable" : false,
+          "headers" : { }
+        }
+      }
+    },
+    "UalOEgtnQmOJfmW4P3epkA" : {
+      "name" : "instance-0000000061",
+      "transport_address" : "172.22.218.233:19125",
+      "host" : "172.22.218.233",
+      "ip" : "172.22.218.233:19125",
+      "roles" : [
+        "data_warm",
+        "remote_cluster_client"
+      ],
+      "attributes" : {
+        "logical_availability_zone" : "zone-0",
+        "availability_zone" : "us-east-1a",
+        "server_name" : "instance-0000000061.3015e00c547d4430b91fa2e9486c1b76",
+        "xpack.installed" : "true",
+        "data" : "warm",
+        "instance_configuration" : "aws.data.highstorage.d2",
+        "transform.node" : "false",
+        "region" : "us-east-1"
+      },
+      "tasks" : {
+        "UalOEgtnQmOJfmW4P3epkA:80560562" : {
+          "node" : "UalOEgtnQmOJfmW4P3epkA",
+          "id" : 80560562,
+          "type" : "transport",
+          "action" : "cluster:monitor/tasks/lists[n]",
+          "description" : "",
+          "start_time" : "2025-03-10T21:18:42.415Z",
+          "start_time_in_millis" : 1741641522415,
+          "running_time" : "51.1micros",
+          "running_time_in_nanos" : 51126,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060200",
+          "headers" : { }
+        }
+      }
+    },
+    "UcEzvgq2TpCXCZYWCR88EA" : {
+      "name" : "instance-0000000060",
+      "transport_address" : "172.22.223.80:19258",
+      "host" : "172.22.223.80",
+      "ip" : "172.22.223.80:19258",
+      "roles" : [
+        "data_content",
+        "data_hot",
+        "master",
+        "remote_cluster_client",
+        "transform"
+      ],
+      "attributes" : {
+        "logical_availability_zone" : "zone-0",
+        "availability_zone" : "us-east-1a",
+        "server_name" : "instance-0000000060.3015e00c547d4430b91fa2e9486c1b76",
+        "xpack.installed" : "true",
+        "data" : "hot",
+        "instance_configuration" : "aws.data.highio.i3",
+        "transform.node" : "true",
+        "region" : "us-east-1"
+      },
+      "tasks" : {
+        "UcEzvgq2TpCXCZYWCR88EA:1826999013" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999013,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[3], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.083Z",
+          "start_time_in_millis" : 1741641521083,
+          "running_time" : "1.3s",
+          "running_time_in_nanos" : 1332294053,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999012",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999012" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999012,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[3], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.082Z",
+          "start_time_in_millis" : 1741641521082,
+          "running_time" : "1.3s",
+          "running_time_in_nanos" : 1332453461,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060078",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999015" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999015,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[9], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.105Z",
+          "start_time_in_millis" : 1741641521105,
+          "running_time" : "1.3s",
+          "running_time_in_nanos" : 1310204636,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999014",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999014" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999014,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[9], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.105Z",
+          "start_time_in_millis" : 1741641521105,
+          "running_time" : "1.3s",
+          "running_time_in_nanos" : 1310404107,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060080",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999009" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999009,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[21], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.881Z",
+          "start_time_in_millis" : 1741641520881,
+          "running_time" : "1.5s",
+          "running_time_in_nanos" : 1534358290,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999008",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999008" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999008,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[21], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.880Z",
+          "start_time_in_millis" : 1741641520880,
+          "running_time" : "1.5s",
+          "running_time_in_nanos" : 1534527812,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060073",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999011" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999011,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[5], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.915Z",
+          "start_time_in_millis" : 1741641520915,
+          "running_time" : "1.5s",
+          "running_time_in_nanos" : 1500228339,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999010",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999010" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999010,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[5], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.915Z",
+          "start_time_in_millis" : 1741641520915,
+          "running_time" : "1.5s",
+          "running_time_in_nanos" : 1500421531,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060075",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999021" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999021,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[21], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.196Z",
+          "start_time_in_millis" : 1741641521196,
+          "running_time" : "1.2s",
+          "running_time_in_nanos" : 1219235234,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999020",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999020" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999020,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[21], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.196Z",
+          "start_time_in_millis" : 1741641521196,
+          "running_time" : "1.2s",
+          "running_time_in_nanos" : 1219302712,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060087",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999023" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999023,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[3], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.213Z",
+          "start_time_in_millis" : 1741641521213,
+          "running_time" : "1.2s",
+          "running_time_in_nanos" : 1202079812,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999022",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999022" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999022,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[3], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.213Z",
+          "start_time_in_millis" : 1741641521213,
+          "running_time" : "1.2s",
+          "running_time_in_nanos" : 1202263959,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060091",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999017" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999017,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[153], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.126Z",
+          "start_time_in_millis" : 1741641521126,
+          "running_time" : "1.2s",
+          "running_time_in_nanos" : 1289226075,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999016",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999016" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999016,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[153], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.125Z",
+          "start_time_in_millis" : 1741641521125,
+          "running_time" : "1.2s",
+          "running_time_in_nanos" : 1289485724,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060082",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999019" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999019,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[329], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.195Z",
+          "start_time_in_millis" : 1741641521195,
+          "running_time" : "1.2s",
+          "running_time_in_nanos" : 1219707826,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999018",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999018" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999018,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[329], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.195Z",
+          "start_time_in_millis" : 1741641521195,
+          "running_time" : "1.2s",
+          "running_time_in_nanos" : 1220187580,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060085",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999029" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999029,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[364], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.298Z",
+          "start_time_in_millis" : 1741641521298,
+          "running_time" : "1.1s",
+          "running_time_in_nanos" : 1116575124,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060098",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999028" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999028,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[4], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.296Z",
+          "start_time_in_millis" : 1741641521296,
+          "running_time" : "1.1s",
+          "running_time_in_nanos" : 1118692141,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999027",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999030" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999030,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[364], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.299Z",
+          "start_time_in_millis" : 1741641521299,
+          "running_time" : "1.1s",
+          "running_time_in_nanos" : 1116190496,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999029",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999025" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999025,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[9], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.229Z",
+          "start_time_in_millis" : 1741641521229,
+          "running_time" : "1.1s",
+          "running_time_in_nanos" : 1186288678,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999024",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999024" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999024,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[9], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.228Z",
+          "start_time_in_millis" : 1741641521228,
+          "running_time" : "1.1s",
+          "running_time_in_nanos" : 1186474840,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060093",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999027" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999027,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[4], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.296Z",
+          "start_time_in_millis" : 1741641521296,
+          "running_time" : "1.1s",
+          "running_time_in_nanos" : 1118866482,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060100",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999039" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999039,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.342Z",
+          "start_time_in_millis" : 1741641521342,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1072802462,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060102",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998991" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998991,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[5], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.525Z",
+          "start_time_in_millis" : 1741641520525,
+          "running_time" : "1.8s",
+          "running_time_in_nanos" : 1890412700,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060044",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998987" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998987,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[3], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.514Z",
+          "start_time_in_millis" : 1741641520514,
+          "running_time" : "1.9s",
+          "running_time_in_nanos" : 1900544583,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826998986",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998986" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998986,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[3], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.514Z",
+          "start_time_in_millis" : 1741641520514,
+          "running_time" : "1.9s",
+          "running_time_in_nanos" : 1900774904,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060041",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998997" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998997,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[15], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.676Z",
+          "start_time_in_millis" : 1741641520676,
+          "running_time" : "1.7s",
+          "running_time_in_nanos" : 1738570114,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826998996",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998996" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998996,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[15], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.676Z",
+          "start_time_in_millis" : 1741641520676,
+          "running_time" : "1.7s",
+          "running_time_in_nanos" : 1738792168,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060048",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998999" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998999,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[2], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.680Z",
+          "start_time_in_millis" : 1741641520680,
+          "running_time" : "1.7s",
+          "running_time_in_nanos" : 1735269978,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826998998",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998998" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998998,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[2], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.679Z",
+          "start_time_in_millis" : 1741641520679,
+          "running_time" : "1.7s",
+          "running_time_in_nanos" : 1735486869,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060050",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998992" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998992,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[5], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.525Z",
+          "start_time_in_millis" : 1741641520525,
+          "running_time" : "1.8s",
+          "running_time_in_nanos" : 1890259134,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826998991",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998995" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998995,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[5], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.645Z",
+          "start_time_in_millis" : 1741641520645,
+          "running_time" : "1.7s",
+          "running_time_in_nanos" : 1769601815,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826998994",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998994" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998994,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[5], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.645Z",
+          "start_time_in_millis" : 1741641520645,
+          "running_time" : "1.7s",
+          "running_time_in_nanos" : 1769800578,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060046",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999007" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999007,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.876Z",
+          "start_time_in_millis" : 1741641520876,
+          "running_time" : "1.5s",
+          "running_time_in_nanos" : 1539025261,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999006",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999006" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999006,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.876Z",
+          "start_time_in_millis" : 1741641520876,
+          "running_time" : "1.5s",
+          "running_time_in_nanos" : 1539215803,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060071",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999001" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999001,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[376], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.799Z",
+          "start_time_in_millis" : 1741641520799,
+          "running_time" : "1.6s",
+          "running_time_in_nanos" : 1615573089,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999000",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999000" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999000,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[376], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.799Z",
+          "start_time_in_millis" : 1741641520799,
+          "running_time" : "1.6s",
+          "running_time_in_nanos" : 1616171090,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060052",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999003" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999003,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[2], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.829Z",
+          "start_time_in_millis" : 1741641520829,
+          "running_time" : "1.5s",
+          "running_time_in_nanos" : 1585575717,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999002",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999002" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999002,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[2], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.829Z",
+          "start_time_in_millis" : 1741641520829,
+          "running_time" : "1.5s",
+          "running_time_in_nanos" : 1585747338,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060065",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998949" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998949,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[2], index[.kibana-event-log-7.17.7-000029][0]",
+          "start_time" : "2025-03-10T21:18:40.448Z",
+          "start_time_in_millis" : 1741641520448,
+          "running_time" : "1.9s",
+          "running_time_in_nanos" : 1967380028,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826998948",
+          "headers" : {
+            "X-elastic-product-origin" : "kibana"
+          }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998948" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998948,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[2], index[.kibana-event-log-7.17.7-000029][0]",
+          "start_time" : "2025-03-10T21:18:40.447Z",
+          "start_time_in_millis" : 1741641520447,
+          "running_time" : "1.9s",
+          "running_time_in_nanos" : 1967548350,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060030",
+          "headers" : {
+            "X-elastic-product-origin" : "kibana"
+          }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998945" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998945,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[250], index[.monitoring-es-7-mb-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.440Z",
+          "start_time_in_millis" : 1741641520440,
+          "running_time" : "1.9s",
+          "running_time_in_nanos" : 1974718863,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826998944",
+          "headers" : {
+            "X-elastic-product-origin" : "beats"
+          }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998944" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998944,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[250], index[.monitoring-es-7-mb-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.440Z",
+          "start_time_in_millis" : 1741641520440,
+          "running_time" : "1.9s",
+          "running_time_in_nanos" : 1975062541,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060027",
+          "headers" : {
+            "X-elastic-product-origin" : "beats"
+          }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998965" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998965,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[4], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.472Z",
+          "start_time_in_millis" : 1741641520472,
+          "running_time" : "1.9s",
+          "running_time_in_nanos" : 1942644277,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060035",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998966" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998966,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[4], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.473Z",
+          "start_time_in_millis" : 1741641520473,
+          "running_time" : "1.9s",
+          "running_time_in_nanos" : 1942437868,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826998965",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998971" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998971,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[38], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.496Z",
+          "start_time_in_millis" : 1741641520496,
+          "running_time" : "1.9s",
+          "running_time_in_nanos" : 1919291312,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826998970",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998970" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998970,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[38], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.496Z",
+          "start_time_in_millis" : 1741641520496,
+          "running_time" : "1.9s",
+          "running_time_in_nanos" : 1919431743,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060037",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999169" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999169,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[1], index[.monitoring-es-7-mb-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.414Z",
+          "start_time_in_millis" : 1741641522414,
+          "running_time" : "1.2ms",
+          "running_time_in_nanos" : 1214441,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999168",
+          "headers" : {
+            "X-elastic-product-origin" : "beats"
+          }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999168" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999168,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[1], index[.monitoring-es-7-mb-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.414Z",
+          "start_time_in_millis" : 1741641522414,
+          "running_time" : "1.3ms",
+          "running_time_in_nanos" : 1308466,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060198",
+          "headers" : {
+            "X-elastic-product-origin" : "beats"
+          }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999171" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999171,
+          "type" : "transport",
+          "action" : "cluster:monitor/tasks/lists[n]",
+          "description" : "",
+          "start_time" : "2025-03-10T21:18:42.415Z",
+          "start_time_in_millis" : 1741641522415,
+          "running_time" : "123.1micros",
+          "running_time_in_nanos" : 123165,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060200",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999141" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999141,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[3], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.333Z",
+          "start_time_in_millis" : 1741641522333,
+          "running_time" : "81.7ms",
+          "running_time_in_nanos" : 81758856,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060172",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999140" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999140,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[4], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.326Z",
+          "start_time_in_millis" : 1741641522326,
+          "running_time" : "89ms",
+          "running_time_in_nanos" : 89009904,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999139",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999143" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999143,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[4], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.337Z",
+          "start_time_in_millis" : 1741641522337,
+          "running_time" : "78ms",
+          "running_time_in_nanos" : 78046155,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060174",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998886" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998886,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[2222], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.330Z",
+          "start_time_in_millis" : 1741641520330,
+          "running_time" : "2s",
+          "running_time_in_nanos" : 2084969593,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826998882",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999142" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999142,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[3], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.333Z",
+          "start_time_in_millis" : 1741641522333,
+          "running_time" : "81.6ms",
+          "running_time_in_nanos" : 81618946,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999141",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998881" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998881,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[664], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.312Z",
+          "start_time_in_millis" : 1741641520312,
+          "running_time" : "2.1s",
+          "running_time_in_nanos" : 2102837780,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826998880",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998880" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998880,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[664], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.312Z",
+          "start_time_in_millis" : 1741641520312,
+          "running_time" : "2.1s",
+          "running_time_in_nanos" : 2103425532,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060012",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999139" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999139,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[4], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.326Z",
+          "start_time_in_millis" : 1741641522326,
+          "running_time" : "89.1ms",
+          "running_time_in_nanos" : 89134927,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060170",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998882" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998882,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[2222], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.314Z",
+          "start_time_in_millis" : 1741641520314,
+          "running_time" : "2.1s",
+          "running_time_in_nanos" : 2101321338,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060008",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999149" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999149,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.370Z",
+          "start_time_in_millis" : 1741641522370,
+          "running_time" : "44.5ms",
+          "running_time_in_nanos" : 44560108,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060180",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999150" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999150,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.371Z",
+          "start_time_in_millis" : 1741641522371,
+          "running_time" : "44.4ms",
+          "running_time_in_nanos" : 44414203,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999149",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999145" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999145,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.343Z",
+          "start_time_in_millis" : 1741641522343,
+          "running_time" : "71.9ms",
+          "running_time_in_nanos" : 71926067,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060176",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999144" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999144,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[4], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.337Z",
+          "start_time_in_millis" : 1741641522337,
+          "running_time" : "77.9ms",
+          "running_time_in_nanos" : 77910326,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999143",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998891" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998891,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[886], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.350Z",
+          "start_time_in_millis" : 1741641520350,
+          "running_time" : "2s",
+          "running_time_in_nanos" : 2064734883,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826998890",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998890" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998890,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[886], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.349Z",
+          "start_time_in_millis" : 1741641520349,
+          "running_time" : "2s",
+          "running_time_in_nanos" : 2065478705,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060015",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999146" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999146,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.343Z",
+          "start_time_in_millis" : 1741641522343,
+          "running_time" : "71.8ms",
+          "running_time_in_nanos" : 71809448,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999145",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999156" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999156,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[192], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.396Z",
+          "start_time_in_millis" : 1741641522396,
+          "running_time" : "18.7ms",
+          "running_time_in_nanos" : 18762192,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999155",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999159" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999159,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[2], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.400Z",
+          "start_time_in_millis" : 1741641522400,
+          "running_time" : "15ms",
+          "running_time_in_nanos" : 15011609,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060188",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999153" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999153,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.395Z",
+          "start_time_in_millis" : 1741641522395,
+          "running_time" : "19.9ms",
+          "running_time_in_nanos" : 19906956,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999152",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999152" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999152,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.395Z",
+          "start_time_in_millis" : 1741641522395,
+          "running_time" : "20ms",
+          "running_time_in_nanos" : 20058635,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060182",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999155" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999155,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[192], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.396Z",
+          "start_time_in_millis" : 1741641522396,
+          "running_time" : "18.9ms",
+          "running_time_in_nanos" : 18952824,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060184",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1687" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1687,
+          "type" : "persistent",
+          "action" : "geoip-downloader[c]",
+          "status" : {
+            "successful_downloads" : 96,
+            "failed_downloads" : 1,
+            "total_download_time" : 105672,
+            "databases_count" : 3,
+            "skipped_updates" : 0,
+            "expired_databases" : 0
+          },
+          "description" : "id=geoip-downloader",
+          "start_time" : "2024-12-02T14:17:01.358Z",
+          "start_time_in_millis" : 1733149021358,
+          "running_time" : "98.2d",
+          "running_time_in_nanos" : 8492501057247735,
+          "cancellable" : true,
+          "cancelled" : false,
+          "parent_task_id" : "cluster:827",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999165" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999165,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[3], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.411Z",
+          "start_time_in_millis" : 1741641522411,
+          "running_time" : "4.3ms",
+          "running_time_in_nanos" : 4357441,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060195",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999164" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999164,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[3], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.410Z",
+          "start_time_in_millis" : 1741641522410,
+          "running_time" : "4.5ms",
+          "running_time_in_nanos" : 4582641,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999163",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:2969" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 2969,
+          "type" : "persistent",
+          "action" : "data_frame/transforms[c]",
+          "status" : {
+            "task_state" : "started",
+            "indexer_state" : "started",
+            "checkpoint" : 1,
+            "progress" : {
+              "docs_indexed" : 0,
+              "docs_processed" : 0
+            },
+            "should_stop_at_checkpoint" : false
+          },
+          "description" : "data_frame_endpoint.metadata_united-default-1.3.0",
+          "start_time" : "2024-12-02T14:17:17.901Z",
+          "start_time_in_millis" : 1733149037901,
+          "running_time" : "98.2d",
+          "running_time_in_nanos" : 8492484513795028,
+          "cancellable" : true,
+          "cancelled" : false,
+          "parent_task_id" : "cluster:833",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:2970" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 2970,
+          "type" : "persistent",
+          "action" : "data_frame/transforms[c]",
+          "status" : {
+            "task_state" : "started",
+            "indexer_state" : "started",
+            "checkpoint" : 1,
+            "progress" : {
+              "docs_indexed" : 0,
+              "docs_processed" : 0
+            },
+            "should_stop_at_checkpoint" : false
+          },
+          "description" : "data_frame_endpoint.metadata_current-default-1.3.0",
+          "start_time" : "2024-12-02T14:17:17.902Z",
+          "start_time_in_millis" : 1733149037902,
+          "running_time" : "98.2d",
+          "running_time_in_nanos" : 8492484512803056,
+          "cancellable" : true,
+          "cancelled" : false,
+          "parent_task_id" : "cluster:834",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999166" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999166,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[3], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.411Z",
+          "start_time_in_millis" : 1741641522411,
+          "running_time" : "4.2ms",
+          "running_time_in_nanos" : 4297645,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999165",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999160" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999160,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[2], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.400Z",
+          "start_time_in_millis" : 1741641522400,
+          "running_time" : "14.9ms",
+          "running_time_in_nanos" : 14926906,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999159",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999163" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999163,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[3], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.410Z",
+          "start_time_in_millis" : 1741641522410,
+          "running_time" : "4.8ms",
+          "running_time_in_nanos" : 4801058,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060193",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999109" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999109,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[181], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.250Z",
+          "start_time_in_millis" : 1741641522250,
+          "running_time" : "164.9ms",
+          "running_time_in_nanos" : 164988195,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060162",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999108" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999108,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[2], index[.monitoring-kibana-7-mb-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.232Z",
+          "start_time_in_millis" : 1741641522232,
+          "running_time" : "182.6ms",
+          "running_time_in_nanos" : 182649659,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999107",
+          "headers" : {
+            "X-elastic-product-origin" : "beats"
+          }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999111" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999111,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[11], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.301Z",
+          "start_time_in_millis" : 1741641522301,
+          "running_time" : "114ms",
+          "running_time_in_nanos" : 114036979,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060164",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999110" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999110,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[181], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.250Z",
+          "start_time_in_millis" : 1741641522250,
+          "running_time" : "164.6ms",
+          "running_time_in_nanos" : 164679934,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999109",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999105" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999105,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[24], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.204Z",
+          "start_time_in_millis" : 1741641522204,
+          "running_time" : "211.1ms",
+          "running_time_in_nanos" : 211139036,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060158",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999104" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999104,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.199Z",
+          "start_time_in_millis" : 1741641522199,
+          "running_time" : "215.5ms",
+          "running_time_in_nanos" : 215516711,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999103",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999107" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999107,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[2], index[.monitoring-kibana-7-mb-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.232Z",
+          "start_time_in_millis" : 1741641522232,
+          "running_time" : "182.8ms",
+          "running_time_in_nanos" : 182820681,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060160",
+          "headers" : {
+            "X-elastic-product-origin" : "beats"
+          }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999106" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999106,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[24], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.204Z",
+          "start_time_in_millis" : 1741641522204,
+          "running_time" : "210.9ms",
+          "running_time_in_nanos" : 210978907,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999105",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999113" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999113,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[92], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.302Z",
+          "start_time_in_millis" : 1741641522302,
+          "running_time" : "113.1ms",
+          "running_time_in_nanos" : 113138157,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060166",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999112" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999112,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[11], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.301Z",
+          "start_time_in_millis" : 1741641522301,
+          "running_time" : "113.9ms",
+          "running_time_in_nanos" : 113900209,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999111",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999114" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999114,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[92], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.302Z",
+          "start_time_in_millis" : 1741641522302,
+          "running_time" : "112.9ms",
+          "running_time_in_nanos" : 112970692,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999113",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998876" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998876,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[70], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.271Z",
+          "start_time_in_millis" : 1741641520271,
+          "running_time" : "2.1s",
+          "running_time_in_nanos" : 2143816683,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826998875",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826998875" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826998875,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[70], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:40.271Z",
+          "start_time_in_millis" : 1741641520271,
+          "running_time" : "2.1s",
+          "running_time_in_nanos" : 2143982976,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060007",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999077" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999077,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[502], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.834Z",
+          "start_time_in_millis" : 1741641521834,
+          "running_time" : "580.9ms",
+          "running_time_in_nanos" : 580950587,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999076",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999076" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999076,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[502], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.833Z",
+          "start_time_in_millis" : 1741641521833,
+          "running_time" : "581.4ms",
+          "running_time_in_nanos" : 581475701,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060136",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999073" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999073,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.730Z",
+          "start_time_in_millis" : 1741641521730,
+          "running_time" : "684.8ms",
+          "running_time_in_nanos" : 684878905,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999072",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999072" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999072,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.730Z",
+          "start_time_in_millis" : 1741641521730,
+          "running_time" : "684.9ms",
+          "running_time_in_nanos" : 684981288,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060132",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999075" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999075,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[66], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.823Z",
+          "start_time_in_millis" : 1741641521823,
+          "running_time" : "592ms",
+          "running_time_in_nanos" : 592031525,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999074",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999074" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999074,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[66], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.823Z",
+          "start_time_in_millis" : 1741641521823,
+          "running_time" : "592.2ms",
+          "running_time_in_nanos" : 592235163,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060134",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999085" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999085,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[16], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.895Z",
+          "start_time_in_millis" : 1741641521895,
+          "running_time" : "519.9ms",
+          "running_time_in_nanos" : 519911708,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999084",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999084" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999084,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[16], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.895Z",
+          "start_time_in_millis" : 1741641521895,
+          "running_time" : "520ms",
+          "running_time_in_nanos" : 520089496,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060138",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999093" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999093,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[7], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.089Z",
+          "start_time_in_millis" : 1741641522089,
+          "running_time" : "325.5ms",
+          "running_time_in_nanos" : 325511712,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060147",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999092" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999092,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[89], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.078Z",
+          "start_time_in_millis" : 1741641522078,
+          "running_time" : "336.7ms",
+          "running_time_in_nanos" : 336761541,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060145",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999095" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999095,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[70], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.094Z",
+          "start_time_in_millis" : 1741641522094,
+          "running_time" : "320.7ms",
+          "running_time_in_nanos" : 320759145,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060149",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999094" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999094,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[7], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.090Z",
+          "start_time_in_millis" : 1741641522090,
+          "running_time" : "325.3ms",
+          "running_time_in_nanos" : 325375382,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999093",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999089" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999089,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[52], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.899Z",
+          "start_time_in_millis" : 1741641521899,
+          "running_time" : "516.4ms",
+          "running_time_in_nanos" : 516454171,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999088",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999088" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999088,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[52], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.898Z",
+          "start_time_in_millis" : 1741641521898,
+          "running_time" : "516.5ms",
+          "running_time_in_nanos" : 516575846,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060140",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999091" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999091,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.930Z",
+          "start_time_in_millis" : 1741641521930,
+          "running_time" : "485.3ms",
+          "running_time_in_nanos" : 485388430,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999090",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999090" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999090,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.929Z",
+          "start_time_in_millis" : 1741641521929,
+          "running_time" : "485.5ms",
+          "running_time_in_nanos" : 485558838,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060142",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999101" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999101,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[260], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.199Z",
+          "start_time_in_millis" : 1741641522199,
+          "running_time" : "216ms",
+          "running_time_in_nanos" : 216095935,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060154",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999100" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999100,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[2], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.101Z",
+          "start_time_in_millis" : 1741641522101,
+          "running_time" : "314.1ms",
+          "running_time_in_nanos" : 314115123,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999099",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999103" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999103,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.199Z",
+          "start_time_in_millis" : 1741641522199,
+          "running_time" : "215.5ms",
+          "running_time_in_nanos" : 215581976,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060156",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999102" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999102,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[260], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.199Z",
+          "start_time_in_millis" : 1741641522199,
+          "running_time" : "215.7ms",
+          "running_time_in_nanos" : 215793080,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999101",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999097" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999097,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[89], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.095Z",
+          "start_time_in_millis" : 1741641522095,
+          "running_time" : "320.1ms",
+          "running_time_in_nanos" : 320185756,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999092",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999096" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999096,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[70], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.095Z",
+          "start_time_in_millis" : 1741641522095,
+          "running_time" : "320.4ms",
+          "running_time_in_nanos" : 320448837,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999095",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999099" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999099,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[2], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:42.101Z",
+          "start_time_in_millis" : 1741641522101,
+          "running_time" : "314.2ms",
+          "running_time_in_nanos" : 314226612,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060151",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999045" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999045,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[4], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.395Z",
+          "start_time_in_millis" : 1741641521395,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1020177309,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060106",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999047" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999047,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[4], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.395Z",
+          "start_time_in_millis" : 1741641521395,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1020083451,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999045",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999046" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999046,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[7], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.395Z",
+          "start_time_in_millis" : 1741641521395,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1020110895,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999043",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999041" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999041,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.343Z",
+          "start_time_in_millis" : 1741641521343,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1072455090,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060104",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999040" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999040,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.342Z",
+          "start_time_in_millis" : 1741641521342,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1072693677,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999039",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999043" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999043,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[7], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.395Z",
+          "start_time_in_millis" : 1741641521395,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1020314155,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060109",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999042" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999042,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.343Z",
+          "start_time_in_millis" : 1741641521343,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1072389429,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999041",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999053" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999053,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[172], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.413Z",
+          "start_time_in_millis" : 1741641521413,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1001614730,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999052",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999052" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999052,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[172], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.413Z",
+          "start_time_in_millis" : 1741641521413,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1001868152,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060114",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999049" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999049,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[79], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.399Z",
+          "start_time_in_millis" : 1741641521399,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1016124082,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999048",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999048" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999048,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[79], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.398Z",
+          "start_time_in_millis" : 1741641521398,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1017016103,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060110",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999051" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999051,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.408Z",
+          "start_time_in_millis" : 1741641521408,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1006707272,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999050",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999050" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999050,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.408Z",
+          "start_time_in_millis" : 1741641521408,
+          "running_time" : "1s",
+          "running_time_in_nanos" : 1006834408,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060112",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999063" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999063,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[2], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.619Z",
+          "start_time_in_millis" : 1741641521619,
+          "running_time" : "795.8ms",
+          "running_time_in_nanos" : 795851462,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999062",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999062" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999062,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[2], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.619Z",
+          "start_time_in_millis" : 1741641521619,
+          "running_time" : "796ms",
+          "running_time_in_nanos" : 796026156,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060122",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999057" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999057,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[39], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.495Z",
+          "start_time_in_millis" : 1741641521495,
+          "running_time" : "919.7ms",
+          "running_time_in_nanos" : 919739304,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999056",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999056" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999056,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[39], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.495Z",
+          "start_time_in_millis" : 1741641521495,
+          "running_time" : "919.9ms",
+          "running_time_in_nanos" : 919956493,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060116",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999059" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999059,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[2], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.559Z",
+          "start_time_in_millis" : 1741641521559,
+          "running_time" : "856ms",
+          "running_time_in_nanos" : 856056174,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999058",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999058" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999058,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[2], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.559Z",
+          "start_time_in_millis" : 1741641521559,
+          "running_time" : "856.2ms",
+          "running_time_in_nanos" : 856229761,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060120",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999069" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999069,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.719Z",
+          "start_time_in_millis" : 1741641521719,
+          "running_time" : "696ms",
+          "running_time_in_nanos" : 696025448,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999068",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999068" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999068,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[6], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.719Z",
+          "start_time_in_millis" : 1741641521719,
+          "running_time" : "696.1ms",
+          "running_time_in_nanos" : 696193166,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060128",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999071" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999071,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[8], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.730Z",
+          "start_time_in_millis" : 1741641521730,
+          "running_time" : "685.1ms",
+          "running_time_in_nanos" : 685162068,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999070",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999070" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999070,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[8], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.730Z",
+          "start_time_in_millis" : 1741641521730,
+          "running_time" : "685.3ms",
+          "running_time_in_nanos" : 685343508,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060130",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999065" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999065,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[2], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.652Z",
+          "start_time_in_millis" : 1741641521652,
+          "running_time" : "763.4ms",
+          "running_time_in_nanos" : 763422801,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999064",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999064" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999064,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[2], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.651Z",
+          "start_time_in_millis" : 1741641521651,
+          "running_time" : "763.5ms",
+          "running_time_in_nanos" : 763550440,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060124",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999067" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999067,
+          "type" : "direct",
+          "action" : "indices:data/write/bulk[s][p]",
+          "status" : {
+            "phase" : "primary"
+          },
+          "description" : "requests[26], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.694Z",
+          "start_time_in_millis" : 1741641521694,
+          "running_time" : "720.5ms",
+          "running_time_in_nanos" : 720598605,
+          "cancellable" : false,
+          "parent_task_id" : "UcEzvgq2TpCXCZYWCR88EA:1826999066",
+          "headers" : { }
+        },
+        "UcEzvgq2TpCXCZYWCR88EA:1826999066" : {
+          "node" : "UcEzvgq2TpCXCZYWCR88EA",
+          "id" : 1826999066,
+          "type" : "transport",
+          "action" : "indices:data/write/bulk[s]",
+          "status" : {
+            "phase" : "waiting_on_primary"
+          },
+          "description" : "requests[26], index[logstash-nose-2025.03.10][0]",
+          "start_time" : "2025-03-10T21:18:41.694Z",
+          "start_time_in_millis" : 1741641521694,
+          "running_time" : "720.8ms",
+          "running_time_in_nanos" : 720819654,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060126",
+          "headers" : { }
+        }
+      }
+    },
+    "V8ml1EJaThiOW8mKbVtzDw" : {
+      "name" : "instance-0000000053",
+      "transport_address" : "172.22.237.54:19278",
+      "host" : "172.22.237.54",
+      "ip" : "172.22.237.54:19278",
+      "roles" : [
+        "ml",
+        "remote_cluster_client"
+      ],
+      "attributes" : {
+        "logical_availability_zone" : "zone-0",
+        "availability_zone" : "us-east-1b",
+        "server_name" : "instance-0000000053.3015e00c547d4430b91fa2e9486c1b76",
+        "ml.machine_memory" : "1073741824",
+        "xpack.installed" : "true",
+        "instance_configuration" : "aws.ml.m5",
+        "transform.node" : "false",
+        "ml.max_open_jobs" : "512",
+        "ml.max_jvm_size" : "432013312",
+        "region" : "us-east-1"
+      },
+      "tasks" : {
+        "V8ml1EJaThiOW8mKbVtzDw:62064528" : {
+          "node" : "V8ml1EJaThiOW8mKbVtzDw",
+          "id" : 62064528,
+          "type" : "transport",
+          "action" : "cluster:monitor/tasks/lists[n]",
+          "description" : "",
+          "start_time" : "2025-03-10T21:18:42.415Z",
+          "start_time_in_millis" : 1741641522415,
+          "running_time" : "54.2micros",
+          "running_time_in_nanos" : 54248,
+          "cancellable" : false,
+          "parent_task_id" : "ZbWb9vz-TOmo_qjXnVMnKg:865060200",
+          "headers" : { }
+        },
+        "V8ml1EJaThiOW8mKbVtzDw:2616715" : {
+          "node" : "V8ml1EJaThiOW8mKbVtzDw",
+          "id" : 2616715,
+          "type" : "persistent",
+          "action" : "xpack/ml/job[c]",
+          "status" : {
+            "state" : "STARTED"
+          },
+          "description" : "job-nose-request-time",
+          "start_time" : "2024-12-02T14:19:36.105Z",
+          "start_time_in_millis" : 1733149176105,
+          "running_time" : "98.2d",
+          "running_time_in_nanos" : 8492346309937365,
+          "cancellable" : true,
+          "cancelled" : false,
+          "parent_task_id" : "cluster:846",
+          "headers" : { }
+        },
+        "V8ml1EJaThiOW8mKbVtzDw:2616714" : {
+          "node" : "V8ml1EJaThiOW8mKbVtzDw",
+          "id" : 2616714,
+          "type" : "persistent",
+          "action" : "xpack/ml/job[c]",
+          "status" : {
+            "state" : "STARTED"
+          },
+          "description" : "job-wig-requests",
+          "start_time" : "2024-12-02T14:19:36.105Z",
+          "start_time_in_millis" : 1733149176105,
+          "running_time" : "98.2d",
+          "running_time_in_nanos" : 8492346310670231,
+          "cancellable" : true,
+          "cancelled" : false,
+          "parent_task_id" : "cluster:845",
+          "headers" : { }
+        },
+        "V8ml1EJaThiOW8mKbVtzDw:2616713" : {
+          "node" : "V8ml1EJaThiOW8mKbVtzDw",
+          "id" : 2616713,
+          "type" : "persistent",
+          "action" : "xpack/ml/job[c]",
+          "status" : {
+            "state" : "STARTED"
+          },
+          "description" : "job-nose-statuscode",
+          "start_time" : "2024-12-02T14:19:36.105Z",
+          "start_time_in_millis" : 1733149176105,
+          "running_time" : "98.2d",
+          "running_time_in_nanos" : 8492346310715596,
+          "cancellable" : true,
+          "cancelled" : false,
+          "parent_task_id" : "cluster:844",
+          "headers" : { }
+        }
+      }
+    }
+  }
+}
