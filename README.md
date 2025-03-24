@@ -4,6 +4,11 @@ I have a [blog where I talk about technology](https://www.willianantunes.com/), 
 
 Contents:
 
+- 2025
+  - 03
+    - [Elasticsearch Index Lifecycle Rollover](./2025/03/elasticsearch-index-lifecycle-rollover)
+  - 02
+    - [AMQP - Alternate Exchanges](./2025/02/rabbitmq-alternate-exchange-policy)
 - 2024
   - 11
     - [Reverse Proxy Your Database](./2024/11/reverse-proxy-expose-database)
