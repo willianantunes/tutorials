@@ -1,0 +1,7 @@
+# https://github.com/kubernetes/kube-state-metrics?tab=readme-ov-file#helm-chart
+# https://github.com/prometheus-community/helm-charts/blob/a80cc01d4c7124f5e3845508c73c214357beea45/charts/kube-state-metrics/values.yaml
+replicas: 1
+autosharding:
+  enabled: true
+podSecurityPolicy:
+  enabled: true

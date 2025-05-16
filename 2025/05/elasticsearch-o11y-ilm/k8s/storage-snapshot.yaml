@@ -1,0 +1,95 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: minio-web-console
+  namespace: o11y
+spec:
+  type: NodePort
+  selector:
+    statefulset.kubernetes.io/pod-name: minio-0
+  ports:
+    - name: console
+      protocol: TCP
+      # See `kind-config.yaml` to understand why I configured port 31008!
+      nodePort: 31008
+      port: 9001
+      targetPort: console
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: minio-s3-service
+  namespace: o11y
+spec:
+  type: NodePort
+  selector:
+    statefulset.kubernetes.io/pod-name: minio-0
+  ports:
+    - name: s3
+      protocol: TCP
+      # See `kind-config.yaml` to understand why I configured port 31009!
+      nodePort: 31009
+      port: 9000
+      targetPort: s3
+
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: minio
+  namespace: o11y
+spec:
+  serviceName: "minio"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minio
+  template:
+    metadata:
+      labels:
+        app: minio
+    spec:
+      containers:
+        - name: minio
+#          image: minio/minio:RELEASE.2024-10-29T16-01-48Z
+          image: minio/minio:RELEASE.2025-05-24T17-08-30Z
+          env:
+            - name: MINIO_ROOT_USER
+              value: "root"
+            - name: MINIO_ROOT_PASSWORD
+              value: "password"
+          ports:
+            - containerPort: 9001
+              name: console
+            - containerPort:  9000
+              name: s3
+          command: [ "minio", "server", "/s3-folder", "--console-address", "0.0.0.0:9001" ]
+          startupProbe:
+            exec:
+              command: [ "mc", "ready", "local" ]
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 10
+            failureThreshold: 5
+          livenessProbe:
+            exec:
+              command: [ "mc", "ready", "local" ]
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 10
+            failureThreshold: 5
+          volumeMounts:
+            - name: source
+              mountPath: /source
+          lifecycle:
+            postStart:
+              exec:
+                # Create a bucket for Elasticsearch. You can check it by accessing the Minio console at http://localhost:9001
+                command: [ "/bin/sh", "-c", "sleep 10 && /usr/bin/mc alias set myminio http://minio-0:9000 $MINIO_ROOT_USER $MINIO_ROOT_PASSWORD && /usr/bin/mc mb myminio/elasticsearch-bucket" ]
+      volumes:
+        - name: source
+          hostPath:
+            path: /path/to/tests/resources/s3/source

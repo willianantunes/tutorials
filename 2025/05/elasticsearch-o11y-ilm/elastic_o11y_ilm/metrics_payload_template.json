@@ -1,0 +1,84 @@
+{
+  "resourceMetrics": [
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "telemetry.sdk.language",
+            "value": {
+              "stringValue": "python"
+            }
+          },
+          {
+            "key": "deployment.environment",
+            "value": {
+              "stringValue": "development"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "letter-b"
+            }
+          }
+        ]
+      },
+      "scopeMetrics": [
+        {
+          "scope": {
+            "name": "opentelemetry.instrumentation.system_metrics",
+            "version": "0.54b1"
+          },
+          "metrics": [
+            {
+              "name": "system.memory.usage",
+              "description": "System memory usage",
+              "unit": "By",
+              "gauge": {
+                "dataPoints": [
+                  {
+                    "attributes": [
+                      {
+                        "key": "state",
+                        "value": {
+                          "stringValue": "used"
+                        }
+                      }
+                    ],
+                    "timeUnixNano": "1747594216221457918",
+                    "asInt": "24279412736"
+                  },
+                  {
+                    "attributes": [
+                      {
+                        "key": "state",
+                        "value": {
+                          "stringValue": "free"
+                        }
+                      }
+                    ],
+                    "timeUnixNano": "1747594216221457918",
+                    "asInt": "768774144"
+                  },
+                  {
+                    "attributes": [
+                      {
+                        "key": "state",
+                        "value": {
+                          "stringValue": "cached"
+                        }
+                      }
+                    ],
+                    "timeUnixNano": "1747594216221457918",
+                    "asInt": "7731433472"
+                  }
+                ]
+              }
+            }
+          ],
+          "schemaUrl": "https://opentelemetry.io/schemas/1.11.0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "indices": {
+    ".ds-metrics-apm.app.all-default-2025.05.31-000001": {
+      "index": ".ds-metrics-apm.app.all-default-2025.05.31-000001",
+      "managed": true,
+      "policy": "all@custom",
+      "index_creation_date_millis": 1748724241019,
+      "time_since_index_creation": "2.26m",
+      "lifecycle_date_millis": 1748724255937,
+      "age": "2.01m",
+      "phase": "warm",
+      "phase_time_millis": 1748724376206,
+      "action": "migrate",
+      "action_time_millis": 1748724376206,
+      "step": "migrate",
+      "step_time_millis": 1748724376809,
+      "phase_execution": {
+        "policy": "all@custom",
+        "phase_definition": {
+          "min_age": "2m",
+          "actions": {}
+        },
+        "version": 2,
+        "modified_date_in_millis": 1748720020234
+      }
+    }
+  }
+}

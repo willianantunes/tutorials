@@ -1,0 +1,297 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rabbitmq-config
+  namespace: development
+data:
+  enabled_plugins: |
+    [rabbitmq_management,rabbitmq_stomp].
+  rabbitmq.conf: |
+    loopback_users.guest = false
+    listeners.tcp.default = 5672
+    management.tcp.port = 15672
+    log.console = true
+    log.console.level = debug
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rabbitmq
+  namespace: development
+spec:
+  selector:
+    matchLabels:
+      app: rabbitmq
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rabbitmq
+    spec:
+      containers:
+        - name: rabbitmq
+          image: rabbitmq:3-management
+          ports:
+            - containerPort: 5672
+              name: amqp
+            - containerPort: 15672
+              name: management
+            - containerPort: 61613
+              name: stomp
+          startupProbe:
+            exec:
+              command: [ "rabbitmq-diagnostics", "-q", "ping" ]
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 5
+          resources:
+            limits:
+              memory: "1025Mi"
+              cpu: "1000m"
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/rabbitmq/rabbitmq.conf
+              subPath: rabbitmq.conf
+            - name: config-volume
+              mountPath: /etc/rabbitmq/enabled_plugins
+              subPath: enabled_plugins
+      volumes:
+        - name: config-volume
+          configMap:
+            name: rabbitmq-config
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: rabbitmq
+  namespace: development
+spec:
+  selector:
+    app: rabbitmq
+  ports:
+    - port: 61613
+      name: stomp
+      targetPort: 61613
+    - port: 5672
+      name: amqp
+      targetPort: 5672
+    - port: 15672
+      name: management
+      targetPort: 15672
+  type: ClusterIP
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-postgres-service
+  namespace: development
+spec:
+  selector:
+    app: db-postgres
+  type: NodePort
+  ports:
+    - name: socket
+      protocol: TCP
+      port: 5432
+      targetPort: db-socket-port
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-postgres-deployment
+  namespace: development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db-postgres
+  template:
+    metadata:
+      labels:
+        app: db-postgres
+    spec:
+      containers:
+        - name: db-postgres
+          image: postgres:14-alpine
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              value: postgres
+          ports:
+            - name: db-socket-port
+              containerPort: 5432
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 200m
+              memory: 256Mi
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: letter-b-config
+  namespace: development
+data:
+  ####################
+  #### Django config
+  DJANGO_SECRET_KEY: "you-are-very-curious-aint-you"
+  DJANGO_DEBUG: "True"
+  DJANGO_SETTINGS_MODULE: "letter_b.settings"
+  SESSION_COOKIE_SECURE: "False"
+  CSRF_COOKIE_SECURE: "False"
+  CORS_ALLOWED_ORIGINS: "http://localhost:3000"
+  CORS_ALLOW_HEADERS: "traceparent,content-type,accept"
+
+  ####################
+  #### Database config
+  DB_ENGINE: "django.db.backends.postgresql"
+  DB_DATABASE: "postgres"
+  DB_HOST: "db-postgres-service"
+  DB_PORT: "5432"
+  DB_USE_REPLICA: "False"
+
+  ####################
+  #### Logging config
+  ROOT_LOG_LEVEL: "INFO"
+  DEFAULT_LOG_FORMATTER: "otlp"
+  STOMP_LOG_LEVEL: "WARNING"
+  DJANGO_DB_BACKENDS_LOG_LEVEL: "INFO"
+  DJANGO_REQUEST_LOG_LEVEL: "INFO"
+  PROJECT_LOG_LEVEL: "INFO"
+
+  ##################
+  #### DEBUG LIB CONFIGURATION
+  DEBUG_APPS: "debug_toolbar"
+  DEBUG_MIDDLEWARE: "debug_toolbar.middleware.DebugToolbarMiddleware"
+  USE_DEBUG_APPS: "False"
+
+  ##################
+  #### Broker
+  STOMP_LISTENER_CLIENT_ID: "letter-b"
+  STOMP_SERVER_HOST: "rabbitmq"
+  STOMP_SERVER_PORT: "61613"
+  STOMP_USE_SSL: "False"
+  CREATE_AUDIT_ACTION_DESTINATION: "/queue/create-audit-action"
+
+  ##################
+  #### OTL
+  # https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/
+  # https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/
+  OTEL_EXPORTER_OTLP_ENDPOINT: "http://otel-collector-apps-opentelemetry-collector.o11y:4317"
+  OTEL_EXPORTER_OTLP_LOGS_ENDPOINT: "http://otel-collector-apps-opentelemetry-collector.o11y:4317"
+  OTEL_CUSTOM_EXPORTER_PROTOCOL: "grpc"
+#  OTEL_EXPORTER_OTLP_ENDPOINT: "http://otel-collector-apps-opentelemetry-collector.o11y:4318"
+#  OTEL_EXPORTER_OTLP_LOGS_ENDPOINT: "http://otel-collector-apps-opentelemetry-collector.o11y:4318"
+#  OTEL_CUSTOM_EXPORTER_PROTOCOL: "http"
+  OTEL_EXPORTER_OTLP_LOGS_INSECURE: "true"
+  OTEL_RESOURCE_ATTRIBUTES: "service.version=4515f76496afcac3405ba208504078a36ca39443,service.build.deployment.at=2025-05-18T13:53:23,service.build.deployment.version=20250518.1,service.build.deployment.trigger=Manual,service.build.deployment.user=nose@gmail.com,deployment.environment.name=development"
+  OTEL_SERVICE_NAME: "letter-b"
+  OTEL_LOG_LEVEL: "debug"
+  OTEL_PYTHON_LOG_LEVEL: "DEBUG"
+  OTEL_PYTHON_LOG_CORRELATION: "true"
+  START_INSTRUMENT_ON_GUNICORN_POST_FORK: "True"
+  START_INSTRUMENT_ON_MANAGEPY: "True"
+
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: letter-b-secret
+  namespace: development
+type: Opaque
+stringData:
+  STOMP_SERVER_USER: "guest"
+  STOMP_SERVER_PASSWORD: "guest"
+  DB_USER: "postgres"
+  DB_PASSWORD: "postgres"
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: letter-b-deployment
+  namespace: development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: letter-b
+  template:
+    metadata:
+      labels:
+        app: letter-b
+    spec:
+      containers:
+        - name: letter-b
+          image: willianantunes/a-b-c-apps-letter-b
+          imagePullPolicy: Always
+          command:
+            [
+              "./scripts/start-production.sh",
+            ]
+          ports:
+            - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /api/healthcheck/liveness
+              port: 8080
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /api/healthcheck/readiness/
+              port: 8080
+            initialDelaySeconds: 60
+            timeoutSeconds: 5
+            periodSeconds: 10
+          startupProbe:
+            httpGet:
+              path: /api/healthcheck/readiness/
+              port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 5
+          envFrom:
+            - configMapRef:
+                name: letter-b-config
+            - secretRef:
+                name: letter-b-secret
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: letter-b-service
+  namespace: development
+spec:
+  selector:
+    app: letter-b
+  ports:
+    - port: 8080
+      targetPort: 8080
+      # See `kind-config.yaml` to understand why I configured port 32000!
+      nodePort: 32000
+  type: NodePort

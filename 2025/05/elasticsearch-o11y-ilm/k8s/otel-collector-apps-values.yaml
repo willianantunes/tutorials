@@ -1,0 +1,143 @@
+additionalLabels:
+  project: o11y
+  purpose: platform-tooling
+affinity: {}
+alternateConfig: {}
+config:
+  exporters:
+    debug:
+      verbosity: detailed
+    # https://www.elastic.co/guide/en/observability/8.18/apm-open-telemetry-direct.html
+    otlphttp/elastic:
+      endpoint: ${env:ELASTIC_APM_SERVER_ENDPOINT}
+      # TSHOOT
+      # encoding: json
+      # compression: none
+      headers:
+        Authorization: Bearer ${env:ELASTIC_APM_SECRET_TOKEN}
+  extensions:
+    health_check:
+      endpoint: ${env:MY_POD_IP}:13133
+  processors:
+    batch: {}
+    memory_limiter:
+      check_interval: 5s
+      limit_percentage: 80
+      spike_limit_percentage: 25
+  receivers:
+    otlp:
+      protocols:
+        grpc:
+          endpoint: ${env:MY_POD_IP}:4317
+        http:
+          endpoint: ${env:MY_POD_IP}:4318
+  service:
+    extensions:
+    - health_check
+    pipelines:
+      metrics:
+        exporters:
+        - otlphttp/elastic
+        processors:
+        - memory_limiter
+        - batch
+        receivers:
+        - otlp
+      traces:
+        exporters:
+        - otlphttp/elastic
+        processors:
+        - memory_limiter
+        - batch
+        receivers:
+        - otlp
+    telemetry:
+      metrics:
+        address: ${env:MY_POD_IP}:8888
+configMap:
+  create: true
+extraEnvs:
+- name: ELASTIC_APM_SERVER_ENDPOINT
+  value: https://salt-licker-wig-apm.loca.lt:443
+extraEnvsFrom:
+- secretRef:
+    name: otel-collector-apps-secret
+extraManifests: []
+image:
+  repository: otel/opentelemetry-collector-contrib
+  tag: 0.123.0
+ingress:
+  enabled: true
+  hosts:
+  - host: otel-collector-apps.willianantunes.com
+    paths:
+    - path: /
+      pathType: Prefix
+      port: 4318
+  ingressClassName: nginx-internal
+mode: deployment
+namespaceOverride: o11y
+nodeSelector: {}
+podSecurityContext: {}
+ports:
+  otlp:
+    appProtocol: grpc
+    containerPort: 4317
+    enabled: true
+    hostPort: 4317
+    protocol: TCP
+    servicePort: 4317
+  otlp-http:
+    containerPort: 4318
+    enabled: true
+    hostPort: 4318
+    protocol: TCP
+    servicePort: 4318
+presets:
+  kubernetesAttributes:
+    enabled: true
+    extractAllPodAnnotations: true
+    extractAllPodLabels: true
+replicaCount: 1
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 100Mi
+revisionHistoryLimit: 10
+securityContext: {}
+service:
+  enabled: true
+  type: ClusterIP
+serviceAccount:
+  create: true
+startupProbe:
+  httpGet:
+    path: /
+    port: 13133
+tolerations:
+- key: CriticalAddonsOnly
+  operator: Exists
+  effect: NoSchedule
+- key: kubernetes.azure.com/scalesetpriority
+  operator: Exists
+  effect: NoSchedule
+- key: purpose
+  operator: Exists
+  effect: NoSchedule
+- key: "node-role.kubernetes.io/master"
+  effect: "NoSchedule"
+  operator: "Equal"
+- key: "node-role.kubernetes.io/control-plane"
+  effect: "NoSchedule"
+  operator: "Equal"
+topologySpreadConstraints:
+- labelSelector:
+    matchLabels:
+      app.kubernetes.io/instance: otel-collector-apps
+  maxSkew: 2
+  topologyKey: kubernetes.io/hostname
+  whenUnsatisfiable: DoNotSchedule
+useGOMEMLIMIT: true

@@ -1,0 +1,557 @@
+# https://github.com/elastic/elastic-agent/blob/v9.0.1/deploy/helm/elastic-agent/values.yaml
+outputs:
+  # name of the output
+  default:
+    # -- type of the output [one of `ESPlainAuthBasic`, `ESPlainAuthAPI`, `ESSecretAuthBasic`, `ESSecretAuthAPI`, `ESECKRef`]
+    type: ESSecretAuthAPI
+    # The URL and API KEY are in the secret `elastic-agent-secret` in the namespace `o11y`
+    secretName: "elastic-agent-secret"
+kubernetes:
+  # -- enable Kubernetes integration.
+  # @section -- 2 - Kubernetes integration
+  # @sectionDescriptionTemplate -- Kubernetes
+  enabled: true
+  # -- name of the output used in kubernetes integration. Note that this output needs to be defined in
+  # [outputs](#1-outputs)
+  # @section -- 2 - Kubernetes integration
+  output: default
+  # -- kubernetes namespace
+  # @section -- 2 - Kubernetes integration
+  namespace: default
+  hints:
+    # -- enable [elastic-agent autodiscovery](https://www.elastic.co/guide/en/fleet/current/elastic-agent-kubernetes-autodiscovery.html) feature
+    # @section -- 2 - Kubernetes integration
+    enabled: false
+  state:
+    # -- integration global switch to enable state streams based on kube-state-metrics. Note that setting this to `false`
+    # results in overriding and *disabling all* the respective state streams
+    # @section -- 2 - Kubernetes integration
+    enabled: true
+    agentAsSidecar:
+      # -- enable [ksm autosharding](https://github.com/kubernetes/kube-state-metrics?tab=readme-ov-file#automated-sharding) and deploy elastic-agent as a sidecar container. If `kube-state-metrics.enabled` is set to `false` this has no effect.
+      # @section -- 2 - Kubernetes integration
+      enabled: false
+    # -- host of the kube-state-metrics service. This used only when `kube-state-metrics.enabled` is set to `false`.
+    # @section -- 2 - Kubernetes integration
+    host: "kube-state-metrics:8080"
+    # -- state streams variables such as `add_metadata`, `hosts`, `period`, `bearer_token_file`. Please note
+    # that colliding vars also defined in respective state streams will *not* be overridden.
+    # @section -- 2 - Kubernetes integration
+    vars:
+      period: 10s
+      processors:
+        - add_fields:
+            target: orchestrator.cluster
+            fields:
+              name: ${env.CLUSTER_NAME}
+  metrics:
+    # -- integration global switch to enable metric streams based on kubelet. Note that setting this to false results
+    # in overriding and *disabling all* the respective metric streams
+    # @section -- 2 - Kubernetes integration
+    enabled: true
+    # -- metric streams variables such as `add_metadata`, `hosts`, `period`, `bearer_token_file`,
+    # `ssl.verification_mode`. Please note that colliding vars also defined in respective metric streams will *not*
+    # be overridden.
+    # @section -- 2 - Kubernetes integration
+    vars:
+      period: 10s
+      processors:
+        - add_fields:
+            target: orchestrator.cluster
+            fields:
+              name: ${env.CLUSTER_NAME}
+  apiserver:
+    # -- enable [apiserver](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-kubernetes.html#_apiserver)
+    # input
+    # @section -- 2 - Kubernetes integration
+    enabled: true
+    # -- apiserver variables such as  `hosts`, `period`, `bearer_token_file`,
+    # `ssl.certificate_authorities`.
+    # @section -- 2 - Kubernetes integration
+    vars:
+      period: 10s
+      processors:
+        - add_fields:
+            target: orchestrator.cluster
+            fields:
+              name: ${env.CLUSTER_NAME}
+  proxy:
+    # -- enable [proxy](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-kubernetes.html#_proxy)
+    # input
+    # @section -- 2 - Kubernetes integration
+    enabled: true
+    # -- proxy stream variables such as `hosts`, `period`.
+    # @section -- 2 - Kubernetes integration
+    vars:
+      period: 10s
+      processors:
+        - add_fields:
+            target: orchestrator.cluster
+            fields:
+              name: ${env.CLUSTER_NAME}
+  scheduler:
+    # -- enable [scheduler](https://www.elastic.co/guide/en/beats/metricbeat/8.11/metricbeat-module-kubernetes.html#_scheduler_and_controllermanager)
+    # input
+    # @section -- 2 - Kubernetes integration
+    enabled: false
+    # -- scheduler stream variables such as `hosts`, `period`, `bearer_token_file`,
+    # `ssl.verification_mode`, `condition`.
+    # @section -- 2 - Kubernetes integration
+    vars: {}
+  controller_manager:
+    # -- enable [controller_manager](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-kubernetes.html#_scheduler_and_controllermanager)
+    # input
+    # @section -- 2 - Kubernetes integration
+    enabled: false
+    # -- controller_manager stream variables such as `hosts`, `period`, `bearer_token_file`,
+    # `ssl.verification_mode`, `condition`.
+    # @section -- 2 - Kubernetes integration
+    vars: {}
+  containers:
+    metrics:
+      # -- enable containers metric stream (kubelet) [ref](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-metricset-kubernetes-container.html)
+      # @section -- 2 - Kubernetes integration
+      enabled: true
+      # -- containers metric stream vars
+      # @section -- 2 - Kubernetes integration
+      vars:
+        period: 10s
+        processors:
+          - add_fields:
+              target: orchestrator.cluster
+              fields:
+                name: ${env.CLUSTER_NAME}
+    state:
+      # -- enable containers state stream (kube-state-metrics) [ref](https://www.elastic.co/guide/en/beats/metricbeat/8.11/metricbeat-metricset-kubernetes-state_container.html)
+      # @section -- 2 - Kubernetes integration
+      enabled: true
+      # -- containers state stream vars
+      # @section -- 2 - Kubernetes integration
+      vars:
+        period: 10s
+        processors:
+          - add_fields:
+              target: orchestrator.cluster
+              fields:
+                name: ${env.CLUSTER_NAME}
+    logs:
+      # -- enable containers logs stream [ref](https://www.elastic.co/docs/current/integrations/kubernetes/container-logs)
+      # @section -- 2 - Kubernetes integration
+      enabled: true
+      # -- containers logs stream vars
+      # @section -- 2 - Kubernetes integration
+      vars: {}
+    audit_logs:
+      # -- enable containers audit logs stream [ref](https://www.elastic.co/docs/current/integrations/kubernetes/audit-logs)
+      # @section -- 2 - Kubernetes integration
+      enabled: true
+  pods:
+    metrics:
+      # -- enable pods metric stream (kubelet) [ref](https://www.elastic.co/docs/current/integrations/kubernetes/kubelet#pod)
+      # @section -- 2 - Kubernetes integration
+      enabled: true
+      # -- pod metric stream vars
+      # @section -- 2 - Kubernetes integration
+      vars:
+        period: 10s
+        processors:
+          - add_fields:
+              target: orchestrator.cluster
+              fields:
+                name: ${env.CLUSTER_NAME}
+    state:
+      # -- enable pods state stream (kube-state-metrics) [ref](https://www.elastic.co/docs/current/integrations/kubernetes/kube-state-metrics#state_pod)
+      # @section -- 2 - Kubernetes integration
+      enabled: true
+      # -- pods state stream vars
+      # @section -- 2 - Kubernetes integration
+      vars:
+        period: 10s
+        processors:
+          - add_fields:
+              fields:
+                onboarding_id: '9211f5c8-3cbf-4930-ad26-ad78294b1571'
+          - add_fields:
+              target: orchestrator.cluster
+              fields:
+                name: ${env.CLUSTER_NAME}
+  deployments:
+    state:
+      # -- enable deployments state stream (kube-state-metrics) [ref](https://www.elastic.co/docs/current/integrations/kubernetes/kube-state-metrics#state_deployment)
+      # @section -- 2 - Kubernetes integration
+      enabled: true
+      # -- deployments state stream vars
+      # @section -- 2 - Kubernetes integration
+      vars:
+        period: 10s
+        processors:
+          - add_fields:
+              target: orchestrator.cluster
+              fields:
+                name: ${env.CLUSTER_NAME}
+  statefulsets:
+    state:
+      # -- enable statefulsets state stream (kube-state-metrics) [ref](https://www.elastic.co/docs/current/integrations/kubernetes/kube-state-metrics#state_statefulset)
+      # @section -- 2 - Kubernetes integration
+      enabled: true
+      # -- statefulsets state stream vars
+      # @section -- 2 - Kubernetes integration
+      vars:
+        period: 10s
+        processors:
+          - add_fields:
+              target: orchestrator.cluster
+              fields:
+                name: ${env.CLUSTER_NAME}
+  daemonsets:
+    state:
+      # -- enable daemonsets state stream (kube-state-metrics) [ref](https://www.elastic.co/docs/current/integrations/kubernetes/kube-state-metrics#state_daemonset)
+      # @section -- 2 - Kubernetes integration
+      enabled: true
+      # -- daemonsets state stream vars
+      # @section -- 2 - Kubernetes integration
+      vars:
+        period: 10s
+        processors:
+          - add_fields:
+              target: orchestrator.cluster
+              fields:
+                name: ${env.CLUSTER_NAME}
+  replicasets:
+    state:
+      # -- enable replicasets state stream (kube-state-metrics) [ref](https://www.elastic.co/docs/current/integrations/kubernetes/kube-state-metrics#state_replicaset)
+      # @section -- 2 - Kubernetes integration
+      enabled: true
+      # -- replicasets state stream vars
+      # @section -- 2 - Kubernetes integration
+      vars:
+        period: 10s
+        processors:
+          - add_fields:
+              target: orchestrator.cluster
+              fields:
+                name: ${env.CLUSTER_NAME}
+  namespaces:
+    state:
+      # -- enable namespaces state stream (kube-state-metrics) [ref](https://www.elastic.co/docs/current/integrations/kubernetes/kube-state-metrics#state_namespace)
+      # @section -- 2 - Kubernetes integration
+      enabled: true
+      # -- namespaces state stream vars
+      # @section -- 2 - Kubernetes integration
+      vars:
+        period: 10s
+        processors:
+          - add_fields:
+              target: orchestrator.cluster
+              fields:
+                name: ${env.CLUSTER_NAME}
+  volumes:
+    metrics:
+      # -- enable volumes metric stream (kubelet) [ref](https://www.elastic.co/docs/current/integrations/kubernetes/kubelet#volume)
+      # @section -- 2 - Kubernetes integration
+      enabled: true
+      # -- volumes metric stream vars
+      # @section -- 2 - Kubernetes integration
+      vars:
+        period: 10s
+        processors:
+          - add_fields:
+              target: orchestrator.cluster
+              fields:
+                name: ${env.CLUSTER_NAME}
+  nodes:
+    metrics:
+      # -- enable nodes metric stream (kubelet) [ref](https://www.elastic.co/docs/current/integrations/kubernetes/kubelet#node)
+      # @section -- 2 - Kubernetes integration
+      enabled: true
+      # -- nodes metric stream vars
+      # @section -- 2 - Kubernetes integration
+      vars:
+        period: 10s
+        processors:
+          - add_fields:
+              target: orchestrator.cluster
+              fields:
+                name: ${env.CLUSTER_NAME}
+    state:
+      # -- enable nodes state stream (kube-state-metrics) [ref](https://www.elastic.co/docs/current/integrations/kubernetes/kube-state-metrics#node)
+      # @section -- 2 - Kubernetes integration
+      enabled: true
+      # -- nodes state stream vars
+      # @section -- 2 - Kubernetes integration
+      vars:
+        period: 10s
+        processors:
+          - add_fields:
+              target: orchestrator.cluster
+              fields:
+                name: ${env.CLUSTER_NAME}
+  storageclasses:
+    state:
+      # -- enable storageclasses state stream (kube-state-metrics) [ref](https://www.elastic.co/docs/current/integrations/kubernetes/kube-state-metrics#state_storageclass)
+      # @section -- 2 - Kubernetes integration
+      enabled: true
+      # -- storageclasses state stream vars
+      # @section -- 2 - Kubernetes integration
+      vars:
+        period: 10s
+        processors:
+          - add_fields:
+              target: orchestrator.cluster
+              fields:
+                name: ${env.CLUSTER_NAME}
+  jobs:
+    state:
+      # -- enable jobs state stream (kube-state-metrics) [ref](https://www.elastic.co/docs/current/integrations/kubernetes/kube-state-metrics#state_job)
+      # @section -- 2 - Kubernetes integration
+      enabled: true
+      # -- jobs state stream vars
+      # @section -- 2 - Kubernetes integration
+      vars:
+        period: 10s
+        processors:
+          - add_fields:
+              target: orchestrator.cluster
+              fields:
+                name: ${env.CLUSTER_NAME}
+  cronjobs:
+    state:
+      # -- enable cronjobs state stream (kube-state-metrics) [ref](https://www.elastic.co/docs/current/integrations/kubernetes/kube-state-metrics#state_cronjob)
+      # @section -- 2 - Kubernetes integration
+      enabled: true
+      # -- cronjobs state stream vars
+      # @section -- 2 - Kubernetes integration
+      vars:
+        period: 10s
+        processors:
+          - add_fields:
+              target: orchestrator.cluster
+              fields:
+                name: ${env.CLUSTER_NAME}
+  persistentvolumes:
+    state:
+      # -- enable persistentvolumes state stream (kube-state-metrics) [ref](https://www.elastic.co/docs/current/integrations/kubernetes/kube-state-metrics#state_persistentvolume)
+      # @section -- 2 - Kubernetes integration
+      enabled: true
+      # -- persistentvolumes state stream vars
+      # @section -- 2 - Kubernetes integration
+      vars:
+        period: 10s
+        processors:
+          - add_fields:
+              target: orchestrator.cluster
+              fields:
+                name: ${env.CLUSTER_NAME}
+  persistentvolumeclaims:
+    state:
+      # -- enable persistentvolumeclaims state stream (kube-state-metrics) [ref](https://www.elastic.co/docs/current/integrations/kubernetes/kube-state-metrics#state_persistentvolumeclaim)
+      # @section -- 2 - Kubernetes integration
+      enabled: true
+      # -- persistentvolumeclaims state stream vars
+      # @section -- 2 - Kubernetes integration
+      vars:
+        period: 10s
+        processors:
+          - add_fields:
+              target: orchestrator.cluster
+              fields:
+                name: ${env.CLUSTER_NAME}
+  resourcequotas:
+    state:
+      # -- enable resourcequotas state stream (kube-state-metrics) [ref](https://www.elastic.co/docs/current/integrations/kubernetes/kube-state-metrics#state_resourcequota)
+      # @section -- 2 - Kubernetes integration
+      enabled: true
+      # -- resourcequotas state stream vars
+      # @section -- 2 - Kubernetes integration
+      vars:
+        period: 10s
+        processors:
+          - add_fields:
+              target: orchestrator.cluster
+              fields:
+                name: ${env.CLUSTER_NAME}
+  services:
+    state:
+      # -- enable services state stream (kube-state-metrics) [ref](https://www.elastic.co/docs/current/integrations/kubernetes/kube-state-metrics#state_service)
+      # @section -- 2 - Kubernetes integration
+      enabled: true
+      # -- services state stream vars
+      # @section -- 2 - Kubernetes integration
+      vars:
+        period: 10s
+        processors:
+          - add_fields:
+              target: orchestrator.cluster
+              fields:
+                name: ${env.CLUSTER_NAME}
+  system:
+    enabled: true
+    namespace: default
+    metrics:
+      # -- enable system metric stream (kubelet) [ref](https://www.elastic.co/docs/current/integrations/kubernetes/kubelet#system)
+      # @section -- 2 - Kubernetes integration
+      enabled: true
+      # -- system metric stream vars
+      # @section -- 2 - Kubernetes integration
+      vars:
+        period: 10s
+        processors:
+          - add_fields:
+              target: orchestrator.cluster
+              fields:
+                name: ${env.CLUSTER_NAME}
+system:
+  # -- enable System integration.
+  # @section -- 4 - System integration
+  enabled: true
+  # -- name of the output used in System integration. Note that this output needs to be defined in
+  # [outputs](#1-outputs)
+  # @section -- 4 - System integration
+  output: default
+  # -- output namespace
+  # @section -- 4 - System integration
+  namespace: default
+  authLogs:
+    enabled: true
+    # -- override default variables of auth logs stream. Look in the [values.schema.json](values.schema.json) to see the
+    # available variables
+    # @section -- 4 - System integration
+    vars:
+      period: 10s
+      processors:
+        - add_fields:
+            target: orchestrator.cluster
+            fields:
+              name: ${env.CLUSTER_NAME}
+  syslog:
+    enabled: true
+    # -- override default variables of syslog stream. Look in the [values.schema.json](values.schema.json) to see the
+    # available variables
+    # @section -- 4 - System integration
+    vars:
+      period: 10s
+      processors:
+        - add_fields:
+            target: orchestrator.cluster
+            fields:
+              name: ${env.CLUSTER_NAME}
+  metrics:
+    enabled: true
+extraIntegrations: {}
+agent:
+  version: 9.0.1
+  image:
+    repository: docker.elastic.co/elastic-agent/elastic-agent
+    pullPolicy: IfNotPresent
+    tag: "9.0.1"
+  imagePullSecrets: []
+  engine: k8s
+  unprivileged: false
+  presets:
+    clusterWide:
+      mode: deployment
+      serviceAccount:
+        create: true
+      clusterRole:
+        create: true
+      resources:
+        limits:
+          cpu: 200m
+          memory: 2048Mi
+        requests:
+          cpu: 100m
+          memory: 1024Mi
+      tolerations:
+        - key: CriticalAddonsOnly
+          operator: Exists
+          effect: NoSchedule
+        - key: kubernetes.azure.com/scalesetpriority
+          operator: Exists
+          effect: NoSchedule
+        - key: purpose
+          operator: Exists
+          effect: NoSchedule
+        - key: "node-role.kubernetes.io/master"
+          effect: "NoSchedule"
+          operator: "Equal"
+        - key: "node-role.kubernetes.io/control-plane"
+          effect: "NoSchedule"
+          operator: "Equal"
+      statePersistence: EmptyDir
+      extraVolumes: []
+      extraEnvs:
+        - name: ELASTIC_NETINFO
+          value: "false"
+        - name: CLUSTER_NAME
+          value: "kind"
+      agent:
+        monitoring:
+          namespace: default
+          use_output: default
+          enabled: true
+          logs: true
+          metrics: true
+      providers:
+        kubernetes_leaderelection:
+          enabled: true
+        kubernetes:
+          node: ${NODE_NAME}
+          scope: cluster
+    perNode:
+      ## required by the built-in kubernetes integration
+      mode: daemonset
+      serviceAccount:
+        create: true
+      clusterRole:
+        create: true
+      hostNetwork: true
+      resources:
+        limits:
+          cpu: 200m
+          memory: 1000Mi
+        requests:
+          cpu: 100m
+          memory: 160Mi
+      tolerations:
+        - key: CriticalAddonsOnly
+          operator: Exists
+          effect: NoSchedule
+        - key: kubernetes.azure.com/scalesetpriority
+          operator: Exists
+          effect: NoSchedule
+        - key: purpose
+          operator: Exists
+          effect: NoSchedule
+        - key: "node-role.kubernetes.io/master"
+          effect: "NoSchedule"
+          operator: "Equal"
+        - key: "node-role.kubernetes.io/control-plane"
+          effect: "NoSchedule"
+          operator: "Equal"
+      nodeSelector:
+        kubernetes.io/os: linux
+      statePersistence: HostPath
+      extraEnvs:
+        - name: ELASTIC_NETINFO
+          value: "false"
+        - name: CLUSTER_NAME
+          value: "kind"
+      agent:
+        monitoring:
+          namespace: default
+          use_output: default
+          enabled: true
+          logs: true
+          metrics: true
+      providers:
+        kubernetes:
+          node: ${NODE_NAME}
+          scope: node
+  fleet:
+    # -- enable elastic-agent managed
+    # @section -- 6.1 - Elastic-Agent Managed Configuration
+    enabled: false
+kube-state-metrics:
+  enabled: true
+  fullnameOverride: "kube-state-metrics"
+  replicas: 1
