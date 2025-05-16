@@ -1,0 +1,32 @@
+{
+  "indices": {
+    ".ds-metrics-apm.app.all-default-2025.05.31-000001": {
+      "index": ".ds-metrics-apm.app.all-default-2025.05.31-000001",
+      "managed": true,
+      "policy": "all@custom",
+      "index_creation_date_millis": 1748724241019,
+      "time_since_index_creation": "6.25m",
+      "lifecycle_date_millis": 1748724255937,
+      "age": "6m",
+      "phase": "delete",
+      "phase_time_millis": 1748724616039,
+      "action": "delete",
+      "action_time_millis": 1748724616039,
+      "step": "wait-for-shard-history-leases",
+      "step_time_millis": 1748724616039,
+      "phase_execution": {
+        "policy": "all@custom",
+        "phase_definition": {
+          "min_age": "6m",
+          "actions": {
+            "delete": {
+              "delete_searchable_snapshot": true
+            }
+          }
+        },
+        "version": 2,
+        "modified_date_in_millis": 1748720020234
+      }
+    }
+  }
+}

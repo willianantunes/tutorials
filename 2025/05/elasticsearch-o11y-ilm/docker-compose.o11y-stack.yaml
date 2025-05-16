@@ -1,0 +1,124 @@
+networks:
+  default: # "default" name is important because it's automatically used by all services. Check out: https://stackoverflow.com/a/78030885
+    name: shared-compose-network
+    external: false
+
+# will contain all elasticsearch data.
+volumes:
+  elasticsearch-data:
+
+secrets:
+  elasticsearch.keystore:
+    file: ./secrets/keystore/elasticsearch.keystore
+  elasticsearch.service_tokens:
+    file: ./secrets/service_tokens
+  elastic.ca:
+    file: ./secrets/certs/ca/ca.crt
+  elasticsearch.certificate:
+    file: ./secrets/certs/elasticsearch/elasticsearch.crt
+  elasticsearch.key:
+    file: ./secrets/certs/elasticsearch/elasticsearch.key
+  kibana.certificate:
+    file: ./secrets/certs/kibana/kibana.crt
+  kibana.key:
+    file: ./secrets/certs/kibana/kibana.key
+  apm-server.certificate:
+    file: ./secrets/certs/apm-server/apm-server.crt
+  apm-server.key:
+    file: ./secrets/certs/apm-server/apm-server.key
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${ELK_VERSION}
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: ${ELK_VERSION}
+    restart: unless-stopped
+    environment:
+      ELASTIC_USERNAME: ${ELASTIC_USERNAME}
+      ELASTIC_PASSWORD: ${ELASTIC_PASSWORD}
+      ELASTIC_CLUSTER_NAME: ${ELASTIC_CLUSTER_NAME}
+      ELASTIC_NODE_NAME: ${ELASTIC_NODE_NAME}
+      ES_JAVA_OPTS: "-Xmx${ELASTICSEARCH_HEAP} -Xms${ELASTICSEARCH_HEAP} -Des.enforce.bootstrap.checks=true"
+      bootstrap.memory_lock: "true"
+      ingest.geoip.downloader.enabled: false
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    secrets:
+      - source: elasticsearch.keystore
+        target: /usr/share/elasticsearch/config/elasticsearch.keystore
+      - source: elasticsearch.service_tokens
+        target: /usr/share/elasticsearch/config/service_tokens
+      - source: elastic.ca
+        target: /usr/share/elasticsearch/config/certs/ca.crt
+      - source: elasticsearch.certificate
+        target: /usr/share/elasticsearch/config/certs/elasticsearch.crt
+      - source: elasticsearch.key
+        target: /usr/share/elasticsearch/config/certs/elasticsearch.key
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 200000
+        hard: 200000
+    healthcheck:
+      test: ["CMD", "sh", "-c", "curl -sf --insecure https://$ELASTIC_USERNAME:$ELASTIC_PASSWORD@localhost:9200/_cat/health | grep -ioE 'green|yellow' || echo 'not green/yellow cluster status'"]
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:${ELK_VERSION}
+    build:
+      context: kibana/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    restart: unless-stopped
+    volumes:
+      - ./kibana/config/:/usr/share/kibana/config:ro
+    environment:
+      ELASTIC_USERNAME: ${ELASTIC_USERNAME}
+      ELASTIC_PASSWORD: ${ELASTIC_PASSWORD}
+      ELASTICSEARCH_HOST_PORT: https://${ELASTICSEARCH_HOST}:${ELASTICSEARCH_PORT}
+    env_file:
+      - ./secrets/.env.kibana.token
+    secrets:
+      - source: elastic.ca
+        target: /certs/ca.crt
+      - source: kibana.certificate
+        target: /certs/kibana.crt
+      - source: kibana.key
+        target: /certs/kibana.key
+    ports:
+      - "5601:5601"
+
+  apm-server:
+    image: docker.elastic.co/apm/apm-server:${ELK_VERSION}
+    build:
+      context: apm-server/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    restart: unless-stopped
+    ports:
+      - "8200:8200"
+    volumes:
+      - ./apm-server/config/apm-server.yml:/usr/share/apm-server/apm-server.yml:ro
+    environment:
+      ELASTIC_USERNAME: ${ELASTIC_USERNAME}
+      ELASTIC_PASSWORD: ${ELASTIC_PASSWORD}
+      ELASTICSEARCH_HOST_PORT: https://${ELASTICSEARCH_HOST}:${ELASTICSEARCH_PORT}
+      ELASTIC_APM_SECRET_TOKEN: ${ELASTIC_APM_SECRET_TOKEN}
+      BEAT_STRICT_PERMS: false
+    secrets:
+      - source: elastic.ca
+        target: /certs/ca.crt
+      - source: apm-server.certificate
+        target: /certs/apm-server.crt
+      - source: apm-server.key
+        target: /certs/apm-server.key
+    depends_on:
+      - elasticsearch
+      - kibana
