@@ -1,0 +1,21 @@
+{
+  "error": {
+    "root_cause": [
+      {
+        "type": "index_not_found_exception",
+        "reason": "no such index [.ds-metrics-apm.app.all-default-2025.05.31-000001]",
+        "resource.type": "index_or_alias",
+        "resource.id": ".ds-metrics-apm.app.all-default-2025.05.31-000001",
+        "index_uuid": "_na_",
+        "index": ".ds-metrics-apm.app.all-default-2025.05.31-000001"
+      }
+    ],
+    "type": "index_not_found_exception",
+    "reason": "no such index [.ds-metrics-apm.app.all-default-2025.05.31-000001]",
+    "resource.type": "index_or_alias",
+    "resource.id": ".ds-metrics-apm.app.all-default-2025.05.31-000001",
+    "index_uuid": "_na_",
+    "index": ".ds-metrics-apm.app.all-default-2025.05.31-000001"
+  },
+  "status": 404
+}
