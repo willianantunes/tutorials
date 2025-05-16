@@ -1,0 +1,23 @@
+networks:
+  default:
+    name: shared-compose-network
+    external: true
+
+services:
+  remote-interpreter:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    env_file: .env
+    volumes:
+      - .:/app
+
+  tf:
+    image: juntossomosmais/terraform-development-image
+    volumes:
+      - ./:/app
+    environment:
+      - TF_VAR_kibana_endpoint=https://kibana:5601
+      - TF_VAR_elasticsearch_endpoint=https://elasticsearch:9200
+      - TF_VAR_elasticsearch_service_account_name=elastic
+      - TF_VAR_elasticsearch_service_account_password=elastic

@@ -1,0 +1,13 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+  - role: control-plane
+    # https://github.com/kubernetes-sigs/kind/releases/tag/v0.28.0
+    image: kindest/node:v1.31.6@sha256:156da58ab617d0cb4f56bbdb4b493f4dc89725505347a4babde9e9544888bb92
+    extraPortMappings:
+      - containerPort: 32000
+        # Letter B web server
+        hostPort: 8080
+        listenAddress: "127.0.0.1"
+  - role: worker
+    image: kindest/node:v1.31.6@sha256:156da58ab617d0cb4f56bbdb4b493f4dc89725505347a4babde9e9544888bb92
